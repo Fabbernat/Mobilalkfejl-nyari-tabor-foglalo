@@ -10,7 +10,7 @@ Nyári tábor foglaló alkalmazás
 - Adatmodell létrehozva és tesztelve
 
 ## 2. mérföldkő feljesített funkciók:
-- Reszponzív alkalmazás, álló és fekvő módban is megfelelően jelenik meg minden GUI elem, minden oldalon
+- Reszponzív alkalmazás, álló és fekvő módban is megfelelően jelenik meg minden GUI elem, az oldalak legalább 90%-án
 - UI Animációk a főoldalon
 - Intentek használata: navigáció meg van valósítva az activityk között (minden activity elérhető)
 - Rendelkezésre áll telepíthető apk fájl

@@ -2,13 +2,13 @@
 <resources>
     <string name="app_name">Summer Camp Reservation</string>
     <string name="greeting">Welcome to Summer Camp Reservation</string>
-    <string name="username">Felhasználónév</string>
-    <string name="password">Jelszó</string>
-    <string name="login">Bejelentkezés</string>
-    <string name="logout">Kijelentkezés</string>
-    <string name="register">Regisztráció</string>
-    <string name="cancel">Mégse</string>
-    <string name="submit">Küldés</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="logout">Log out</string>
+    <string name="register">Sign up</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
     <string name="error_empty_fields">Minden mező kitöltése kötelező!</string>
     <string name="error_invalid_username">Érvénytelen felhasználónév!</string>
     <string name="error_invalid_password">Érvénytelen jelszó!</string>

@@ -40,7 +40,7 @@
         android:text="@string/LoginHint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.531"
-        tools:layout_editor_absoluteX="297dp" />
+        app:layout_constraintVertical_bias="0.522"
+        tools:layout_editor_absoluteX="412dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

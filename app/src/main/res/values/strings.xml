@@ -16,4 +16,6 @@
     <string name="error_login_failed">Bejelentkezés sikertelen!</string>
     <string name="error_logout_failed">Kijelentkezés sikertelen!</string>
     <string name="error_reservation_failed">Foglalás sikertelen!</string>
+    <string name="passwordHint">Jelszó</string>
+    <string name="LoginHint">Bejelentkezés</string>
 </resources>

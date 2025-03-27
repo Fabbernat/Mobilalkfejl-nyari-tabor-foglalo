@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Nyári tábor foglaló</string>
+    <string name="greeting">Üdvözöllek a nyári tábor foglaló alkalmazásban!</string>
+    <string name="username">Felhasználónév</string>
+    <string name="password">Jelszó</string>
+    <string name="login">Bejelentkezés</string>
+</resources>

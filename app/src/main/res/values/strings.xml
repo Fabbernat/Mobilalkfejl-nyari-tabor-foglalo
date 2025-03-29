@@ -9,6 +9,11 @@
     <string name="registration">Regisztráció</string>
     <string name="cancel">Mégse</string>
     <string name="submit">Küldés</string>
+    <string name="usernameHint">Felhasználónév</string>
+    <string name="passwordHint">Jelszó</string>
+    <string name="LoginHint">Bejelentkezés</string>
+
+
     <string name="error_empty_fields">Minden mező kitöltése kötelező!</string>
     <string name="error_invalid_username">Érvénytelen felhasználónév!</string>
     <string name="error_invalid_password">Érvénytelen jelszó!</string>
@@ -36,7 +41,5 @@
     <string name="reservation_cancel">Törlés</string>
     <string name="reservation_confirm">Megerősítés</string>
     <string name="reservation_reject">Elutasítás</string>
-    <string name="usernameHint">Felhasználónév</string>
-    <string name="passwordHint">Jelszó</string>
-    <string name="LoginHint">Bejelentkezés</string>
+    <string name="emailHint">E-mail cím\n</string>
 </resources>

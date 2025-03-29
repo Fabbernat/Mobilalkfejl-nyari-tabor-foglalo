@@ -3,7 +3,9 @@
     <string name="app_name">Summer Camp Reservation</string>
     <string name="greeting">Welcome to Summer Camp Reservation</string>
     <string name="username">Username</string>
+    <string name="usernameHint">Username</string>
     <string name="password">Password</string>
+    <string name="passwordHint">Password</string>
     <string name="login">Log in</string>
     <string name="logout">Log out</string>
     <string name="registration">Sign up</string>
@@ -16,4 +18,7 @@
     <string name="error_login_failed">Bejelentkezés sikertelen!</string>
     <string name="error_logout_failed">Kijelentkezés sikertelen!</string>
     <string name="error_reservation_failed">Foglalás sikertelen!</string>
+
+    <string name="LoginHint">Bejelentkezés</string>
+    <string name="emailHint">E-mail cím\n</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +21,22 @@ public class RegisterActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
+        bundle.getInt("SECRET_KEY");
+        int SECRET_KEY = bundle.getInt("SECRET_KEY", 0);
+
+        if (SECRET_KEY != 99) {
+            finish();
+        }
+    }
+
+    public void register(View view) {
+        //TODO: Implement registration
+    }
+
+    public void cancel(View view) {
+        finish();
     }
 }

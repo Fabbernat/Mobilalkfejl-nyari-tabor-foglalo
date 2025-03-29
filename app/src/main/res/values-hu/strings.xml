@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name">Nyári tábor foglaló</string>
-<string name="greeting">Üdvözöllek a nyári tábor foglaló alkalmazásban!</string>
-<string name="username">Felhasználónév</string>
-<string name="password">Jelszó</string>
-<string name="login">Bejelentkezés</string>
-<string name="logout">Kijelentkezés</string>
-<string name="registration">Regisztráció</string>
-<string name="cancel">Mégse</string>
-<string name="submit">Küldés</string>
-<string name="error_empty_fields">Minden mező kitöltése kötelező!</string>
-<string name="error_invalid_username">Érvénytelen felhasználónév!</string>
-<string name="error_invalid_password">Érvénytelen jelszó!</string>
-<string name="error_registration_failed">Regisztráció sikertelen!</string>
-<string name="error_login_failed">Bejelentkezés sikertelen!</string>
-<string name="error_logout_failed">Kijelentkezés sikertelen!</string>
-<string name="error_reservation_failed">Foglalás sikertelen!</string>
+    <string name="app_name">Nyári tábor foglaló</string>
+    <string name="greeting">Üdvözöllek a nyári tábor foglaló alkalmazásban!</string>
+    <string name="username">Felhasználónév</string>
+    <string name="password">Jelszó</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="logout">Kijelentkezés</string>
+    <string name="registration">Regisztráció</string>
+    <string name="cancel">Mégse</string>
+    <string name="submit">Küldés</string>
+    <string name="error_empty_fields">Minden mező kitöltése kötelező!</string>
+    <string name="error_invalid_username">Érvénytelen felhasználónév!</string>
+    <string name="error_invalid_password">Érvénytelen jelszó!</string>
+    <string name="error_registration_failed">Regisztráció sikertelen!</string>
+    <string name="error_login_failed">Bejelentkezés sikertelen!</string>
+    <string name="error_logout_failed">Kijelentkezés sikertelen!</string>
+    <string name="error_reservation_failed">Foglalás sikertelen!</string>
+    <string name="passwordHint">Jelszó</string>
+    <string name="LoginHint">Bejelentkezés</string>
+    <string name="usernameHint">Felhasználónév</string>
+    <string name="emailHint">E-mail cím\n</string>
+
 </resources>

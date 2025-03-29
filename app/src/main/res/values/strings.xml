@@ -16,6 +16,27 @@
     <string name="error_login_failed">Bejelentkezés sikertelen!</string>
     <string name="error_logout_failed">Kijelentkezés sikertelen!</string>
     <string name="error_reservation_failed">Foglalás sikertelen!</string>
+    <string name="error_reservation_already_exists">Már létezik ilyen foglalás!</string>
+    <string name="error_reservation_not_found">Nincs ilyen foglalás!</string>
+    <string name="error_reservation_canceled">Foglalás sikeresen törölve!</string>
+    <string name="error_reservation_not_canceled">Foglalás sikertelen törlés!</string>
+    <string name="error_reservation_updated">Foglalás sikeresen frissítve!</string>
+    <string name="error_reservation_not_updated">Foglalás sikertelen frissítés!</string>
+
+    <string name="reservation_id">Foglalás azonosítója</string>
+    <string name="reservation_date">Foglalás dátuma</string>
+    <string name="reservation_time">Foglalás ideje</string>
+    <string name="reservation_name">Foglalás neve</string>
+    <string name="reservation_email">Foglalás e-mail címe</string>
+    <string name="reservation_phone">Foglalás telefonszáma</string>
+    <string name="reservation_people">Foglalás személyek száma</string>
+    <string name="reservation_message">Foglalás üzenet</string>
+    <string name="reservation_delete">Törlés</string>
+    <string name="reservation_update">Frissítés</string>
+    <string name="reservation_cancel">Törlés</string>
+    <string name="reservation_confirm">Megerősítés</string>
+    <string name="reservation_reject">Elutasítás</string>
+    <string name="usernameHint">Felhasználónév</string>
     <string name="passwordHint">Jelszó</string>
     <string name="LoginHint">Bejelentkezés</string>
 </resources>

@@ -6,7 +6,7 @@
     <string name="password">Jelszó</string>
     <string name="login">Bejelentkezés</string>
     <string name="logout">Kijelentkezés</string>
-    <string name="register">Regisztráció</string>
+    <string name="registration">Regisztráció</string>
     <string name="cancel">Mégse</string>
     <string name="submit">Küldés</string>
     <string name="error_empty_fields">Minden mező kitöltése kötelező!</string>

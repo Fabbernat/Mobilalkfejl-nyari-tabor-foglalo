@@ -56,4 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
         android.util.Log.i(LOG_TAG, "Bejelentkezett: " + usernameStr + ", jelszó: " + passwordStr);
     }
+
+    public void register(View view) {
+        EditText userName = findViewById(R.id.editTextUserName);
+        EditText password = findViewById(R.id.editTextPassword);
+        if (userName.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+            userName.setError(null);
+            password.setError(null);
+        }
+    }
 }

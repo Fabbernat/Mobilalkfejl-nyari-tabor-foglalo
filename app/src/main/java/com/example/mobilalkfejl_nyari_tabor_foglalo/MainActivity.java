@@ -13,16 +13,31 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
 
+    EditText userNameET;
+    EditText passwordET;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        userNameET = findViewById(R.id.editTextUserName);
+        passwordET = findViewById(R.id.editTextPassword);
+
+        /**Ez a kódrészlet a WindowInsets kezelésére szolgál, amely biztosítja, hogy a UI elemek megfelelően igazodjanak a rendszer sávjaihoz (például státuszsáv, navigációs sáv) Android rendszeren.
+         * a jelenleg nincs vizuális probléma az elrendezésben, érdemes ezt a kódrészletet ideiglenesen kikommentezni és tesztelni, hogy minden UI elem jól jelenik-e meg. Ha nem tapasztalsz hibát, akkor valószínűleg nincs rá szükség.
+         *
+         * Ha később fullscreen vagy gesture-based navigációs módot szeretnél implementálni, ez a kódrészlet még jól jöhet.
+         *
+         */
+        /*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+         */
     }
 
     public void login(View view) {
@@ -36,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
             password.setError("Invalid username or password");
         }
 
-        String usernameStr = userName.getText().toString();
-        String passwordStr = password.getText().toString();
+        String usernameStr = userNameET.getText().toString();
+        String passwordStr = passwordET.getText().toString();
 
         android.util.Log.i(LOG_TAG, "Bejelentkezett: " + usernameStr + ", jelszó: " + passwordStr);
     }

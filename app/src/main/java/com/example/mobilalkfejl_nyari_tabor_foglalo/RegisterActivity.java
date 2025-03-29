@@ -66,4 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
     public void cancel(View view) {
         finish();
     }
+
+    // TODO Override onStart onStop ... metodusok
 }

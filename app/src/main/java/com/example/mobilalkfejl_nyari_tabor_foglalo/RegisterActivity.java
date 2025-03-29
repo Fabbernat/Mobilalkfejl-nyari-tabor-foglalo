@@ -1,7 +1,11 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +14,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterActivity extends AppCompatActivity {
+    private static final String LOG_TAG = RegisterActivity.class.getName();
+
+    EditText userNameET;
+    EditText userEmailET;
+    EditText passwordET;
+    EditText confirmPasswordET;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +41,26 @@ public class RegisterActivity extends AppCompatActivity {
         if (SECRET_KEY != 99) {
             finish();
         }
+
+        userNameET = findViewById(R.id.userNameEditText);
+        userEmailET = findViewById(R.id.userEmailEditText);
+        passwordET = findViewById(R.id.passwordEditText);
+        confirmPasswordET = findViewById(R.id.confirmPasswordEditText);
     }
 
     public void register(View view) {
-        //TODO: Implement registration
+        String userName = userNameET.getText().toString();
+        String email = userEmailET.getText().toString();
+        String password = passwordET.getText().toString();
+        String confirmPassword = confirmPasswordET.getText().toString();
+
+        if (!password.equals(confirmPassword)) {
+            Log.e(LOG_TAG, "A megadott jelszavak nem egyeznek meg!");
+            return;
+        }
+
+        Log.i(LOG_TAG, "Felhasználónév: " + userName + ", E-mail: " + email + ", Jelszó: " + password);
+        // TODO: Implement real registration logic here
     }
 
     public void cancel(View view) {

@@ -1,6 +1,7 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class RegisterActivity extends AppCompatActivity implements android.widget.AdapterView.OnItemSelectedListener {
     private static final String LOG_TAG = RegisterActivity.class.getName();
     private static final String PREF_KEY = RegisterActivity.class.getPackage().toString();
+    private static final int SECRET_KEY = 99;
 
 
     EditText userNameEditText;
@@ -97,10 +99,17 @@ public class RegisterActivity extends AppCompatActivity implements android.widge
 
         Log.i(LOG_TAG, "Felhasználónév: " + userName + ", E-mail: " + email + ", Jelszó: " + password + ", Telefonszám: " + phoneNumber + ", Telefonszám típusa: " + phoneType + ", Cím: " + address);
         // TODO: Implement real registration logic here
+        startBrowsingCamps();
     }
 
     public void cancel(View view) {
         finish();
+    }
+
+    private void startBrowsingCamps(/* Regsiztralt user adatai*/){
+        Intent intent = new Intent(this, BrowseCampsActivity.class);
+        intent.putExtra("SECRET_KEY", SECRET_KEY);
+        startActivity(intent);
     }
 
     @Override

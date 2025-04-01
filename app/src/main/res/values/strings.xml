@@ -56,4 +56,5 @@
     <string name="pedagogue">Pedagógus</string>
     <string name="camp_animator">Tábori önkéntes/animátor</string>
     <string name="admin">Adminisztrátor</string>
+    <string name="camp_description">Tábor leírása</string>
 </resources>

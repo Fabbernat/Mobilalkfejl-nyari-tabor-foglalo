@@ -7,12 +7,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
@@ -23,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     EditText passwordET;
 
     private SharedPreferences preferences;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,24 +60,41 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
 
+        mAuth = FirebaseAuth.getInstance();
+
         Log.i(LOG_TAG, "onCreate");
+    }
+
+    private void startBrowsingCamps(/* Regsiztralt user adatai*/){
+        Intent intent = new Intent(this, BrowseCampsActivity.class);
+        intent.putExtra("SECRET_KEY", SECRET_KEY);
+        startActivity(intent);
     }
 
     public void login(View view) {
         EditText userName = findViewById(R.id.editTextUserName);
         EditText password = findViewById(R.id.editTextPassword);
-        if (userName.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-            userName.setError(null);
-            password.setError(null);
-        } else {
-            userName.setError("Invalid username or password");
-            password.setError("Invalid username or password");
+
+        String userNameStr = userName.getText().toString();
+        String passwordStr = password.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(userNameStr, passwordStr).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            /**
+             * @param task Google(Firebase) bejelentkezéshez
+             */
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Log.d(LOG_TAG, "signInWithEmail:success");
+                    startBrowsingCamps();
+                } else {
+                    Log.w(LOG_TAG, "signInWithEmail:failure", task.getException());
+                }
+            }
         }
+        );
 
-        String usernameStr = userNameET.getText().toString();
-        String passwordStr = passwordET.getText().toString();
-
-        android.util.Log.i(LOG_TAG, "Bejelentkezett: " + usernameStr + ", jelszó: " + passwordStr);
+        Log.i(LOG_TAG, "Bejelentkezett: " + userNameStr + ", jelszó: " + passwordStr);
     }
 
     public void register(View view) {
@@ -106,9 +135,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userName", userNameET.getText().toString());
         editor.putString("password", passwordET.getText().toString());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-            editor.apply();
-        }
+        editor.apply();
 
         Log.i(LOG_TAG, "onPause");
     }
@@ -126,11 +153,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginWithGoogle(View view) {
-
+        AuthCredential credential = null;
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    /**
+                     * @param task Google(Firebase) bejelentkezéshez
+                     */
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(LOG_TAG, "GoogleLogin:success");
+                            startBrowsingCamps();
+                        } else {
+                            Log.w(LOG_TAG, "GoogleLogin:failure", task.getException());
+                        }
+                    }
+                }
+        );
     }
 
     public void loginAsGuest(View view) {
-
+        mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            /**
+             * @param task
+             */
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Log.d(LOG_TAG, "AnonymousLogin:success");
+                    startBrowsingCamps();
+                } else {
+                    Log.w(LOG_TAG, "AnonymousLogin:failure", task.getException());
+                }
+            }
+        });
     }
 
     public void loginWithFacebook(View view) {

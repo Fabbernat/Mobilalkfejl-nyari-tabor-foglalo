@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="parentRadioButton" type="id">parent</item>
+    <item name="parentRadioButton" type="id">Parent</item>
+    <item name="childRadioButton" type="id">Child</item>
+    <item name="pedagogueRadioButton" type="id">Pedagogus</item>
 </resources>

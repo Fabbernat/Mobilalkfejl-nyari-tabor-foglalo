@@ -163,7 +163,7 @@
             android:text="@string/pedagogue" />
 
         <RadioButton
-            id="@+id/campAnimatorRadioButton"
+            android:id="@+id/campAnimatorRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/camp_animator" />

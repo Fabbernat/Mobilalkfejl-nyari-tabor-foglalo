@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105750869667",
+    "project_id": "nyari-tabor-foglalo",
+    "storage_bucket": "nyari-tabor-foglalo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105750869667:android:c4f967722ae16acb6b7116",
+        "android_client_info": {
+          "package_name": "com.example.mobilalkfejl_nyari_tabor_foglalo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQSfYJAF1u67ZM_4j-my2YQ1Leam6nCbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

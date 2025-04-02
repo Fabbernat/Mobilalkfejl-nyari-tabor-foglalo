@@ -2,6 +2,7 @@ package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -105,7 +106,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userName", userNameET.getText().toString());
         editor.putString("password", passwordET.getText().toString());
-        editor.apply();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+            editor.apply();
+        }
 
         Log.i(LOG_TAG, "onPause");
     }
@@ -120,5 +123,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.i(LOG_TAG, "onRestart");
+    }
+
+    public void loginWithGoogle(View view) {
+
+    }
+
+    public void loginAsGuest(View view) {
+
+    }
+
+    public void loginWithFacebook(View view) {
+
     }
 }

@@ -9,10 +9,16 @@ import android.view.View;
 import android.widget.*;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements android.widget.AdapterView.OnItemSelectedListener {
     private static final String LOG_TAG = RegisterActivity.class.getName();
@@ -30,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements android.widge
     RadioGroup userTypeRadioGroup;
 
     private SharedPreferences preferences;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,8 @@ public class RegisterActivity extends AppCompatActivity implements android.widge
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        mAuth = FirebaseAuth.getInstance();
+
         Log.i(LOG_TAG, "onCreate");
     }
 
@@ -98,8 +107,21 @@ public class RegisterActivity extends AppCompatActivity implements android.widge
         String userType = radioButton.getText().toString();
 
         Log.i(LOG_TAG, "Felhasználónév: " + userName + ", E-mail: " + email + ", Jelszó: " + password + ", Telefonszám: " + phoneNumber + ", Telefonszám típusa: " + phoneType + ", Cím: " + address);
-        // TODO: Implement real registration logic here
-        startBrowsingCamps();
+        // startBrowsingCamps();
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            /**
+             * @param task Google(Firebase) bejelentkezéshez
+             */
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Log.d(LOG_TAG, "createUserWithEmail:success");
+                    startBrowsingCamps();
+                } else {
+                    Log.w(LOG_TAG, "createUserWithEmail:failure", task.getException());
+                }
+            }
+        });
     }
 
     public void cancel(View view) {

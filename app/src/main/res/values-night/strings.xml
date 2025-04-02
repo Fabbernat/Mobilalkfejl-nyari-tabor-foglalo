@@ -7,4 +7,7 @@
     <string name="pedagogue">Pedagógus</string>
     <string name="camp_animator">Tábori önkéntes/animátor</string>
     <string name="admin">Adminisztrátor</string>
+    <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
+    <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
+    <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
 </resources>

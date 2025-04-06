@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
     private static final String PREF_KEY = MainActivity.class.getPackage().toString();
     private static final int SECRET_KEY = 99;
+    private static final int RC_SIGN_IN = 123;
 
     EditText userNameET;
     EditText passwordET;
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         }
         );
 
-        Log.i(LOG_TAG, "Bejelentkezett: " + userNameStr + ", jelszó: " + passwordStr);
+        Log.i(LOG_TAG, "Bejelentkezett: " + userNameStr);
     }
 
     public void register(View view) {
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == SECRET_KEY) {
+        if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
             try {

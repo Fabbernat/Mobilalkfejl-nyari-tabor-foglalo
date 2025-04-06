@@ -3,4 +3,7 @@
     <item name="parentRadioButton" type="id">Parent</item>
     <item name="childRadioButton" type="id">Child</item>
     <item name="pedagogueRadioButton" type="id">Pedagogus</item>
+    <item name="campAnimatorRadioButton" type="id">Camp Animator</item>
+    <item name="AdminRadioButton" type="id">Admin</item>
+    <item name="itemImage" type="id">Tábor kép</item>
 </resources>

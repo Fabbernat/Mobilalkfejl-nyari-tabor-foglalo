@@ -11,7 +11,7 @@
         android:id="@+id/scout_camp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin_side_side"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:srcCompat="@drawable/donut_circle" />
@@ -20,7 +20,7 @@
         android:id="@+id/elisabeth_camp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin_side"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scout_camp"
         android:srcCompat="@drawable/icecream_circle" />
@@ -29,7 +29,7 @@
         android:id="@+id/programmer_camp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin_side"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/elisabeth_camp"
         android:srcCompat="@drawable/froyo_circle" />
@@ -37,9 +37,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin_side"
         app:layout_constraintLeft_toLeftOf="@+id/scout_camp"
         app:layout_constraintTop_toBottomOf="@+id/scout_camp"
         android:text="@string/camp_description"
@@ -48,9 +48,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin_side"
         app:layout_constraintLeft_toLeftOf="@+id/elisabeth_camp"
         app:layout_constraintTop_toBottomOf="@+id/elisabeth_camp"
         android:text="@string/camp_description"
@@ -59,9 +59,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin_side"
         app:layout_constraintLeft_toLeftOf="@+id/programmer_camp"
         app:layout_constraintTop_toBottomOf="@+id/programmer_camp"
         android:text="@string/camp_description"

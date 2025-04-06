@@ -29,5 +29,6 @@
     <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
     <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
     <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
+    <string name="default_web_client_id">1900085</string>
 
 </resources>

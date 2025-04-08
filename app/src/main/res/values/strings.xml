@@ -62,4 +62,20 @@
     <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
     <string name="default_web_client_id">1900085</string>
     <string name="item_placeholder">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
+
+    <string-array name="camp_types">"
+      <item>  CSERKESZTABOR = cserkésztábor,</item>
+        <item>ERDEI_VANDORTABOR = erdei vándortábor,</item>
+        <item>VITORLAS_TABOR = vitorlástábor,</item>
+        <item>TANCTABOR = tánctábor,</item>
+        <item>ZENETABOR = zenetábor,</item>
+        <item>ANGOL_TABOR = angoltábor,</item>
+        <item>NEMET_TABOR = némettábor,</item>
+        <item>SZINJATSZO_TABOR = színjátszótábor,</item>
+        <item>HITTAN_TABOR = hittantábor,</item>
+        <item>PROGRAMOZO_TABOR = programozó tábor,</item>
+        <item>MATEMATIKA_TABOR = matek tábor,</item>
+        <item>ROBOTIKA_TABOR = robotika tábor,</item>
+        <item>ERZSEBETTABOR = Erzsébet-tábor</item>
+    </string-array>
 </resources>

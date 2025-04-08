@@ -1,5 +1,6 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -49,11 +50,20 @@ public class BrowseCampsActivity extends AppCompatActivity {
         mAdapter = new CampAdapter(this, mCampList);
         mRecyclerView.setAdapter(mAdapter);
 
+        initializeData();
         // auto-generated
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void initializeData(){
+        String[] campList;
+        String[] campsInfo;
+        String[] campsPrice;
+        TypedArray campsImageResource;
+        TypedArray campsRatings;
     }
 }

@@ -1,28 +1,38 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.models.CampModel;
 
 import java.util.ArrayList;
 
-public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder> {
-    private ArrayList<CampModel> mCampItemsData;
-    private ArrayList<CampModel> mCampItemsDataAll;
+public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> implements Filterable {
+    private ArrayList<CampModel> mCampsData;
+    private ArrayList<CampModel> mCampsDataAll;
     private Context mContext;
     private int lastPosition = -1;
 
-    public CampAdapter(Context mContext, ArrayList<CampModel> mCampItemsData) {
+    public CampAdapter(Context mContext, ArrayList<CampModel> mCampsData) {
         this.mContext = mContext;
-        this.mCampItemsData = mCampItemsData;
-        this.mCampItemsDataAll = mCampItemsData;
+        this.mCampsData = mCampsData;
+        this.mCampsDataAll = mCampsData;
     }
+
 
     /**
      * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
@@ -33,7 +43,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
      * layout file.
      * <p>
      * The new ViewHolder will be used to display items of the adapter using
-     * {@link #onBindViewHolder(ViewHolder, int, List)}. Since it will be re-used to display
+     * {link #onBindViewHolder(CampViewHolder, int, List)}. Since it will be re-used to display
      * different items in the data set, it is a good idea to cache references to sub views of
      * the View to avoid unnecessary {@link View#findViewById(int)} calls.
      *
@@ -46,8 +56,8 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
      */
     @NonNull
     @Override
-    public CampAdapter.CampViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new RecyclerView.ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.camp_item, parent, false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.activity_list_camps, parent, false));
     }
 
     /**
@@ -63,7 +73,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
      * on (e.g. in a click listener), use {@link ViewHolder#getBindingAdapterPosition()} which
      * will have the updated adapter position.
      * <p>
-     * Override {@link #onBindViewHolder(ViewHolder, int, List)} instead if Adapter can
+     * Override {link #onBindViewHolder(CampViewHolder, int, List)} instead if Adapter can
      * handle efficient partial bind.
      *
      * @param holder   The ViewHolder which should be updated to represent the contents of the
@@ -71,8 +81,8 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
      * @param position The position of the item within the adapter's data set.
      */
     @Override
-    public void onBindViewHolder(@NonNull CampAdapter.CampViewHolder holder, int position) {
-        CampModel currentCamp = mCampItemsData.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        CampModel currentCamp = mCampsData.get(position);
 
         holder.bindTo(currentCamp);
     }
@@ -84,6 +94,101 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
      */
     @Override
     public int getItemCount() {
-        return 0;
+        return mCampsData.size();
+    }
+
+    /**
+     * <p>Returns a filter that can be used to constrain data with a filtering
+     * pattern.</p>
+     *
+     * <p>This method is usually implemented by {@link Adapter}
+     * classes.</p>
+     *
+     * @return a filter used to constrain data
+     */
+    @Override
+    public Filter getFilter() {
+        return campFilter;
+    }
+
+    private Filter campFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<CampModel> filteredList = new ArrayList<>();
+            FilterResults results = new FilterResults();
+
+            if (constraint == null || constraint.length() == 0){
+                results.count = mCampsDataAll.size();
+                results.values = mCampsDataAll;
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (CampModel item : mCampsDataAll) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+
+                results.count = filteredList.size();
+                results.values = filteredList;
+            }
+
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults filterResults){
+            mCampsData = (ArrayList) filterResults.values;
+            notifyDataSetChanged();
+
+        }
+    };
+
+    public void filterList(ArrayList<CampModel> filteredList) {
+        mCampsData = filteredList;
+        notifyDataSetChanged();
+    }
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView mTitleText;
+        private TextView mInfoText;
+        private TextView mPriceText;
+        private ImageView mItemImage;
+        private RatingBar mRatingBar;
+
+        public ViewHolder(@NonNull View campView) {
+            super(campView);
+
+            mTitleText = campView.findViewById(R.id.camp_title);
+            mInfoText = campView.findViewById(R.id.camp_info);
+            mPriceText = campView.findViewById(R.id.camp_price);
+            mItemImage = campView.findViewById(R.id.camp_image);
+            mRatingBar = campView.findViewById(R.id.camp_rating);
+
+            campView.findViewById(R.id.add_to_starred).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("Activity", "We noted for us that you are interested in this camp.");
+                }
+            });
+        }
+
+        public void bindTo(CampModel currentCamp) {
+            mTitleText.setText(currentCamp.getName());
+            mInfoText.setText(currentCamp.getDescription());
+            mPriceText.setText(currentCamp.getPrice());
+            int parsedCurrentCampInteger;
+            try {
+                parsedCurrentCampInteger = Integer.parseInt(currentCamp.getImageUrl());
+            } catch (Exception e) {
+                parsedCurrentCampInteger = 0;
+            }
+            mItemImage.setImageResource(parsedCurrentCampInteger);
+
+            Glide.with(mContext).load(currentCamp.getImageUrl()).into(mItemImage);
+        }
     }
 }

@@ -78,4 +78,24 @@
         <item>ROBOTIKA_TABOR = robotika tábor,</item>
         <item>ERZSEBETTABOR = Erzsébet-tábor</item>
     </string-array>
+
+    <string-array name="camp_format">"
+    DAY_CAMP = 'napközis',
+    OVERNIGHT = 'ottalvós'
+    </string-array>
+
+    <string-array name="user_type">
+        PARENT = 'szülő',
+        PEDAGOGUE = 'pedagógus',
+        CHILD = 'kiskorú',
+        CAMP_ORGANIZER = 'tábori szervező/animátor',
+        ADMIN = 'adminisztrátor'
+    </string-array>
+    <string-array name="organizer_type">
+        SUBCAMP_LEADER = 'Altáborvezető',
+        CAMP_ANIMATOR = 'Tábori animátor',
+        PROGRAM_COORDINATOR = 'Program-lebonyolító',
+        KITCHEN_ASSISTANT = 'Konyhai kisegítő',
+        LOGISTICS_MANAGER = 'Tábori logisztikus'
+    </string-array>
 </resources>

@@ -25,7 +25,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private RecyclerView mRecyclerView;
-    private ArrayList<CampModel> mCampList;>
+    private ArrayList<CampModel> mCampList;
     private CampAdapter mAdapter;
 
     private int gridNumber = 1;

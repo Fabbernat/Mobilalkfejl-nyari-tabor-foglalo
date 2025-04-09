@@ -57,6 +57,7 @@
     <string name="default_web_client_id">1900085</string>
     <string name="item_placeholder">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
     <string name="search">Keresés</string>
+    <string name="settings">Beállítások</string>
 
 
     <string-array name="phone_modes">

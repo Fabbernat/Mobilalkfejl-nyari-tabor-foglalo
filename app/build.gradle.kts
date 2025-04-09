@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mobilalkfejl_nyari_tabor_foglalo"
-        minSdk = 16
+        minSdk = 21
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -32,6 +32,8 @@ android {
     }
     compileOptions {
 
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     externalNativeBuild {
         cmake {
@@ -39,6 +41,15 @@ android {
             version = "3.22.1"
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    dependenciesInfo {
+        includeInApk = true
+        includeInBundle = true
+    }
+    buildToolsVersion = "36.0.0"
+    ndkVersion = "27.0.12077973"
 }
 
 dependencies {

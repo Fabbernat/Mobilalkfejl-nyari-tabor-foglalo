@@ -1,10 +1,13 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Context;
+import android.graphics.pdf.LoadParams;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -85,6 +88,11 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
         CampModel currentCamp = mCampsData.get(position);
 
         holder.bindTo(currentCamp);
+
+        if (holder.getAdapterPosition() > lastPosition){
+            Animation animation = AnimationUtils.loadLayoutAnimation(mContext, R.anim.slite_in_row).getAnimation();
+            lastPosition = holder.getAdapterPosition();
+        }
     }
 
     /**

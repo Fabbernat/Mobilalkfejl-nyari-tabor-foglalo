@@ -180,6 +180,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
                 @Override
                 public void onClick(View view) {
                     Log.d("Activity", "We noted for us that you are interested in this camp.");
+                    ((BrowseCampsActivity) mContext).updateAlertIcon();
                 }
             });
         }

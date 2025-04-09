@@ -40,6 +40,10 @@ public class CampModel {
         this.price = price;
     }
 
+    public CampModel(String s, String s1, String s2, float aFloat, int resourceId, String s3, String s4) {
+        this.id = getId();
+    }
+
 
     /** Synchronized method to safely increment ID */
     private static synchronized int generateId() {

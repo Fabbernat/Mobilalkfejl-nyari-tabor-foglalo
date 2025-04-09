@@ -22,12 +22,6 @@
     <string name="error_logout_failed">Kijelentkezés sikertelen!</string>
     <string name="error_reservation_failed">Foglalás sikertelen!</string>
 
-    <string-array name="phone_modes">
-        <item>Tábori</item>
-        <item>Mobil</item>
-        <item>Otthoni</item>
-        <item>Munkahelyi</item>
-    </string-array>
 
     <string name="error_reservation_already_exists">Már létezik ilyen foglalás!</string>
     <string name="error_reservation_not_found">Nincs ilyen foglalás!</string>
@@ -63,6 +57,17 @@
     <string name="default_web_client_id">1900085</string>
     <string name="item_placeholder">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
 
+
+
+
+
+    <string-array name="phone_modes">
+        <item>Tábori</item>
+        <item>Mobil</item>
+        <item>Otthoni</item>
+        <item>Munkahelyi</item>
+    </string-array>
+
     <string-array name="camp_types">"
       <item>  CSERKESZTABOR = cserkésztábor,</item>
         <item>ERDEI_VANDORTABOR = erdei vándortábor,</item>
@@ -83,6 +88,44 @@
     DAY_CAMP = 'napközis',
     OVERNIGHT = 'ottalvós'
     </string-array>
+
+    <string-array name="camp_prices">
+        <item>0–5000 Ft</item>
+        <item>5001–10000 Ft</item>
+        <item>10001–15000 Ft</item>
+        <item>15001–20000 Ft</item>
+        <item>20001–25000 Ft</item>
+        <item>25001–30000 Ft</item>
+        <item>30001–40000 Ft</item>
+        <item>40001–50000 Ft</item>
+        <item>50001–60000 Ft</item>
+        <item>60001–70000 Ft</item>
+        <item>70001–80000 Ft</item>
+        <item>80001–90000 Ft</item>
+        <item>90001–100 000 Ft</item>
+        <item>100 000+ Ft</item>
+    </string-array>
+
+    <array name="camp_ratings">
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+    </array>
+
+    <array name="camp_images">
+        <item>R.drawable.camp_1</item>
+        <item>R.drawable.camp_2</item>
+        <item>R.drawable.camp_3</item>
+        <item>R.drawable.camp_4</item>
+    </array>
+
 
     <string-array name="user_type">
         PARENT = 'szülő',

@@ -1,5 +1,6 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,11 +60,40 @@ public class BrowseCampsActivity extends AppCompatActivity {
         });
     }
 
-    public void initializeData(){
-        String[] campList;
-        String[] campsInfo;
-        String[] campsPrice;
-        TypedArray campsImageResource;
-        TypedArray campsRatings;
+    public void initializeData() {
+        String[] campsTypesList = getResources().getStringArray(R.array.camp_types);
+        String[] campsFormatsList = getResources().getStringArray(R.array.camp_format);
+        String[] campsPricesList = getResources().getStringArray(R.array.camp_prices);
+        String[] campUserTypesList = getResources().getStringArray(R.array.user_type);
+        String[] campOrganizerTypesList = getResources().getStringArray(R.array.organizer_type);
+
+        TypedArray campRatingsList = getResources().obtainTypedArray(R.array.camp_ratings);
+        TypedArray campsImageResourcesList = getResources().obtainTypedArray(R.array.camp_images);
+
+        mCampList.clear();
+
+        for (int i = 0; i < campsTypesList.length; i++) {
+
+            // TODO Fix
+            mCampList.add(new CampModel(
+                    campsTypesList[i],
+                    campsFormatsList[i],
+                    campsPricesList[i],
+                    campRatingsList.getFloat(i, 0),
+                    campsImageResourcesList.getResourceId(i, 0),
+                    campUserTypesList[i],
+                    campOrganizerTypesList[i]
+            ));
+        }
+
+
+        // Fontos! Felszabadítás
+        campRatingsList.recycle();
+        campsImageResourcesList.recycle();
+
+
+        mAdapter.notifyDataSetChanged();
     }
+
+
 }

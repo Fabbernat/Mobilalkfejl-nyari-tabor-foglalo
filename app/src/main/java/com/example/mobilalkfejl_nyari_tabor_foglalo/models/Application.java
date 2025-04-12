@@ -12,17 +12,18 @@ public class Application {
     private ApplicationStatus applicationStatus;
     private PaymentStatus paymentStatus;
     private double amountToPay;
-    private List<UserModel.Child> children;
-    private UserModel.TeacherGroup teacherGroup;
+    private List<User.Child> children;
+    private User.TeacherGroup teacherGroup;
     private String note;
     private List<Document> attachedDocuments;
 
+    // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Application() {
     }
 
     public Application(String applicationId, Camp camp, User applicant, Date applicationDate,
                        ApplicationStatus applicationStatus, PaymentStatus paymentStatus, double amountToPay,
-                       List<UserModel.Child> children, UserModel.TeacherGroup teacherGroup, String note,
+                       List<User.Child> children, User.TeacherGroup teacherGroup, String note,
                        List<Document> attachedDocuments) {
         this.applicationId = applicationId;
         this.camp = camp;
@@ -93,19 +94,19 @@ public class Application {
         this.amountToPay = amountToPay;
     }
 
-    public List<Child> getChildren() {
+    public List<User.Child> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Child> children) {
+    public void setChildren(List<User.Child> children) {
         this.children = children;
     }
 
-    public TeacherGroup getTeacherGroup() {
+    public User.TeacherGroup getTeacherGroup() {
         return teacherGroup;
     }
 
-    public void setTeacherGroup(TeacherGroup teacherGroup) {
+    public void setTeacherGroup(User.TeacherGroup teacherGroup) {
         this.teacherGroup = teacherGroup;
     }
 

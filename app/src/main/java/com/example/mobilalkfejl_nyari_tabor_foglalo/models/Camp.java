@@ -25,7 +25,7 @@ public class Camp {
     private String organizerId;
     private List<DailyProgram> dailyProgram;
     private Coordinates koordinatak;
-    private List<String> kepek;
+    private List<String> imageUrls;
     private List<NapiLetszam> napokLebontasa;
     private Date jelentkezesiHatarido;
     private List<String> szuksegesEszkozok;
@@ -45,8 +45,8 @@ public class Camp {
     }
 
     // Teljes konstruktor
-    public Camp(int id, String name, Date startDate, Date endDate, String description,
-                String imageUrl, String location, String contactInfo, int price) {
+    public Camp(String name, Date startDate, Date endDate, String description,
+               String location, int price) {
         this.id = generateId();
         this.name = name;
         this.startDate = startDate;
@@ -111,8 +111,8 @@ public class Camp {
     public Coordinates getKoordinatak() { return koordinatak; }
     public void setKoordinatak(Coordinates koordinatak) { this.koordinatak = koordinatak; }
 
-    public List<String> getKepek() { return kepek; }
-    public void setKepek(List<String> kepek) { this.kepek = kepek; }
+    public List<String> getImageUrls() { return imageUrls; }
+    public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
 
     public List<NapiLetszam> getNapokLebontasa() { return napokLebontasa; }
     public void setNapokLebontasa(List<NapiLetszam> napokLebontasa) { this.napokLebontasa = napokLebontasa; }

@@ -1,5 +1,6 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,24 +23,36 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class BrowseCampsActivity extends AppCompatActivity {
-    public static final String LOG_TAG = BrowseCampsActivity.class.getName();
+    public static final String PREF_KEY = BrowseCampsActivity.class.getName();
     private FirebaseUser user;
     private FirebaseAuth auth;
 
+    private FrameLayout redCircle;
+    private TextView countTextView;
+
+    private int starredCampsCount = 0; // cartItems a videoban
+    private int gridNumber = 1;
+
+    // Member variables
+
     private RecyclerView mRecyclerView;
-    private ArrayList<Camp> mCampList;
+    private ArrayList<Camp> mCampsData;
     private CampAdapter mAdapter;
 
-    private FrameLayout redCircle;
-    private TextView contentTextView;
+    private FirebaseFirestore mFirestore;
+    private CollectionReference mCamps;
 
-    private int gridNumber = 1;
-    private int starredCampsCount = 0;
-    private boolean viewRow = false;
+    private SharedPreferences preferences;
+
+    private boolean viewRow = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,25 +62,51 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            Log.d(LOG_TAG, "Sikeresen bejelentkezett ezzel a felhasználónévvel: " + user.getEmail());
+            Log.d(PREF_KEY, "Sikeresen bejelentkezett ezzel a felhasználónévvel: " + user.getEmail());
         } else {
-            Log.d(LOG_TAG, "Nincs bejelentkezett felhasználó!");
+            Log.d(PREF_KEY, "Nincs bejelentkezett felhasználó!");
             finish();
         }
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridNumber));
-        mCampList = new ArrayList<>();
+        mCampsData = new ArrayList<>();
 
-        mAdapter = new CampAdapter(this, mCampList);
+        mAdapter = new CampAdapter(this, mCampsData);
         mRecyclerView.setAdapter(mAdapter);
 
-        initializeData();
-        // auto-generated
+        mFirestore = FirebaseFirestore.getInstance();
+        mCamps = mFirestore.collection("Camps");
+
+        // Get the data.
+        queryData();
+
+
+        // Auto-generated, better leave as is.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+    }
+
+    private void queryData(){
+        // Clear the existing data to avoid duplication
+        mCampsData.clear();
+
+        mCamps.orderBy("name").limit(10).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                Camp camp = documentSnapshot.toObject(Camp.class);
+                mCampsData.add(camp);
+            }
+
+            if (mCampsData.isEmpty() || mCampsData.size() < 10) {
+                initializeData();
+                queryData();
+            }
+
+            // Notify the adapter of the change.
+            mAdapter.notifyDataSetChanged();
         });
     }
 
@@ -81,12 +120,43 @@ public class BrowseCampsActivity extends AppCompatActivity {
         TypedArray campRatingsList = getResources().obtainTypedArray(R.array.camp_ratings);
         TypedArray campsImageResourcesList = getResources().obtainTypedArray(R.array.camp_images);
 
-        mCampList.clear();
+        for (int i = 0; i < campsTypesList.length; i++) {
+            Camp camp = new Camp(
+                    campsTypesList[i],
+                    campsFormatsList[i],
+                    campsPricesList[i],
+                    campRatingsList.getFloat(i, 0),
+                    campsImageResourcesList.getResourceId(i, 0),
+                    campUserTypesList[i],
+                    campOrganizerTypesList[i]
+            );
+
+            mCamps.add(camp) // Firestore CollectionReference-hez adás
+                    .addOnSuccessListener(documentReference -> Log.d(PREF_KEY, "Tábor sikeresen hozzáadva Firestore-hoz: " + documentReference.getId()))
+                    .addOnFailureListener(e -> Log.e(PREF_KEY, "Hiba történt a tábor Firestore-hoz adásakor", e));
+        }
+
+        campRatingsList.recycle();
+        campsImageResourcesList.recycle();
+    }
+
+
+    public void initializeDataWithoutDatabase() {
+        String[] campsTypesList = getResources().getStringArray(R.array.camp_types);
+        String[] campsFormatsList = getResources().getStringArray(R.array.camp_format);
+        String[] campsPricesList = getResources().getStringArray(R.array.camp_prices);
+        String[] campUserTypesList = getResources().getStringArray(R.array.user_type);
+        String[] campOrganizerTypesList = getResources().getStringArray(R.array.organizer_type);
+
+        TypedArray campRatingsList = getResources().obtainTypedArray(R.array.camp_ratings);
+        TypedArray campsImageResourcesList = getResources().obtainTypedArray(R.array.camp_images);
+
+        mCampsData.clear();
 
         for (int i = 0; i < campsTypesList.length; i++) {
 
             // TODO Fix
-            mCampList.add(new Camp(
+            mCampsData.add(new Camp(
                     campsTypesList[i],
                     campsFormatsList[i],
                     campsPricesList[i],
@@ -146,7 +216,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                Log.d(LOG_TAG, "query: " + newText);
+                Log.d(PREF_KEY, "query: " + newText);
                 mAdapter.getFilter().filter(newText);
                 return false;
             }
@@ -176,18 +246,18 @@ public class BrowseCampsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.log_out_button) {
-            Log.d(LOG_TAG, "Log out button pressed!");
+            Log.d(PREF_KEY, "Log out button pressed!");
             FirebaseAuth.getInstance().signOut();
             finish();
             return true;
         } else if (id == R.id.setting_button) {
-            Log.d(LOG_TAG, "Setting button pressed!");
+            Log.d(PREF_KEY, "Setting button pressed!");
             return true;
         } else if (id == R.id.starred_camps) {
-            Log.d(LOG_TAG, "Starred camps button pressed!");
+            Log.d(PREF_KEY, "Starred camps button pressed!");
             return true;
         } else if (id == R.id.view_selector) {
-            Log.d(LOG_TAG, "View selector button pressed!");
+            Log.d(PREF_KEY, "View selector button pressed!");
             if (viewRow) {
                 changeSpanCount(item, R.drawable.baseline_view_grid_24, 1);
             } else {
@@ -231,7 +301,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
         assert rootView != null;
         redCircle = rootView.findViewById(R.id.view_alert_red_circle);
-        contentTextView = rootView.findViewById(R.id.view_alert_count_textview);
+        countTextView = rootView.findViewById(R.id.view_alert_count_textview);
 
         rootView.setOnClickListener(view -> onOptionsMenuClosed((Menu) alertMenuItem));
 
@@ -241,9 +311,9 @@ public class BrowseCampsActivity extends AppCompatActivity {
     public void updateAlertIcon(){
         starredCampsCount++;
         if (starredCampsCount > 0) {
-            contentTextView.setText(String.valueOf(starredCampsCount));
+            countTextView.setText(String.valueOf(starredCampsCount));
         } else {
-            contentTextView.setText("");
+            countTextView.setText("");
         }
     }
 }

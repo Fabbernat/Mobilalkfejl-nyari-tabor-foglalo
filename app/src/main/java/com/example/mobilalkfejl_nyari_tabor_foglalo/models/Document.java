@@ -1,10 +1,10 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
 
 import com.google.firebase.firestore.auth.User;
-
+import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Document;
 import java.util.Date;
 
-public class DocumentModel {
+public class Document {
 
     private String id;
     private String nev;
@@ -15,11 +15,12 @@ public class DocumentModel {
     private DocumentStatus statusz;
     private User tulajdonos;
 
-    public DocumentModel() {
+    // Alapértelmezett konstruktor (Firestore miatt szükséges)
+    public Document() {
     }
 
-    public DocumentModel(String id, String nev, DocumentType tipus, String url, Date feltoltesIdopontja,
-                         Date lejaratIdopontja, DocumentStatus statusz, User tulajdonos) {
+    public Document(String id, String nev, DocumentType tipus, String url, Date feltoltesIdopontja,
+                    Date lejaratIdopontja, DocumentStatus statusz, User tulajdonos) {
         this.id = id;
         this.nev = nev;
         this.tipus = tipus;

@@ -3,7 +3,7 @@ package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
 import java.util.Date;
 import java.util.List;
 
-public class UserModel {
+public class User {
 
     private String id;
     private String email;
@@ -25,7 +25,8 @@ public class UserModel {
     private List<String> createdCamps;
     private String consentForm;
 
-    public UserModel() {
+    // Alapértelmezett konstruktor (Firestore miatt szükséges)
+    public User() {
     }
 
     // Getterek és setterek...

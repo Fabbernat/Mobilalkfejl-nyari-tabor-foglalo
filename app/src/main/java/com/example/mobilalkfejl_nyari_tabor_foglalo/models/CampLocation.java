@@ -3,7 +3,7 @@ package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
 import java.util.Date;
 import java.util.List;
 
-public class CampLocationModel {
+public class CampLocation {
     private String id;
     private String name;
     private String address;
@@ -12,18 +12,18 @@ public class CampLocationModel {
     private Coordinates coordinates;
     private int capacity;
     private List<String> facilities;
-    private List<String> images;
+    private List<String> imageUrls;
     private String createdBy; // Admin ID
     private Date createdAt;
 
-    // Alapértelmezett konstruktor (pl. Firestore-hoz)
-    public CampLocationModel() {
+    // Alapértelmezett konstruktor (Firestore miatt szükséges)
+    public CampLocation() {
     }
 
     // Paraméteres konstruktor
-    public CampLocationModel(String id, String name, String address, String city, String zipCode,
-                             Coordinates coordinates, int capacity, List<String> facilities,
-                             List<String> images, String createdBy, Date createdAt) {
+    public CampLocation(String id, String name, String address, String city, String zipCode,
+                        Coordinates coordinates, int capacity, List<String> facilities,
+                        List<String> imageUrls, String createdBy, Date createdAt) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -32,7 +32,7 @@ public class CampLocationModel {
         this.coordinates = coordinates;
         this.capacity = capacity;
         this.facilities = facilities;
-        this.images = images;
+        this.imageUrls = imageUrls;
         this.createdBy = createdBy;
         this.createdAt = createdAt;
     }
@@ -63,8 +63,8 @@ public class CampLocationModel {
     public List<String> getFacilities() { return facilities; }
     public void setFacilities(List<String> facilities) { this.facilities = facilities; }
 
-    public List<String> getImages() { return images; }
-    public void setImages(List<String> images) { this.images = images; }
+    public List<String> getImageUrls() { return imageUrls; }
+    public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
 
     public String getCreatedBy() { return createdBy; }
     public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }

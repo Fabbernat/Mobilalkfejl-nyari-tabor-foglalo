@@ -1,6 +1,5 @@
 // C:\AndroidStudioProjects\MobilalkfejlNyariTaborFoglalo\app\build.gradle.kts
 plugins {
-//    id("com.android.application")
     alias(libs.plugins.android.application)
 
     // Add the Google services Gradle plugin
@@ -44,8 +43,6 @@ android {
         includeInApk = true
         includeInBundle = true
     }
-    buildToolsVersion = "36.0.0"
-    ndkVersion = "27.0.12077973"
 }
 
 dependencies {
@@ -56,8 +53,7 @@ dependencies {
 
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
-//    implementation("com.google.firebase:firebase-analytics")
-    implementation(libs.google.firebase.analytics)
+    implementation(libs.com.google.firebase.firebase.analytics)
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries

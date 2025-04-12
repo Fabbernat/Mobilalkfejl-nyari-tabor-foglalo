@@ -12,6 +12,9 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="45dp">
 
@@ -19,7 +22,8 @@
             android:id="@+id/itemImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/picture_description" />
 
     </RelativeLayout>
 
@@ -27,16 +31,16 @@
         android:id="@+id/informationAboutCamp"
         android:layout_width="190dp"
         android:layout_height="21dp"
-        android:text="Információk a táborról..."
-        app:layout_constraintBottom_toTopOf="@+id/itemTitle"
+        android:text="@string/information_about_camp"
+        app:layout_constraintBottom_toTopOf="@+id/camp_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         app:layout_constraintVertical_bias="0.496" />
 
     <TextView
-        android:id="@+id/itemTitle"
-        style="@style/ItemDetailText"
+        android:id="@+id/camp_title"
+        style="@style/CampDetailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -44,6 +48,7 @@
         android:textColor="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteX="4dp" />
 
     <RatingBar

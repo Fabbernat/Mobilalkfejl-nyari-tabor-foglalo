@@ -1,6 +1,6 @@
-<!--C:\AndroidStudioProjects\MobilalkfejlNyariTaborFoglalo\app\src\main\res\values\themes.xml-->
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base theme -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
     <style name="Base.Theme.Mobilalkfejlnyaritaborfoglalo" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Colors -->
         <item name="colorPrimary">@color/material_dynamic_primary0</item>
@@ -10,9 +10,7 @@
 
         <!-- Optional UI tweaks -->
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="fontFamily">@font/roboto</item>
     </style>
-
-    <!-- App theme -->
-    <style name="Theme.Mobilalkfejlnyaritaborfoglalo" parent="Base.Theme.Mobilalkfejlnyaritaborfoglalo" />
 </resources>

@@ -19,7 +19,7 @@
         android:id="@+id/view_selector"
         android:title="@string/search"
         android:icon="@drawable/baseline_view_grid_24"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/log_out_button"

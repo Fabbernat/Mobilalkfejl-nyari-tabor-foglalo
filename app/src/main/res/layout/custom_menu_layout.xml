@@ -19,6 +19,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
+            android:contentDescription="@string/image_of_camp"
             android:src="@drawable/add_to_starred_outline_add_circle_outline_24" />
 
         <FrameLayout
@@ -36,8 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
-                android:textSize="10sp"
-                android:text="3"
+                android:textSize="11sp"
+                android:text="@string/number_of_starred_items"
                 tools:text="1"
                 />
         </FrameLayout>

@@ -58,6 +58,15 @@
     <string name="item_placeholder">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
     <string name="search">Keresés</string>
     <string name="settings">Beállítások</string>
+    <string name="number_of_starred_items">3</string>
+    <string name="image_of_camp">Kép a táborról</string>
+    <string name="add_to_starred">Csillagozottakhoz adás</string>
+    <string name="delete">Törlés</string>
+    <string name="subtitle">Ahol minden gyerek jól érzi magát</string>
+    <string name="camp_card_description">Tábor kártya leírás</string>
+    <string name="camp_image_description">Leírás a tábor képéról</string>
+    <string name="information_about_camp">Információk a táborról...</string>
+    <string name="picture_description">Leírás a képről</string>
 
 
     <string-array name="phone_modes">

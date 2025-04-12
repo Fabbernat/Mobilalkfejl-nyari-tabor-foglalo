@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="ItemDetailText">Részletes leírás a táborról</style>
+    <style name="CampDetailText">Részletes leírás a táborról....</style>
 </resources>

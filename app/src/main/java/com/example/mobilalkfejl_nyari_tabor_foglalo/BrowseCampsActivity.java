@@ -1,5 +1,9 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -28,7 +32,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class BrowseCampsActivity extends AppCompatActivity {
     public static final String PREF_KEY = BrowseCampsActivity.class.getName();
@@ -40,6 +43,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
     private int starredCampsCount = 0; // cartItems a videoban
     private int gridNumber = 1;
+    private int queryLimit = 10;
 
     // Member variables
 
@@ -81,6 +85,11 @@ public class BrowseCampsActivity extends AppCompatActivity {
         // Get the data.
         queryData();
 
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_POWER_CONNECTED);
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        registerReceiver(powerReceiver, filter);
+
 
         // Auto-generated, better leave as is.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -89,6 +98,28 @@ public class BrowseCampsActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    BroadcastReceiver powerReceiver = new BroadcastReceiver(){
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action == null){
+                return;
+            }
+
+            switch (action){
+                case Intent.ACTION_POWER_CONNECTED:
+                    queryLimit = 10;
+                    break;
+                case Intent.ACTION_POWER_DISCONNECTED:
+                    queryLimit = 5;
+                    break;
+            }
+
+            queryData();
+        }
+    };
 
     private void queryData(){
         // Clear the existing data to avoid duplication
@@ -315,5 +346,11 @@ public class BrowseCampsActivity extends AppCompatActivity {
         } else {
             countTextView.setText("");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(powerReceiver);
     }
 }

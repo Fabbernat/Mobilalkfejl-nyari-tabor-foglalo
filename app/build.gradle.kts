@@ -1,3 +1,4 @@
+// C:\AndroidStudioProjects\MobilalkfejlNyariTaborFoglalo\app\build.gradle.kts
 plugins {
 //    id("com.android.application")
     alias(libs.plugins.android.application)
@@ -35,12 +36,6 @@ android {
 
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-    externalNativeBuild {
-        cmake {
-            path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.22.1"
-        }
     }
     buildFeatures {
         viewBinding = true
@@ -83,6 +78,7 @@ dependencies {
     implementation(libs.recyclerview.selection)
     implementation(libs.cardview)
     implementation(libs.glide)
+
     /*
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.1")

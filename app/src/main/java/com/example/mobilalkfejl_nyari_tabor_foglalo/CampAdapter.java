@@ -1,7 +1,6 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Context;
-import android.graphics.pdf.LoadParams;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,17 +19,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.CampModel;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 
 import java.util.ArrayList;
 
 public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> implements Filterable {
-    private ArrayList<CampModel> mCampsData;
-    private ArrayList<CampModel> mCampsDataAll;
+    private ArrayList<Camp> mCampsData;
+    private ArrayList<Camp> mCampsDataAll;
     private Context mContext;
     private int lastPosition = -1;
 
-    public CampAdapter(Context mContext, ArrayList<CampModel> mCampsData) {
+    public CampAdapter(Context mContext, ArrayList<Camp> mCampsData) {
         this.mContext = mContext;
         this.mCampsData = mCampsData;
         this.mCampsDataAll = mCampsData;
@@ -85,7 +84,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CampModel currentCamp = mCampsData.get(position);
+        Camp currentCamp = mCampsData.get(position);
 
         holder.bindTo(currentCamp);
 
@@ -122,7 +121,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
     private Filter campFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<CampModel> filteredList = new ArrayList<>();
+            ArrayList<Camp> filteredList = new ArrayList<>();
             FilterResults results = new FilterResults();
 
             if (constraint == null || constraint.length() == 0){
@@ -131,7 +130,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (CampModel item : mCampsDataAll) {
+                for (Camp item : mCampsDataAll) {
                     if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
@@ -153,7 +152,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
         }
     };
 
-    public void filterList(ArrayList<CampModel> filteredList) {
+    public void filterList(ArrayList<Camp> filteredList) {
         mCampsData = filteredList;
         notifyDataSetChanged();
     }
@@ -185,7 +184,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
             });
         }
 
-        public void bindTo(CampModel currentCamp) {
+        public void bindTo(Camp currentCamp) {
             mTitleText.setText(currentCamp.getName());
             mInfoText.setText(currentCamp.getDescription());
             mPriceText.setText(currentCamp.getPrice());

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -20,11 +19,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.CampModel;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
 
 import java.util.ArrayList;
 
@@ -34,7 +31,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private RecyclerView mRecyclerView;
-    private ArrayList<CampModel> mCampList;
+    private ArrayList<Camp> mCampList;
     private CampAdapter mAdapter;
 
     private FrameLayout redCircle;
@@ -89,7 +86,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
         for (int i = 0; i < campsTypesList.length; i++) {
 
             // TODO Fix
-            mCampList.add(new CampModel(
+            mCampList.add(new Camp(
                     campsTypesList[i],
                     campsFormatsList[i],
                     campsPricesList[i],

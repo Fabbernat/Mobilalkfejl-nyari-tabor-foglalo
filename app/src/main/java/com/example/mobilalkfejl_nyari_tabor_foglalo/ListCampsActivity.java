@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.CampModel;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -20,7 +20,7 @@ public class ListCampsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private RecyclerView mRecyclerView;
-    private ArrayList<CampModel> mItemList;
+    private ArrayList<Camp> mItemList;
     private CampAdapter mAdapter;
 
     @Override

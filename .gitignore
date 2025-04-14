@@ -14,3 +14,8 @@ local.properties
 .cxx
 .DS_Store
 .externalNativeBuild
+/app/build/outputs/apk/
+/app/build/outputs/apk/**/*.apk
+*.apk
+/app/build/
+/release/

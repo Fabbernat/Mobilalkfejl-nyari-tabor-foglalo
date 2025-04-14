@@ -22,7 +22,7 @@ Nyári tábor foglaló alkalmazás
 
 ### **Követelményteljesítés**  
 | Elem | Megvalósítás helye |  
-|-------|----------|---------------------|  
+|-------|---------------------|  
 | Fordítási hiba nincs |  `build.gradle.kts` konfiguráció |  
 | Futtatási hiba nincs |  Tesztelve egy Google Pixel 8a eszközön |  
 | Firebase auth | `BrowseCampsActivity.java`, `ListCampsActivity.java`, `MainActivity.java`, `RegisterActivity.java` fájlokban |  

@@ -37,5 +37,7 @@
         android:layout_marginTop="40dp"
         android:onClick="login"
         android:text="@string/LoginHint"
-        tools:layout_editor_absoluteX="297dp" />
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="297dp"
+        tools:visibility="visible" />
 </LinearLayout>

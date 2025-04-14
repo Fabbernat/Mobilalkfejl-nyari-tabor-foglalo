@@ -7,7 +7,7 @@ public class Camp {
 
     // Autoinkrementáló azonosító kezelése
     private static int idCounter = 0;
-    private final int id;
+    private int id;
 
     // Tábor alapadatok
     private String name;
@@ -31,6 +31,7 @@ public class Camp {
     private List<String> szuksegesEszkozok;
     private List<String> csoportok;
     private Integer kiserokSzama;
+    private int starredCount;
 
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Camp() {
@@ -44,7 +45,7 @@ public class Camp {
         this.location = contactInfo;
     }
 
-    // Teljes konstruktor
+    // Easy konstruktor
     public Camp(String name, Date startDate, Date endDate, String description,
                String location, int price) {
         this.id = generateId();
@@ -54,6 +55,35 @@ public class Camp {
         this.description = description;
         this.location = location;
         this.price = price;
+    }
+
+    // Teljes konstruktor
+
+
+    public Camp(int id, String name, CampType campType, CampFormat campFormat, String location, Date startDate, Date endDate, String description, int price, int capacity, int registeredParticipants, int minAge, int maxAge, String organizerId, List<DailyProgram> dailyProgram, Coordinates koordinatak, List<String> imageUrls, List<NapiLetszam> napokLebontasa, Date jelentkezesiHatarido, List<String> szuksegesEszkozok, List<String> csoportok, Integer kiserokSzama, int starredCount) {
+        this.id = id;
+        this.name = name;
+        this.campType = campType;
+        this.campFormat = campFormat;
+        this.location = location;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
+        this.price = price;
+        this.capacity = capacity;
+        this.registeredParticipants = registeredParticipants;
+        this.minAge = minAge;
+        this.maxAge = maxAge;
+        this.organizerId = organizerId;
+        this.dailyProgram = dailyProgram;
+        this.koordinatak = koordinatak;
+        this.imageUrls = imageUrls;
+        this.napokLebontasa = napokLebontasa;
+        this.jelentkezesiHatarido = jelentkezesiHatarido;
+        this.szuksegesEszkozok = szuksegesEszkozok;
+        this.csoportok = csoportok;
+        this.kiserokSzama = kiserokSzama;
+        this.starredCount = starredCount;
     }
 
     public Camp(String s, String s1, String s2, float aFloat, int resourceId, String s3, String s4) {
@@ -128,6 +158,19 @@ public class Camp {
 
     public Integer getKiserokSzama() { return kiserokSzama; }
     public void setKiserokSzama(Integer kiserokSzama) { this.kiserokSzama = kiserokSzama; }
+
+    public int getStarredCount() {
+        return starredCount;
+    }
+
+    public void setStarredCount(int starredCount) {
+        this.starredCount = starredCount;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     // Belső osztályok (napi program, koordináták, létszám stb.)
     public static class DailyProgram {

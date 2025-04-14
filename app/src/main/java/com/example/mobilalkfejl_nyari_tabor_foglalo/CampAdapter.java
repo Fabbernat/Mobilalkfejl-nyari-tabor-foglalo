@@ -22,19 +22,53 @@ import com.bumptech.glide.Glide;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> implements Filterable {
     private ArrayList<Camp> mCampsData;
     private ArrayList<Camp> mCampsDataAll;
     private Context mContext;
     private int lastPosition = -1;
+    private Filter campFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Camp> filteredList = new ArrayList<>();
+            FilterResults results = new FilterResults();
+
+            if (constraint == null || constraint.length() == 0) {
+                results.count = mCampsDataAll.size();
+                results.values = mCampsDataAll;
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Camp item : mCampsDataAll) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+
+                results.count = filteredList.size();
+                results.values = filteredList;
+            }
+
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults filterResults) {
+            mCampsData = (ArrayList) filterResults.values;
+            notifyDataSetChanged();
+
+        }
+    };
+
 
     public CampAdapter(Context mContext, ArrayList<Camp> mCampsData) {
         this.mContext = mContext;
         this.mCampsData = mCampsData;
         this.mCampsDataAll = mCampsData;
     }
-
 
     /**
      * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
@@ -59,7 +93,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.activity_list_camps, parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.activity_list_camps, parent, false), new Camp());
     }
 
     /**
@@ -88,7 +122,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
 
         holder.bindTo(currentCamp);
 
-        if (holder.getAdapterPosition() > lastPosition){
+        if (holder.getAdapterPosition() > lastPosition) {
             Animation animation = AnimationUtils.loadLayoutAnimation(mContext, R.anim.slite_in_row).getAnimation();
             lastPosition = holder.getAdapterPosition();
         }
@@ -118,45 +152,10 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
         return campFilter;
     }
 
-    private Filter campFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Camp> filteredList = new ArrayList<>();
-            FilterResults results = new FilterResults();
-
-            if (constraint == null || constraint.length() == 0){
-                results.count = mCampsDataAll.size();
-                results.values = mCampsDataAll;
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-
-                for (Camp item : mCampsDataAll) {
-                    if (item.getName().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    }
-                }
-
-                results.count = filteredList.size();
-                results.values = filteredList;
-            }
-
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults filterResults){
-            mCampsData = (ArrayList) filterResults.values;
-            notifyDataSetChanged();
-
-        }
-    };
-
     public void filterList(ArrayList<Camp> filteredList) {
         mCampsData = filteredList;
         notifyDataSetChanged();
     }
-
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -166,7 +165,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
         private ImageView mItemImage;
         private RatingBar mRatingBar;
 
-        public ViewHolder(@NonNull View campView) {
+        public ViewHolder(@NonNull View campView, Camp currentCamp) {
             super(campView);
 
             mTitleText = campView.findViewById(R.id.camp_title);
@@ -179,7 +178,7 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
                 @Override
                 public void onClick(View view) {
                     Log.d("Activity", "We noted for us that you are interested in this camp.");
-                    ((BrowseCampsActivity) mContext).updateAlertIcon();
+                    ((BrowseCampsActivity) mContext).updateAlertIcon(currentCamp);
                 }
             });
         }
@@ -190,13 +189,23 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
             mPriceText.setText(currentCamp.getPrice());
             int parsedCurrentCampInteger;
             try {
-                parsedCurrentCampInteger = Integer.parseInt(currentCamp.getImageUrl());
+                List<String> imageUrls = currentCamp.getImageUrls();
+                String firstImageUrl = imageUrls != null && !imageUrls.isEmpty() ? imageUrls.get(0) : "0";
+
+                parsedCurrentCampInteger = Integer.parseInt(firstImageUrl);
             } catch (Exception e) {
                 parsedCurrentCampInteger = 0;
             }
             mItemImage.setImageResource(parsedCurrentCampInteger);
 
-            Glide.with(mContext).load(currentCamp.getImageUrl()).into(mItemImage);
+            Glide.with(mContext).load(currentCamp.getImageUrls()).into(mItemImage);
+            itemView.findViewById(R.id.add_to_starred).setOnClickListener(view -> {
+                Log.d("Activity", "We noted for us that you are interested in this camp.");
+                ((BrowseCampsActivity) mContext).updateAlertIcon(currentCamp);
+            });
+            itemView.findViewById(R.id.delete).setOnClickListener(view -> {
+                ((BrowseCampsActivity) mContext).deleteCamp(currentCamp);
+            });
         }
     }
 }

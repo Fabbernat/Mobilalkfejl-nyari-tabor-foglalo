@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
     private int starredCampsCount = 0; // cartItems a videoban
     private int gridNumber = 1;
     private int queryLimit = 10;
+    private int campLimit = 10;
 
     // Member variables
 
@@ -53,9 +55,28 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirestore;
     private CollectionReference mCamps;
+    BroadcastReceiver powerReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
 
+            if (action == null) {
+                return;
+            }
+
+            switch (action) {
+                case Intent.ACTION_POWER_CONNECTED:
+                    queryLimit = 10;
+                    break;
+                case Intent.ACTION_POWER_DISCONNECTED:
+                    queryLimit = 5;
+                    break;
+            }
+
+            queryData();
+        }
+    };
     private SharedPreferences preferences;
-
     private boolean viewRow = true;
 
     @Override
@@ -99,46 +120,30 @@ public class BrowseCampsActivity extends AppCompatActivity {
         });
     }
 
-    BroadcastReceiver powerReceiver = new BroadcastReceiver(){
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-
-            if (action == null){
-                return;
-            }
-
-            switch (action){
-                case Intent.ACTION_POWER_CONNECTED:
-                    queryLimit = 10;
-                    break;
-                case Intent.ACTION_POWER_DISCONNECTED:
-                    queryLimit = 5;
-                    break;
-            }
-
-            queryData();
-        }
-    };
-
-    private void queryData(){
+    private void queryData() {
         // Clear the existing data to avoid duplication
         mCampsData.clear();
 
-        mCamps.orderBy("name").limit(10).get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                Camp camp = documentSnapshot.toObject(Camp.class);
-                mCampsData.add(camp);
-            }
+        mCamps.orderBy("starredCount", Query.Direction.DESCENDING).limit(campLimit).get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        Camp camp = documentSnapshot.toObject(Camp.class);
+                        try {
+                            camp.setId(Integer.parseInt(documentSnapshot.getId()));
+                        } catch (NumberFormatException e) {
+                            Log.e(PREF_KEY, "Hiba történt az ID konvertálásakor", e);
+                        }
+                        mCampsData.add(camp);
+                    }
 
-            if (mCampsData.isEmpty() || mCampsData.size() < 10) {
-                initializeData();
-                queryData();
-            }
+                    if (mCampsData.isEmpty() || mCampsData.size() < campLimit) {
+                        initializeData();
+                        queryData();
+                    }
 
-            // Notify the adapter of the change.
-            mAdapter.notifyDataSetChanged();
-        });
+                    // Notify the adapter of the change.
+                    mAdapter.notifyDataSetChanged();
+                });
     }
 
     public void initializeData() {
@@ -205,6 +210,14 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    public void deleteCamp(Camp camp) {
+
+    }
+
+    public void updateCamp(Camp camp) {
+
     }
 
     /**
@@ -339,7 +352,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    public void updateAlertIcon(){
+    public void updateAlertIcon(Camp currentCamp) {
         starredCampsCount++;
         if (starredCampsCount > 0) {
             countTextView.setText(String.valueOf(starredCampsCount));

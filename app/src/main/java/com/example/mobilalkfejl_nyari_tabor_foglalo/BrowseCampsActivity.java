@@ -1,5 +1,7 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -58,10 +60,31 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirestore;
     private CollectionReference mCamps;
+    BroadcastReceiver powerReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action == null) {
+                return;
+            }
+
+            switch (action) {
+                case Intent.ACTION_POWER_CONNECTED:
+                    queryLimit = 10;
+                    break;
+                case Intent.ACTION_POWER_DISCONNECTED:
+                    queryLimit = 5;
+                    break;
+            }
+
+            queryData();
+        }
+    };
     private NotificationHandler mNotificationHandler;
+    private AlarmManager mAlarmManager;
     private SharedPreferences preferences;
     private boolean viewRow = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +119,9 @@ public class BrowseCampsActivity extends AppCompatActivity {
         registerReceiver(powerReceiver, filter);
 
         mNotificationHandler = new NotificationHandler(this);
+        mAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
+        setAlarmManager();
         // Auto-generated, better leave as is.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -130,28 +155,6 @@ public class BrowseCampsActivity extends AppCompatActivity {
                     mAdapter.notifyDataSetChanged();
                 });
     }
-
-    BroadcastReceiver powerReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-
-            if (action == null) {
-                return;
-            }
-
-            switch (action) {
-                case Intent.ACTION_POWER_CONNECTED:
-                    queryLimit = 10;
-                    break;
-                case Intent.ACTION_POWER_DISCONNECTED:
-                    queryLimit = 5;
-                    break;
-            }
-
-            queryData();
-        }
-    };
 
     public void initializeData() {
         String[] campsTypesList = getResources().getStringArray(R.array.camp_types);
@@ -395,5 +398,22 @@ public class BrowseCampsActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(powerReceiver);
+    }
+
+    private void setAlarmManager() {
+        long repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
+        long triggerTime = System.currentTimeMillis() + repeatInterval;
+
+        Intent intent = new Intent(this, AlarmReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mAlarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerTime, repeatInterval, pendingIntent);
+
+        /*preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
+        preferences.edit().putBoolean("alarm_set", true).apply();
+
+        Log.d(PREF_KEY, "AlarmManager beállítva!");
+
+        mAlarmManager.cancel(pendingIntent);*/
     }
 }

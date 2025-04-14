@@ -1,13 +1,18 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +25,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.MenuItemCompat;
@@ -83,9 +89,11 @@ public class BrowseCampsActivity extends AppCompatActivity {
     };
     private NotificationHandler mNotificationHandler;
     private AlarmManager mAlarmManager;
+    private JobScheduler mJobScheduler;
     private SharedPreferences preferences;
     private boolean viewRow = true;
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,8 +128,10 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
         mNotificationHandler = new NotificationHandler(this);
         mAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        mJobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+//        setAlarmManager();
+        setJobScheduler();
 
-        setAlarmManager();
         // Auto-generated, better leave as is.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -416,4 +426,21 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
         mAlarmManager.cancel(pendingIntent);*/
     }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setJobScheduler() {
+        int networkType = JobInfo.NETWORK_TYPE_UNMETERED;
+        int hardDeadline = 5000;
+
+        ComponentName name = new ComponentName(getPackageName(), NotificationJobService.class.getName());
+        JobInfo.Builder builder = new JobInfo.Builder(0, name)
+                .setRequiredNetworkType(networkType).
+                setRequiresCharging(true)
+                .setOverrideDeadline(hardDeadline);
+
+        // leallitashoz:
+        mJobScheduler.schedule(builder.build());
+        mJobScheduler.cancel(0);
+    }
+
 }

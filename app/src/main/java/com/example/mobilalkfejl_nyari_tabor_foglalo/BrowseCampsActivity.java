@@ -231,6 +231,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
         });
 
         queryData();
+        mNotificationHandler.cancel();
     }
 
     public void updateCamp(Camp camp) {

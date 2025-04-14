@@ -53,4 +53,8 @@ public class NotificationHandler {
 
         this.notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
+
+    public void cancel(){
+        this.notificationManager.cancel(NOTIFICATION_ID);
+    }
 }

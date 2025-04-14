@@ -21,7 +21,7 @@ Nyári tábor foglaló alkalmazás
 | Gallery | GridLayout + CardView | `item_gallery.xml` |  
 
 ### **Követelményteljesítés**  
-| Elem | Megvalósítás helye |  
+| Elem | Megvalósítás helye és/vagy módja |  
 |-------|---------------------|  
 | Fordítási hiba nincs |  `build.gradle.kts` konfiguráció |  
 | Futtatási hiba nincs |  Tesztelve egy Google Pixel 8a eszközön |  

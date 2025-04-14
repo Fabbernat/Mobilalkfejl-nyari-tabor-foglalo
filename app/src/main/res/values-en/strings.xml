@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gallery_image_desc">Tábor képe</string>
     <string name="app_name">Summer Camp Reservation</string>
     <string name="greeting">Welcome to Summer Camp Reservation</string>
     <string name="username">Username</string>
@@ -20,6 +21,7 @@
     <string name="error_reservation_failed">Foglalás sikertelen!</string>
 
     <string name="LoginHint">Bejelentkezés</string>
+    <string name="reservation_reject">Elutasítás</string>
     <string name="emailHint">E-mail cím\n</string>
     <string name="address">Postai cím\n</string>
     <string name="parent">Szülő\n</string>
@@ -27,8 +29,28 @@
     <string name="pedagogue">Pedagógus</string>
     <string name="camp_animator">Tábori önkéntes/animátor</string>
     <string name="admin">Adminisztrátor</string>
+    <string name="camp_description">Tábor leírása</string>
     <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
     <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
     <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
     <string name="default_web_client_id">1900085</string>
+    <string name="gallery_title">Tábori Galéria</string>
+    <string name="error_reservation_already_exists">Már létezik ilyen foglalás!</string>
+    <string name="error_reservation_not_found">Nincs ilyen foglalás!</string>
+    <string name="error_reservation_canceled">Foglalás sikeresen törölve!</string>
+    <string name="error_reservation_not_canceled">Foglalás sikertelen törlés!</string>
+    <string name="error_reservation_updated">Foglalás sikeresen frissítve!</string>
+    <string name="error_reservation_not_updated">Foglalás sikertelen frissítés!</string>
+    <string name="reservation_id">Foglalás azonosítója</string>
+    <string name="reservation_date">Foglalás dátuma</string>
+    <string name="reservation_time">Foglalás ideje</string>
+    <string name="reservation_name">Foglalás neve</string>
+    <string name="reservation_email">Foglalás e-mail címe</string>
+    <string name="reservation_phone">Foglalás telefonszáma</string>
+    <string name="reservation_people">Foglalás személyek száma</string>
+    <string name="reservation_message">Foglalás üzenet</string>
+    <string name="reservation_delete">Törlés</string>
+    <string name="reservation_update">Frissítés</string>
+    <string name="reservation_cancel">Törlés</string>
+    <string name="reservation_confirm">Megerősítés</string>
 </resources>

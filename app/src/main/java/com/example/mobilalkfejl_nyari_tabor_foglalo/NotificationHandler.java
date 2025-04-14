@@ -10,6 +10,8 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
+
 public class NotificationHandler {
     private static final String CHANNEL_ID = "camp_notification_channel";
     private final int NOTIFICATION_ID = 001;
@@ -48,7 +50,7 @@ public class NotificationHandler {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle("Nyári tábor foglaló")
                 .setContentText(message)
-                .setSmallIcon(R.drawable.camp)
+                .setSmallIcon(R.drawable.ic_blackandwhite_camp_icon)
                 .setContentIntent(pendingIntent);
 
         this.notificationManager.notify(NOTIFICATION_ID, builder.build());

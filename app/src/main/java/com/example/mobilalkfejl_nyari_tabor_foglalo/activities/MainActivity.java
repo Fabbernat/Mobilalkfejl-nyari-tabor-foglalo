@@ -1,18 +1,12 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo;
+package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
 
-import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -21,10 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
+import com.example.mobilalkfejl_nyari_tabor_foglalo.CampAsyncLoader;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.GoogleSignIn;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.GoogleSignInClient;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
@@ -34,8 +31,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
     private static final String LOG_TAG = MainActivity.class.getName();
@@ -58,16 +53,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
 
-        /* Ez a kódrészlet a WindowInsets kezelésére szolgál, amely biztosítja, hogy a UI elemek megfelelően igazodjanak a rendszer sávjaihoz (például státuszsáv, navigációs sáv) Android rendszeren.
-         * a jelenleg nincs vizuális probléma az elrendezésben, érdemes ezt a kódrészletet ideiglenesen kikommentezni és tesztelni, hogy minden UI elem jól jelenik-e meg. Ha nem tapasztalsz hibát, akkor valószínűleg nincs rá szükség.
-         * Ha később fullscreen vagy gesture-based navigációs módot szeretnél implementálni, ez a kódrészlet még jól jöhet.
-         *
-         */
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        Button galleryButton = findViewById(R.id.galleryButton);
+        galleryButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+            startActivity(intent);
         });
+
 
 
         userNameET = findViewById(R.id.editTextUserName);
@@ -89,6 +80,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         getSupportLoaderManager().restartLoader(0, null, this);
         Log.i(LOG_TAG, "onCreate");
+
+        /* Ez a kódrészlet a WindowInsets kezelésére szolgál, amely biztosítja, hogy a UI elemek megfelelően igazodjanak a rendszer sávjaihoz (például státuszsáv, navigációs sáv) Android rendszeren.
+         * a jelenleg nincs vizuális probléma az elrendezésben, érdemes ezt a kódrészletet ideiglenesen kikommentezni és tesztelni, hogy minden UI elem jól jelenik-e meg. Ha nem tapasztalsz hibát, akkor valószínűleg nincs rá szükség.
+         * Ha később fullscreen vagy gesture-based navigációs módot szeretnél implementálni, ez a kódrészlet még jól jöhet.
+         *
+         */
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
     }
 
     private void startBrowsingCamps(/* Regsiztralt user adatai*/){
@@ -271,47 +273,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return new CampAsyncLoader(this);
     }
 
-    /**
-     * Called when a previously created loader has finished its load.  Note
-     * that normally an application is <em>not</em> allowed to commit fragment
-     * transactions while in this call, since it can happen after an
-     * activity's state is saved.  See {@link FragmentManager#beginTransaction()
-     * FragmentManager.openTransaction()} for further discussion on this.
-     *
-     * <p>This function is guaranteed to be called prior to the release of
-     * the last data that was supplied for this Loader.  At this point
-     * you should remove all use of the old data (since it will be released
-     * soon), but should not do your own release of the data since its Loader
-     * owns it and will take care of that.  The Loader will take care of
-     * management of its data so you don't have to.  In particular:
-     *
-     * <ul>
-     * <li> <p>The Loader will monitor for changes to the data, and report
-     * them to you through new calls here.  You should not monitor the
-     * data yourself.  For example, if the data is a {@link Cursor}
-     * and you place it in a {@link CursorAdapter}, use
-     * the {@link CursorAdapter#CursorAdapter(Context,
-     * Cursor, int)} constructor <em>without</em> passing
-     * in either {@link CursorAdapter#FLAG_AUTO_REQUERY}
-     * or {@link CursorAdapter#FLAG_REGISTER_CONTENT_OBSERVER}
-     * (that is, use 0 for the flags argument).  This prevents the CursorAdapter
-     * from doing its own observing of the Cursor, which is not needed since
-     * when a change happens you will get a new Cursor throw another call
-     * here.
-     * <li> The Loader will release the data once it knows the application
-     * is no longer using it.  For example, if the data is
-     * a {@link Cursor} from a {@link CursorLoader},
-     * you should not call close() on it yourself.  If the Cursor is being placed in a
-     * {@link CursorAdapter}, you should use the
-     * {@link CursorAdapter#swapCursor(Cursor)}
-     * method so that the old Cursor is not closed.
-     * </ul>
-     *
-     * <p>This will always be called from the process's main thread.
-     *  @param loader The Loader that has finished.
-     *
-     * @param data The data generated by the Loader.
-     */
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
         Button button = findViewById(R.id.loginAsGuestButton);

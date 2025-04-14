@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo;
+package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

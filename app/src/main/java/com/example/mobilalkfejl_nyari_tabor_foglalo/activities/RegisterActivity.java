@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo;
+package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 
 import android.content.Intent;
@@ -15,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

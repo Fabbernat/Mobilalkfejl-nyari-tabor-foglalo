@@ -270,7 +270,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @NonNull
     @Override
     public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
-        return new CampAsyncLoader(this);
+        CampAsyncLoader campAsyncLoader = new CampAsyncLoader(null);
+        return campAsyncLoader;
     }
 
     @Override

@@ -1,6 +1,6 @@
 // C:\AndroidStudioProjects\MobilalkfejlNyariTaborFoglalo\app\build.gradle.kts
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
 
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mobilalkfejl_nyari_tabor_foglalo"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -47,13 +47,12 @@ android {
 
 dependencies {
     // Import the Firebase BoM
-//    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
-    implementation(platform(libs.firebase.bom))
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
 
 
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
-    implementation(libs.com.google.firebase.firebase.analytics)
+    implementation("com.google.firebase:firebase-analytics")
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries

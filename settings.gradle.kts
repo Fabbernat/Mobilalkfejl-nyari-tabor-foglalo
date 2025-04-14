@@ -22,4 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Mobilalkfejl-nyari-tabor-foglalo"
 include(":app")
- 
+include(":app:testclasses")

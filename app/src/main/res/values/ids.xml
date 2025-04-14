@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="parentRadioButton" type="id">Parent</item>
-    <item name="childRadioButton" type="id">Child</item>
+    <item name="parentRadioButton" type="id">Szulo</item>
+    <item name="childRadioButton" type="id">Gyerek</item>
     <item name="pedagogueRadioButton" type="id">Pedagogus</item>
     <item name="campAnimatorRadioButton" type="id">Camp Animator</item>
     <item name="AdminRadioButton" type="id">Admin</item>

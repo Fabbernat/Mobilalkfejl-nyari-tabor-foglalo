@@ -1,9 +1,10 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Document;
+import androidx.annotation.NonNull;
 import java.util.Date;
+import java.util.Objects;
 
-public class Document {
+public class Document implements Cloneable {
 
     private String id;
     private String nev;
@@ -18,6 +19,13 @@ public class Document {
     public Document() {
     }
 
+    // Egyszerűsített konstruktor
+    public Document(String nev, DocumentType tipus, String url, Date feltoltesIdopontja,
+                    DocumentStatus statusz, User tulajdonos) {
+        this(null, nev, tipus, url, feltoltesIdopontja, null, statusz, tulajdonos);
+    }
+
+    // Teljes konstruktor
     public Document(String id, String nev, DocumentType tipus, String url, Date feltoltesIdopontja,
                     Date lejaratIdopontja, DocumentStatus statusz, User tulajdonos) {
         this.id = id;
@@ -30,8 +38,8 @@ public class Document {
         this.tulajdonos = tulajdonos;
     }
 
-    // Getterek és setterek
 
+    // Getterek és setterek
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -55,6 +63,57 @@ public class Document {
 
     public User getTulajdonos() { return tulajdonos; }
     public void setTulajdonos(User tulajdonos) { this.tulajdonos = tulajdonos; }
+
+    // equals és hashCode metódusok
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Document document = (Document) o;
+        return Objects.equals(id, document.id) &&
+                Objects.equals(nev, document.nev) &&
+                tipus == document.tipus &&
+                Objects.equals(url, document.url) &&
+                Objects.equals(feltoltesIdopontja, document.feltoltesIdopontja) &&
+                Objects.equals(lejaratIdopontja, document.lejaratIdopontja) &&
+                statusz == document.statusz &&
+                Objects.equals(tulajdonos, document.tulajdonos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nev, tipus, url, feltoltesIdopontja, lejaratIdopontja, statusz, tulajdonos);
+    }
+
+    // toString metódus a könnyebb hibakereséshez
+    @NonNull
+    @Override
+    public String toString() {
+        return "Document{" +
+                "id='" + id + '\'' +
+                ", nev='" + nev + '\'' +
+                ", tipus=" + tipus +
+                ", url='" + url + '\'' +
+                ", feltoltesIdopontja=" + feltoltesIdopontja +
+                ", lejaratIdopontja=" + lejaratIdopontja +
+                ", statusz=" + statusz +
+                ", tulajdonos=" + tulajdonos +
+                '}';
+    }
+
+    // Klónozó metódus, mély másolatot készít a dokumentumról
+    @NonNull
+    @Override
+    public Document clone() {
+        try {
+            Document clone = (Document) super.clone();
+            clone.setFeltoltesIdopontja(this.feltoltesIdopontja != null ? (Date) this.feltoltesIdopontja.clone() : null);
+            clone.setLejaratIdopontja(this.lejaratIdopontja != null ? (Date) this.lejaratIdopontja.clone() : null);
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError(); // Can't happen - Why?
+        }
+    }
 
     public enum DocumentStatus {
         FELDOLGOZAS_ALATT("Feldolgozás alatt"),

@@ -1,6 +1,5 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
 
-import com.google.firebase.firestore.auth.User;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Document;
 import java.util.Date;
 

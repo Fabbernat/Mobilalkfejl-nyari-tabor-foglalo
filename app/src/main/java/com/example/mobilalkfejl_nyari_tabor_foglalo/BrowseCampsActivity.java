@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -28,6 +30,7 @@ import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -213,7 +216,17 @@ public class BrowseCampsActivity extends AppCompatActivity {
     }
 
     public void deleteCamp(Camp camp) {
+        DocumentReference ref = mCamps.document(String.valueOf(camp.getId()));
+        ref.delete().addOnSuccessListener(success -> {
+            Log.d(PREF_KEY, "Tábor sikeresen törölve Firestore-ből: " + ref.getId());
+            mCampsData.remove(camp);
+            mAdapter.notifyDataSetChanged();
+        }).addOnFailureListener(failure -> {
+            Log.e(PREF_KEY, "Hiba történt a tábor törlésénél", failure);
+            Toast.makeText(this, "Hiba történt a tábor törlésénél", Toast.LENGTH_SHORT).show();
+        });
 
+        queryData();
     }
 
     public void updateCamp(Camp camp) {
@@ -359,6 +372,17 @@ public class BrowseCampsActivity extends AppCompatActivity {
         } else {
             countTextView.setText("");
         }
+
+        redCircle.setVisibility((starredCampsCount > 0) ? View.VISIBLE : View.GONE);
+
+        mCamps.document(String.valueOf(currentCamp.getId())).update("starredCount", currentCamp.getStarredCount() + 1)
+                .addOnFailureListener( failure ->{
+                            Log.e(PREF_KEY, "Hiba történt a tábor frissítése során", failure);
+                            Toast.makeText(this, "Hiba történt a tábor frissítése során", Toast.LENGTH_SHORT).show();
+                        }
+                );
+
+        queryData();
     }
 
     @Override

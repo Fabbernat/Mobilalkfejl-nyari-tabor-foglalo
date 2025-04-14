@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources >
+    <drawable name="camp">\U+1F3D5</drawable>
+</resources>

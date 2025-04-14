@@ -58,29 +58,10 @@ public class BrowseCampsActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirestore;
     private CollectionReference mCamps;
-    BroadcastReceiver powerReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-
-            if (action == null) {
-                return;
-            }
-
-            switch (action) {
-                case Intent.ACTION_POWER_CONNECTED:
-                    queryLimit = 10;
-                    break;
-                case Intent.ACTION_POWER_DISCONNECTED:
-                    queryLimit = 5;
-                    break;
-            }
-
-            queryData();
-        }
-    };
+    private NotificationHandler mNotificationHandler;
     private SharedPreferences preferences;
     private boolean viewRow = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +95,7 @@ public class BrowseCampsActivity extends AppCompatActivity {
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         registerReceiver(powerReceiver, filter);
 
+        mNotificationHandler = new NotificationHandler(this);
 
         // Auto-generated, better leave as is.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -148,6 +130,28 @@ public class BrowseCampsActivity extends AppCompatActivity {
                     mAdapter.notifyDataSetChanged();
                 });
     }
+
+    BroadcastReceiver powerReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action == null) {
+                return;
+            }
+
+            switch (action) {
+                case Intent.ACTION_POWER_CONNECTED:
+                    queryLimit = 10;
+                    break;
+                case Intent.ACTION_POWER_DISCONNECTED:
+                    queryLimit = 5;
+                    break;
+            }
+
+            queryData();
+        }
+    };
 
     public void initializeData() {
         String[] campsTypesList = getResources().getStringArray(R.array.camp_types);
@@ -376,12 +380,13 @@ public class BrowseCampsActivity extends AppCompatActivity {
         redCircle.setVisibility((starredCampsCount > 0) ? View.VISIBLE : View.GONE);
 
         mCamps.document(String.valueOf(currentCamp.getId())).update("starredCount", currentCamp.getStarredCount() + 1)
-                .addOnFailureListener( failure ->{
+                .addOnFailureListener(failure -> {
                             Log.e(PREF_KEY, "Hiba történt a tábor frissítése során", failure);
                             Toast.makeText(this, "Hiba történt a tábor frissítése során", Toast.LENGTH_SHORT).show();
                         }
                 );
 
+        mNotificationHandler.send("Nyári tábor foglaló" + currentCamp.getName());
         queryData();
     }
 

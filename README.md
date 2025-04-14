@@ -4,7 +4,13 @@ Nyári tábor foglaló alkalmazás
 
 ---
 
-## 1. mérföldkő feljesített funkciók:
+## **1. Mérföldkő: Fejlesztett Funkciók**  
+- **Firebase Integration**  
+  - Teljes Firebase autentikáció (bejelentkezés/regisztráció)
+  - `RegisterActivity.java` - Regisztrációs folyamat
+- Cloud Firestore CRUD műveletek
+    - `Camp.java` - Tábor modell
+    - `BrowseCampsActivity.java` - Tábor foglalási logika  
 - MainActivity ConstraintLayouttal és 5 másik page egyéb layoutokkal
 - Firebase autentikáció meg van valósítva: Be lehet jelentkezni és regisztrálni
 - CRUD műveletek

@@ -1,6 +1,8 @@
-# Mobilalkfejl-nyari-tabor-foglalo
-Mobil alkalmazás fejlesztés projektmunka:
-Nyári tábor foglaló alkalmazás
+# Mobilalkfejl-nyari-tabor-foglalo  
+**Mobil alkalmazás fejlesztés projektmunka**  
+Nyári tábor foglaló alkalmazás  
+
+---
 
 ## 1. mérföldkő feljesített funkciók:
 - MainActivity ConstraintLayouttal és 5 másik page egyéb layoutokkal

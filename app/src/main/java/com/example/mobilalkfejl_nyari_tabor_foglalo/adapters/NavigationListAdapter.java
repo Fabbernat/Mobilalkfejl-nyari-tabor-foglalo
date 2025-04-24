@@ -1,6 +1,16 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo.adapters;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mobilalkfejl_nyari_tabor_foglalo.models.NavigationListItem;
+
+import java.util.List;
 
 public class NavigationListAdapter extends RecyclerView.Adapter<NavigationListAdapter.ListViewHolder> {
     private final List<NavigationListItem> items;
@@ -23,17 +33,18 @@ public class NavigationListAdapter extends RecyclerView.Adapter<NavigationListAd
         return new ListViewHolder(frameLayout);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        NavigationListItemFragment fragment = new NavigationListItemFragment();
+//        NavigationListItemFragment fragment = new NavigationListItemFragment();
 
-        fragmentManager.beginTransaction()
+        /*fragmentManager.beginTransaction()
                 .replace(holder.fragmentContainer.getId(), fragment)
                 .commit();
 
-        boolean hideBorder = position == items.size() - 1;
+        boolean hideBorder = position == items.size() - 1;*/
 
-        fragment.bindData(items.get(position), hideBorder);
+//        fragment.bindData(items.get(position), hideBorder);
     }
 
     @Override

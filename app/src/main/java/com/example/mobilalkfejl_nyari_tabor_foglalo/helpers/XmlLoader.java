@@ -1,9 +1,10 @@
-package com.kristofkalmar.outfitzone.helper;
+package com.example.mobilalkfejl_nyari_tabor_foglalo.helpers;
 
 import android.content.Context;
 
-import com.kristofkalmar.outfitzone.R;
-import com.kristofkalmar.outfitzone.models.NavigationListItem;
+
+import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.models.NavigationListItem;
 
 import org.xmlpull.v1.XmlPullParser;
 

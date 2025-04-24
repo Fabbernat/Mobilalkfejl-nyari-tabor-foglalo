@@ -1,4 +1,4 @@
-package com.kristofkalmar.outfitzone.helper;
+package com.example.mobilalkfejl_nyari_tabor_foglalo.helpers;
 
 import android.content.Context;
 import android.graphics.Bitmap;

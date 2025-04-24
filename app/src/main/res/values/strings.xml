@@ -181,4 +181,6 @@
 
     <string name="gallery_item10_title" translatable="false">Zánkai élménytábor</string>
     <string name="gallery_item10_desc" translatable="false">Vidám és változatos programok Magyarország legnagyobb táborában, a Balaton partján – ahol az élmények születnek!</string>
+    <string name="gallery_item11_title">Hangulatos tábori este a tűz körül</string>
+    <string name="gallery_item11_desc">Hangulatos tábori este a tűz körül - a cserkésztáborban ezt is megtapasztalhatod a barátaiddal!</string>
 </resources>

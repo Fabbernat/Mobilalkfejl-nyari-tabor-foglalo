@@ -46,47 +46,57 @@ public class GalleryActivity extends AppCompatActivity {
         items.add(new GalleryItem("cserkesztabor",
                 getString(R.string.gallery_item1_title),
                 getString(R.string.gallery_item1_desc),
-                R.drawable.cserkesztabor));
+                R.assets.images.cserkesztabor));
 
         items.add(new GalleryItem("drcode",
                 getString(R.string.gallery_item3_title),
                 getString(R.string.gallery_item3_desc),
-                R.drawable.drcode));
-
-        items.add(new GalleryItem("forest-summer-camp",
-                getString(R.string.gallery_item4_title),
-                getString(R.string.gallery_item4_desc),
-                R.drawable.forest_summer_camp));
+                R.assets.images.drcode));
 
         items.add(new GalleryItem("group_of_children_lying_in_the_grass_in_a_circle",
                 getString(R.string.gallery_item5_title),
                 getString(R.string.gallery_item5_desc),
-                R.drawable.group_of_children_lying_in_the_grass_in_a_circle));
+                R.assets.images.group_of_children_lying_in_the_grass_in_a_circle));
+
+        items.add(new GalleryItem("forest-summer-camp",
+                getString(R.string.gallery_item4_title),
+                getString(R.string.gallery_item4_desc),
+                R.assets.images.forest_summer_camp));
+
+        items.add(new GalleryItem("group_of_children_lying_in_the_grass_in_a_circle",
+                getString(R.string.gallery_item5_title),
+                getString(R.string.gallery_item5_desc),
+                R.assets.images.group_of_children_lying_in_the_grass_in_a_circle))
 
         items.add(new GalleryItem("island_camp",
                 getString(R.string.gallery_item6_title),
                 getString(R.string.gallery_item6_desc),
-                R.drawable.island_camp));
+                R.assets.images.island_camp));
 
-        items.add(new GalleryItem("nyari_tabor_2022",
+        items.add(new GalleryItem("nyari_tabor_jatek",
                 getString(R.string.gallery_item7_title),
                 getString(R.string.gallery_item7_desc),
-                R.drawable.nyari_tabor_jatek));
+                R.assets.images.nyari_tabor_jatek));
 
-        items.add(new GalleryItem("szent_margit",
+        items.add(new GalleryItem("szent_margit_cserkeszcsapat",
                 getString(R.string.gallery_item8_title),
                 getString(R.string.gallery_item8_desc),
-                R.drawable.szent_margit));
+                R.assets.images.szent_margit_cserkeszcsapat));
 
         items.add(new GalleryItem("szinjatszotabor",
                 getString(R.string.gallery_item9_title),
                 getString(R.string.gallery_item9_desc),
-                R.drawable.szinjatszotabor));
+                R.assets.images.szinjatszotabor));
+
+        items.add(new GalleryItem("tabortuz_jatekok",
+                getString(R.string.gallery_item11_title),
+                getString(R.string.gallery_item11_desc),
+                R.assets.images.tabortuz_jatekok));
 
         items.add(new GalleryItem("Zankai_Elmenytabor_2019",
                 getString(R.string.gallery_item10_title),
                 getString(R.string.gallery_item10_desc),
-                R.drawable.zankai_elmenytabor));
+                R.assets.images.zankai_elmenytabor));
 
         return items;
     }

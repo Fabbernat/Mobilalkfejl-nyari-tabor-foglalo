@@ -71,7 +71,7 @@ public class GalleryActivity extends AppCompatActivity {
         items.add(new GalleryItem("nyari_tabor_2022",
                 getString(R.string.gallery_item7_title),
                 getString(R.string.gallery_item7_desc),
-                R.drawable.nyari_tabor_2022));
+                R.drawable.nyari_tabor_jatek));
 
         items.add(new GalleryItem("szent_margit",
                 getString(R.string.gallery_item8_title),
@@ -86,7 +86,7 @@ public class GalleryActivity extends AppCompatActivity {
         items.add(new GalleryItem("Zankai_Elmenytabor_2019",
                 getString(R.string.gallery_item10_title),
                 getString(R.string.gallery_item10_desc),
-                R.drawable.zankai_elmenytabor_2019));
+                R.drawable.zankai_elmenytabor));
 
         return items;
     }

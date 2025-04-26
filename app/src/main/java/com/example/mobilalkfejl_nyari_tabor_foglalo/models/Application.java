@@ -7,13 +7,13 @@ public class Application {
 
     private String applicationId;
     private Camp camp;
-    private User applicant;
+    private Parent applicant;
     private Date applicationDate;
     private ApplicationStatus applicationStatus;
     private PaymentStatus paymentStatus;
     private double amountToPay;
-    private List<User.Child> children;
-    private User.TeacherGroup teacherGroup;
+    private List<Parent.Child> children;
+    private Parent.TeacherGroup teacherGroup;
     private String note;
     private List<Document> attachedDocuments;
 
@@ -21,9 +21,9 @@ public class Application {
     public Application() {
     }
 
-    public Application(String applicationId, Camp camp, User applicant, Date applicationDate,
+    public Application(String applicationId, Camp camp, Parent applicant, Date applicationDate,
                        ApplicationStatus applicationStatus, PaymentStatus paymentStatus, double amountToPay,
-                       List<User.Child> children, User.TeacherGroup teacherGroup, String note,
+                       List<Parent.Child> children, Parent.TeacherGroup teacherGroup, String note,
                        List<Document> attachedDocuments) {
         this.applicationId = applicationId;
         this.camp = camp;
@@ -54,11 +54,11 @@ public class Application {
         this.camp = camp;
     }
 
-    public User getApplicant() {
+    public Parent getApplicant() {
         return applicant;
     }
 
-    public void setApplicant(User applicant) {
+    public void setApplicant(Parent applicant) {
         this.applicant = applicant;
     }
 
@@ -94,19 +94,19 @@ public class Application {
         this.amountToPay = amountToPay;
     }
 
-    public List<User.Child> getChildren() {
+    public List<Parent.Child> getChildren() {
         return children;
     }
 
-    public void setChildren(List<User.Child> children) {
+    public void setChildren(List<Parent.Child> children) {
         this.children = children;
     }
 
-    public User.TeacherGroup getTeacherGroup() {
+    public Parent.TeacherGroup getTeacherGroup() {
         return teacherGroup;
     }
 
-    public void setTeacherGroup(User.TeacherGroup teacherGroup) {
+    public void setTeacherGroup(Parent.TeacherGroup teacherGroup) {
         this.teacherGroup = teacherGroup;
     }
 

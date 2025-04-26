@@ -1,7 +1,6 @@
 // C:\AndroidStudioProjects\MobilalkfejlNyariTaborFoglalo\app\build.gradle.kts
 plugins {
     id("com.android.application")
-
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
 
@@ -32,12 +31,12 @@ android {
         }
     }
     compileOptions {
-
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     dependenciesInfo {
         includeInApk = true
@@ -47,7 +46,7 @@ android {
 
 dependencies {
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+    implementation(platform(libs.firebase.bom.v33130))
 
 
     // TODO: Add the dependencies for Firebase products you want to use

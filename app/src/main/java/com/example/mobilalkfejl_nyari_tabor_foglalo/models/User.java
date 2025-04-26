@@ -1,133 +1,31 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
 
-import java.util.Date;
-import java.util.List;
-
-public class User {
-
+// Base User class
+public abstract class User {
     private String id;
+    private String name;
     private String email;
-    private String nev;
-    private UserType userType;
-    private UserRole userRole;
-    private OrganizerType organizerType;
-    private String telefonszam;
-    private String lakcim;
-    private Date szuletesiDatum;
-    private Date regisztracioIdopontja;
-    private boolean aktivitas;
-    private List<Document> dokumentumok;
-    private VolunteerType onkentesTipus;
-    private String intezmenyNev;
-    private String intezmenyAzonosito;
-    private List<Child> gyermekek;
-    private List<String> registeredCamps;
-    private List<String> createdCamps;
-    private String consentForm;
+    private String phone;
+    private String password;
+    private String userType;
 
-    // Alapértelmezett konstruktor (Firestore miatt szükséges)
-    public User() {
-    }
+    // Constructor, getters, setters...
 
-    // Getterek és setterek...
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    // Enumok
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public enum UserType {
-        SZULO("szülő"),
-        PEDAGOGUS("pedagógus"),
-        KISKORU("kiskorú"),
-        TABORI_SZERVEZO("tábori szervező/animátor"),
-        ADMIN("adminisztrátor");
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-        private final String displayName;
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 
-        UserType(String displayName) {
-            this.displayName = displayName;
-        }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
-
-    public enum UserRole {
-        SZULO("szulo"),
-        PEDAGOGUS("pedagogus"),
-        ONKENTES("onkentes"),
-        ADMIN("admin");
-
-        private final String displayName;
-
-        UserRole(String displayName) {
-            this.displayName = displayName;
-        }
-
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
-
-    public enum OrganizerType {
-        ALTABORVEZETO("Altáborvezető"),
-        ANIMATOR("Tábori animátor"),
-        PROGRAM_LEBONYOLITO("Program-lebonyolító"),
-        KONYHAI_KISEGITO("Konyhai kisegítő"),
-        LOGISZTIKUS("Tábori logisztikus");
-
-        private final String displayName;
-
-        OrganizerType(String displayName) {
-            this.displayName = displayName;
-        }
-
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
-
-    public enum VolunteerType {
-        ALTABORVEZETO("Altáborvezető"),
-        ANIMATOR("Tábori animátor"),
-        PROGRAM("Program-lebonyolító"),
-        KONYHA("Konyhai kisegítő"),
-        LOGISZTIKA("Tábori ellátmányfelelős");
-
-        private final String displayName;
-
-        VolunteerType(String displayName) {
-            this.displayName = displayName;
-        }
-
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
-
-    // Beágyazott modellek
-
-    public static class Child {
-        private String id;
-        private String nev;
-        private Date szuletesiDatum;
-        private String taj;
-        private String allergia;
-        private String specialisIgeny;
-
-        public Child() {
-        }
-
-        // Getterek és setterek...
-    }
-
-    public static class TeacherGroup {
-        private int gyerekekSzama;
-        private String korosztaly;
-        private int kiserokSzama;
-
-        public TeacherGroup() {
-        }
-
-        // Getterek és setterek...
-    }
+    public String getUserType() { return userType; }
+    public void setUserType(String userType) { this.userType = userType; }
 }

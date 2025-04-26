@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Szín alapján-->
     <color name="black">#FF000000</color>
     <color name="gray">#FF888888</color>
     <color name="blue">#FF0000FF</color>
@@ -20,5 +21,19 @@
     <color name="lightgray">#FFD3D3D3</color>
     <color name="darkgray">#FF808080</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="error">#FFFF0000</color>
+
+    <!-- Funkció alapján-->
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="accent">#FF9800</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="error">#F44336</color>
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
 </resources>

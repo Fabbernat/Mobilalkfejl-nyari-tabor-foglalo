@@ -13,7 +13,7 @@ public class Document implements Cloneable {
     private Date feltoltesIdopontja;
     private Date lejaratIdopontja;
     private DocumentStatus statusz;
-    private User tulajdonos;
+    private Parent tulajdonos;
 
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Document() {
@@ -21,13 +21,13 @@ public class Document implements Cloneable {
 
     // Egyszerűsített konstruktor
     public Document(String nev, DocumentType tipus, String url, Date feltoltesIdopontja,
-                    DocumentStatus statusz, User tulajdonos) {
+                    DocumentStatus statusz, Parent tulajdonos) {
         this(null, nev, tipus, url, feltoltesIdopontja, null, statusz, tulajdonos);
     }
 
     // Teljes konstruktor
     public Document(String id, String nev, DocumentType tipus, String url, Date feltoltesIdopontja,
-                    Date lejaratIdopontja, DocumentStatus statusz, User tulajdonos) {
+                    Date lejaratIdopontja, DocumentStatus statusz, Parent tulajdonos) {
         this.id = id;
         this.nev = nev;
         this.tipus = tipus;
@@ -61,8 +61,8 @@ public class Document implements Cloneable {
     public DocumentStatus getStatusz() { return statusz; }
     public void setStatusz(DocumentStatus statusz) { this.statusz = statusz; }
 
-    public User getTulajdonos() { return tulajdonos; }
-    public void setTulajdonos(User tulajdonos) { this.tulajdonos = tulajdonos; }
+    public Parent getTulajdonos() { return tulajdonos; }
+    public void setTulajdonos(Parent tulajdonos) { this.tulajdonos = tulajdonos; }
 
     // equals és hashCode metódusok
     @Override

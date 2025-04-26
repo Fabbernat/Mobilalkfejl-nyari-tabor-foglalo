@@ -13,4 +13,6 @@
     <item name="camp_rating" type="id">Tábor értékelése(i)</item>
     <item name="add_to_starred" type="id">Megcsillagozás</item>
     <item name="recyclerView" type="id" >MyRecyClerView</item>
+    <item name="nav_home" type="id">Főoldali navigáció</item>
+    <item name="nav_camps" type="id">Táborok navigáció</item>
 </resources>

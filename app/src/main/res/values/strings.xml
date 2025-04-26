@@ -7,11 +7,8 @@
     <string name="app_name">Nyári Tábor Foglaló</string>
     <string name="greeting">Üdvözlünk a Nyári Tábor Foglaló alkalmazásban!</string>
     <string name="username">Felhasználónév</string>
-    <string name="password">Jelszó</string>
-    <string name="login">Bejelentkezés</string>
     <string name="logout">Kijelentkezés</string>
     <string name="registration">Regisztráció</string>
-    <string name="cancel">Mégse</string>
     <string name="submit">Küldés</string>
     <string name="usernameHint">Felhasználónév</string>
     <string name="passwordHint">Jelszó</string>
@@ -49,11 +46,7 @@
     <string name="reservation_reject">Elutasítás</string>
     <string name="emailHint">E-mail cím\n</string>
     <string name="address">Postai cím\n</string>
-    <string name="parent">Szülő\n</string>
-    <string name="child">Gyermek\n</string>
-    <string name="pedagogue">Pedagógus</string>
-    <string name="camp_animator">Tábori önkéntes/animátor</string>
-    <string name="admin">Adminisztrátor</string>
+
     <string name="camp_description">Tábor leírása</string>
     <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
     <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
@@ -65,7 +58,6 @@
     <string name="number_of_starred_items" translatable="false">3</string>
     <string name="image_of_camp" translatable="false">Kép a táborról</string>
     <string name="add_to_starred" translatable="false">Csillagozottakhoz adás</string>
-    <string name="delete" translatable="false">Törlés</string>
     <string name="subtitle" translatable="false">Ahol minden gyerek jól érzi magát</string>
     <string name="camp_card_description" translatable="false">Tábor kártya leírás</string>
     <string name="camp_image_description" translatable="false">Leírás a tábor képéról</string>
@@ -181,6 +173,78 @@
 
     <string name="gallery_item10_title" translatable="false">Zánkai élménytábor</string>
     <string name="gallery_item10_desc" translatable="false">Vidám és változatos programok Magyarország legnagyobb táborában, a Balaton partján – ahol az élmények születnek!</string>
-    <string name="gallery_item11_title">Hangulatos tábori este a tűz körül</string>
-    <string name="gallery_item11_desc">Hangulatos tábori este a tűz körül - a cserkésztáborban ezt is megtapasztalhatod a barátaiddal!</string>
+    <string name="gallery_item11_title" translatable="false">Hangulatos tábori este a tűz körül</string>
+    <string name="gallery_item11_desc" translatable="false">Hangulatos tábori este a tűz körül - a cserkésztáborban ezt is megtapasztalhatod a barátaiddal!</string>
+    <string name="app_logo" translatable="false">Alkalmazás logó</string>
+    <string name="select_account_type" translatable="false">Válassza ki a fiók típusát</string>
+    <string name="parent" translatable="false">Szülő</string>
+    <string name="child">Gyermek\n</string>
+    <string name="pedagogue">Pedagógus</string>
+    <string name="teacher" translatable="false">Tanár</string>
+    <string name="volunteer" translatable="false">Önkéntes</string>
+    <string name="admin" translatable="false">Adminisztrátor</string>
+    <string name="next" translatable="false">Tovább</string>
+    <string name="parent_icon" translatable="false">Szülő ikon</string>
+    <string name="teacher_icon" translatable="false">Pedagógus ikon</string>
+    <string name="volunteer_icon" translatable="false">Önkéntes ikon</string>
+    <string name="admin_icon" translatable="false">Adminisztrátor ikon</string>
+
+    <!-- User Registration -->
+    <string name="register" translatable="false">Regisztráció</string>
+    <string name="login" translatable="false">Bejelentkezés</string>
+    <string name="email" translatable="false">E-mail cím</string>
+    <string name="password" translatable="false">Jelszó</string>
+    <string name="confirm_password" translatable="false">Jelszó megerősítése</string>
+    <string name="full_name" translatable="false">Teljes név</string>
+    <string name="phone" translatable="false">Telefonszám</string>
+
+    <!-- Camp Types -->
+    <string name="scout_camp" translatable="false">Cserkésztábor</string>
+    <string name="hiking_camp" translatable="false">Erdei vándortábor</string>
+    <string name="sailing_camp" translatable="false">Vitorlástábor</string>
+    <string name="dance_camp" translatable="false">Tánctábor</string>
+    <string name="drama_camp" translatable="false">Színjátszótábor</string>
+    <string name="religion_camp" translatable="false">Hittantábor</string>
+    <string name="programming_camp" translatable="false">Programozó tábor</string>
+    <string name="math_camp" translatable="false">Matek tábor</string>
+    <string name="robotics_camp" translatable="false">Robotika tábor</string>
+    <string name="erzsebet_camp" translatable="false">Erzsébet-tábor</string>
+
+    <!-- Roles -->
+    <string name="commander" translatable="false">Parancsnok</string>
+    <string name="sub_camp_leader" translatable="false">Altáborvezető</string>
+    <string name="patrol_leader" translatable="false">Őrsvezető</string>
+    <string name="child_care" translatable="false">Gyerekvigyázó</string>
+    <string name="camp_animator" translatable="false">Tábori animátor</string>
+    <string name="program_coordinator" translatable="false">Program-lebonyolító</string>
+    <string name="kitchen_assistant" translatable="false">Konyhai kisegítő</string>
+    <string name="logistics_assistant" translatable="false">Logisztikai segítő</string>
+
+    <!-- General -->
+    <string name="save" translatable="false">Mentés</string>
+    <string name="cancel" translatable="false">Mégse</string>
+    <string name="edit" translatable="false">Szerkesztés</string>
+    <string name="delete" translatable="false">Törlés</string>
+    <string name="add" translatable="false">Hozzáadás</string>
+    <string name="children" translatable="false">Gyerekek</string>
+    <string name="camps" translatable="false">Táborok</string>
+    <string name="profile" translatable="false">Profil</string>
+    <string name="help" translatable="false">Segítség</string>
+
+    <!-- Parent Dashboard -->
+    <string name="parent_dashboard" translatable="false">Szülői irányítópult</string>
+    <string name="welcome_parent" translatable="false">Üdvözöljük a Tábor Foglalás alkalmazásban!</string>
+    <string name="dashboard_description" translatable="false">Itt kezelheti gyermeke tábori foglalásait, valamint böngészheti az elérhető táborokat.</string>
+    <string name="quick_actions" translatable="false">Gyors műveletek</string>
+    <string name="find_camps" translatable="false">Táborok keresése</string>
+    <string name="my_children" translatable="false">Gyermekeim</string>
+    <string name="current_registrations" translatable="false">Foglalásaim</string>
+    <string name="popular_camps" translatable="false">Népszerű táborok</string>
+    <string name="upcoming_camps" translatable="false">Közelgő táborok</string>
+    <string name="home" translatable="false">Főoldal</string>
+    <string name="camp_image" translatable="false">Tábor képe</string>
+    <string name="date_icon" translatable="false">Dátum ikon</string>
+    <string name="location_icon" translatable="false">Helyszín ikon</string>
+    <string name="camp_type_icon" translatable="false">Tábor típus ikon</string>
+    <string name="more_info" translatable="false">További információ</string>
 </resources>

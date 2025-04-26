@@ -6,19 +6,19 @@ import java.util.List;
 public class Reservation {
     private String reservationId;
     private Camp camp;
-    private User applicant;
+    private Parent applicant;
     private Date reservationDate;
     private Application.PaymentStatus paymentStatus;
     private double amountToPay;
-    private List<User.Child> children;
-    private User.TeacherGroup teacherGroup;
+    private List<Parent.Child> children;
+    private Parent.TeacherGroup teacherGroup;
     private String note;
     private List<Document> attachedDocuments;
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Reservation() {
     }
 
-    public Reservation(String reservationId, Camp camp, User applicant) {
+    public Reservation(String reservationId, Camp camp, Parent applicant) {
         this.reservationId = reservationId;
         this.camp = camp;
         this.applicant = applicant;
@@ -40,11 +40,11 @@ public class Reservation {
         this.camp = camp;
     }
 
-    public User getApplicant() {
+    public Parent getApplicant() {
         return applicant;
     }
 
-    public void setApplicant(User applicant) {
+    public void setApplicant(Parent applicant) {
         this.applicant = applicant;
     }
 
@@ -72,19 +72,19 @@ public class Reservation {
         this.amountToPay = amountToPay;
     }
 
-    public List<User.Child> getChildren() {
+    public List<Parent.Child> getChildren() {
         return children;
     }
 
-    public void setChildren(List<User.Child> children) {
+    public void setChildren(List<Parent.Child> children) {
         this.children = children;
     }
 
-    public User.TeacherGroup getTeacherGroup() {
+    public Parent.TeacherGroup getTeacherGroup() {
         return teacherGroup;
     }
 
-    public void setTeacherGroup(User.TeacherGroup teacherGroup) {
+    public void setTeacherGroup(Parent.TeacherGroup teacherGroup) {
         this.teacherGroup = teacherGroup;
     }
 

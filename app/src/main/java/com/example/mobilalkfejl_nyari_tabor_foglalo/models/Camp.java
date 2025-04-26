@@ -32,6 +32,7 @@ public class Camp {
     private List<String> csoportok;
     private Integer kiserokSzama;
     private int starredCount;
+    private int currentParticipants = 0;
 
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Camp() {
@@ -45,7 +46,7 @@ public class Camp {
         this.location = contactInfo;
     }
 
-    // Easy konstruktor
+    // Könnyű konstruktor
     public Camp(String name, Date startDate, Date endDate, String description,
                String location, int price) {
         this.id = generateId();
@@ -94,7 +95,6 @@ public class Camp {
         return ++idCounter;
     }
 
-    // Getterek és setterek
     public int getId() { return id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -169,6 +169,23 @@ public class Camp {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void addParticipants(int newJoiningParticipants) {
+        this.currentParticipants += newJoiningParticipants;
+
+    }
+
+    public int getCurrentParticipants() {
+        return currentParticipants;
+    }
+
+    public void setCurrentParticipants(int currentParticipants) {
+        this.currentParticipants = Math.max(0, currentParticipants);
+    }
+
+    public void setType(String campType) {
+        this.campType = CampType.valueOf(campType);
     }
 
 

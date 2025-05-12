@@ -22,4 +22,24 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
+
+    <!-- I want to make sure that all of my layouts are available from the main layout.-->
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        <ol>
+
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\activity_browse_camps.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\activity_list_camps.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\activity_login.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\activity_parent_dashboard.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\activity_register.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\custom_menu_layout.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\item_camp_card.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\item_gallery.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\item_upcoming_camp.xml">Táborok böngészése</a></li>
+    <li><a href="C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo\app\src\main\res\layout\list_camp.xml">Táborok böngészése</a></li>
+        </ol>
+
+        />
 </androidx.drawerlayout.widget.DrawerLayout>

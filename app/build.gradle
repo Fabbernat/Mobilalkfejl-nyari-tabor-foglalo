@@ -8,12 +8,11 @@ android {
 
     defaultConfig {
         applicationId "com.example.mobilalkfejl_nyari_tabor_foglalo"
-        minSdk 16
-        targetSdk 35
+        minSdkVersion 21
+        targetSdkVersion 35
+        compileSdkVersion 33
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {

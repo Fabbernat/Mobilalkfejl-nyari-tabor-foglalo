@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="parentRadioButton" type="id">Szulo</item>
+    <item name="childRadioButton" type="id">Gyerek</item>
+    <item name="pedagogueRadioButton" type="id">Pedagogus</item>
+    <item name="campAnimatorRadioButton" type="id">Camp Animator</item>
+    <item name="AdminRadioButton" type="id">Admin</item>
+    <item name="itemImage" type="id">Tábor kép</item>
+    <item name="camp_title" type="id">Tábor neve</item>
+    <item name="camp_info" type="id">Tábor leírása</item>
+    <item name="camp_price" type="id">Tábor ára</item>
+    <item name="camp_image" type="id">Kép a táborról</item>
+    <item name="camp_rating" type="id">Tábor értékelése(i)</item>
+    <item name="add_to_starred" type="id">Megcsillagozás</item>
+    <item name="recyclerView" type="id">MyRecyClerView</item>
+    <item name="nav_home" type="id">Főoldali navigáció</item>
+    <item name="nav_camps" type="id">Táborok navigáció</item>
+</resources>

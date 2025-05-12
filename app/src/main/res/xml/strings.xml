@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Nyári Tábor Foglaló</string>
+    <string name="browse_camps">Táborok böngészése</string>
+    <string name="list_camps">Tábor lista</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="parent_dashboard">Szülői vezérlőpult</string>
+    <string name="register">Regisztráció</string>
+    <string name="custom_menu">Menü nézet</string>
+    <string name="camp_card">Tábor kártya</string>
+    <string name="gallery">Galéria</string>
+    <string name="upcoming_camp">Közelgő tábor</string>
+    <string name="simple_list_camp">Tábor lista (egyszerű)</string>
+    <string name="fallback">Tartalék</string>
+</resources>

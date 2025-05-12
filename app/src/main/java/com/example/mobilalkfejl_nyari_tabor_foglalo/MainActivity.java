@@ -1,5 +1,6 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(binding.getRoot()); // Alternatively could be `setContentView(R.layout.activity_main);`, but this is safer
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
@@ -62,5 +63,49 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void openBrowseCamps(View view) {
+        startActivity(new Intent(this, BrowseCampsActivity.class));
+    }
+
+    public void openListCamps(View view) {
+        startActivity(new Intent(this, ListCampsActivity.class));
+    }
+
+    public void openLogin(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    public void openParentDashboard(View view) {
+        startActivity(new Intent(this, ParentDashboardActivity.class));
+    }
+
+    public void openRegister(View view) {
+        startActivity(new Intent(this, RegisterActivity.class));
+    }
+
+    public void openCustomMenu(View view) {
+        startActivity(new Intent(this, CustomMenuActivity.class));
+    }
+
+    public void openCampCard(View view) {
+        startActivity(new Intent(this, CampCardActivity.class));
+    }
+
+    public void openGallery(View view) {
+        startActivity(new Intent(this, GalleryActivity.class));
+    }
+
+    public void openUpcomingCamp(View view) {
+        startActivity(new Intent(this, UpcomingCampActivity.class));
+    }
+
+    public void openSimpleListCamp(View view) {
+        startActivity(new Intent(this, SimpleListCampActivity.class));
+    }
+
+    public void openFallback(View view) {
+        startActivity(new Intent(this, FallbackActivity.class));
     }
 }

@@ -5,6 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.CampCardActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.CustomMenuActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.FallbackActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.GalleryActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.ListCampsActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.LoginActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboardActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.RegisterActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.SimpleListCampActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.UpcomingCampActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 

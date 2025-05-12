@@ -76,6 +76,12 @@
         animátor', PROGRAM_COORDINATOR = 'Program-lebonyolító', KITCHEN_ASSISTANT = 'Konyhai
         kisegítő', LOGISTICS_MANAGER = 'Tábori logisztikus'
     </string-array>
+    <string-array name="phone_modes">
+        <item>Mobil</item>
+        <item>Vezetékes</item>
+        <item>Otthoni</item>
+        <item>Munkahelyi</item>
+    </string-array>
 
     <!--  Gallery items  -->
     <string name="gallery_item1_title" translatable="false">Cserkésztábor</string>
@@ -170,4 +176,5 @@
     <string name="location_icon" translatable="false">Helyszín ikon</string>
     <string name="camp_type_icon" translatable="false">Tábor típus ikon</string>
     <string name="more_info" translatable="false">További információ</string>
+    <string name="gallery_title">Tábori Galéria</string>
 </resources>

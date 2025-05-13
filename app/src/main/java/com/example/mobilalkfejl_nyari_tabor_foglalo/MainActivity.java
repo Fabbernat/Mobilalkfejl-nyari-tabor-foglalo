@@ -1,9 +1,13 @@
 package com.example.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.CampCardActivity;
@@ -16,9 +20,13 @@ import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboardAc
 import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.RegisterActivity;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.SimpleListCampActivity;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.UpcomingCampActivity;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.CampAsyncTask;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,8 +35,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilalkfejl_nyari_tabor_foglalo.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = MainActivity.class.getName();
+    private static final String PREF_KEY = MainActivity.class.getPackage().toString();
+    private static final int SECRET_KEY = 99;
+    private static final int RC_SIGN_IN = 123;
+
+    EditText userNameET;
+    EditText passwordET;
+
+    private SharedPreferences preferences;
+
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -36,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot()); // Alternatively could be `setContentView(R.layout.activity_main);`, but this is safer
 
@@ -44,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
+                Snackbar.make(view, "Táborok böngészése", Snackbar.LENGTH_LONG)
+                        .setAction("BrowseCamps", null)
                         .setAnchorView(R.id.fab).show();
             }
         });
@@ -60,6 +82,32 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Button galleryButton = findViewById(R.id.galleryButton);
+        galleryButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+            startActivity(intent);
+        });
+
+        userNameET = findViewById(R.id.editTextUserName);
+        passwordET = findViewById(R.id.editTextPassword);
+
+        preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        Button button = findViewById(R.id.loginAsGuestButton);
+        new CampAsyncTask(button).execute();
+
+        getSupportLoaderManager().restartLoader(0, null, this);
+        Log.i(LOG_TAG, "onCreate");
     }
 
     @Override

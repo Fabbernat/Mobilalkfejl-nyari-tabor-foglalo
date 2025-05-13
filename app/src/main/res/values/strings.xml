@@ -76,6 +76,7 @@
         animátor', PROGRAM_COORDINATOR = 'Program-lebonyolító', KITCHEN_ASSISTANT = 'Konyhai
         kisegítő', LOGISTICS_MANAGER = 'Tábori logisztikus'
     </string-array>
+
     <string-array name="phone_modes">
         <item>Mobil</item>
         <item>Vezetékes</item>
@@ -160,6 +161,67 @@
     <string name="profile" translatable="false">Profil</string>
     <string name="help" translatable="false">Segítség</string>
 
+    <string name="gallery_title">Tábori Galéria</string>
+    <string name="gallery_image_desc">Tábor képe</string>
+    <string name="greeting">Üdvözlünk a Nyári Tábor Foglaló alkalmazásban!</string>
+    <string name="username">Felhasználónév</string>
+    <string name="logout">Kijelentkezés</string>
+    <string name="registration">Regisztráció</string>
+    <string name="submit">Küldés</string>
+    <string name="usernameHint">Felhasználónév</string>
+    <string name="passwordHint">Jelszó</string>
+    <string name="LoginHint">Bejelentkezés</string>
+
+
+    <string name="error_empty_fields">Minden mező kitöltése kötelező!</string>
+    <string name="error_invalid_username">Érvénytelen felhasználónév!</string>
+    <string name="error_invalid_password">Érvénytelen jelszó!</string>
+    <string name="error_registration_failed">Regisztráció sikertelen!</string>
+    <string name="error_login_failed">Bejelentkezés sikertelen!</string>
+    <string name="error_logout_failed">Kijelentkezés sikertelen!</string>
+    <string name="error_reservation_failed">Foglalás sikertelen!</string>
+
+
+    <string name="error_reservation_already_exists">Már létezik ilyen foglalás!</string>
+    <string name="error_reservation_not_found">Nincs ilyen foglalás!</string>
+    <string name="error_reservation_canceled">Foglalás sikeresen törölve!</string>
+    <string name="error_reservation_not_canceled">Foglalás sikertelen törlés!</string>
+    <string name="error_reservation_updated">Foglalás sikeresen frissítve!</string>
+    <string name="error_reservation_not_updated">Foglalás sikertelen frissítés!</string>
+
+    <string name="reservation_id">Foglalás azonosítója</string>
+    <string name="reservation_date">Foglalás dátuma</string>
+    <string name="reservation_time">Foglalás ideje</string>
+    <string name="reservation_name">Foglalás neve</string>
+    <string name="reservation_email">Foglalás e-mail címe</string>
+    <string name="reservation_phone">Foglalás telefonszáma</string>
+    <string name="reservation_people">Foglalás személyek száma</string>
+    <string name="reservation_message">Foglalás üzenet</string>
+    <string name="reservation_delete">Törlés</string>
+    <string name="reservation_update">Frissítés</string>
+    <string name="reservation_cancel">Törlés</string>
+    <string name="reservation_confirm">Megerősítés</string>
+    <string name="reservation_reject">Elutasítás</string>
+    <string name="emailHint">E-mail cím\n</string>
+    <string name="address">Postai cím\n</string>
+
+    <string name="camp_description">Tábor leírása</string>
+    <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
+    <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
+    <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
+    <string name="default_web_client_id">1900085</string>
+    <string name="item_placeholder" translatable="false">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
+    <string name="search" translatable="false">Keresés</string>
+    <string name="settings" translatable="false">Beállítások</string>
+    <string name="number_of_starred_items" translatable="false">3</string>
+    <string name="image_of_camp" translatable="false">Kép a táborról</string>
+    <string name="add_to_starred" translatable="false">Csillagozottakhoz adás</string>
+    <string name="subtitle" translatable="false">Ahol minden gyerek jól érzi magát</string>
+    <string name="camp_card_description" translatable="false">Tábor kártya leírás</string>
+    <string name="camp_image_description" translatable="false">Leírás a tábor képéról</string>
+    <string name="information_about_camp" translatable="false">Információk a táborról...</string>
+    <string name="picture_description" translatable="false">Leírás a képről</string>
+
     <!--  Parent Dashboard  -->
     <string name="parent_dashboard" translatable="false">Szülői irányítópult</string>
     <string name="welcome_parent" translatable="false">Üdvözöljük a Tábor Foglalás alkalmazásban!</string>
@@ -176,5 +238,6 @@
     <string name="location_icon" translatable="false">Helyszín ikon</string>
     <string name="camp_type_icon" translatable="false">Tábor típus ikon</string>
     <string name="more_info" translatable="false">További információ</string>
-    <string name="gallery_title">Tábori Galéria</string>
+
+
 </resources>

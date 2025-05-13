@@ -2,24 +2,50 @@ package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.mobilalkfejl_nyari_tabor_foglalo.MainActivity;
 import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
+import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.*;
+import com.google.android.gms.common.api.ApiException;
+import com.google.firebase.auth.*;
 
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final int RC_SIGN_IN = 9001;
+    private static final String TAG = "LoginActivity";
+
     private CardView cardParent, cardTeacher, cardStaff, cardAdmin;
     private Button btnLogin;
     private String selectedUserType = "";
+
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        // Google Sign-In config
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))  // ezt tedd bele strings.xml-be
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         // Initialize views
         cardParent = findViewById(R.id.cardParent);
@@ -40,6 +66,41 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void signInWithGoogle() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                Log.w(TAG, "Google sign-in failed", e);
+                Toast.makeText(this, "Sikertelen bejelentkezés", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        navigateToRegistration(selectedUserType);
+                    } else {
+                        Log.w(TAG, "signInWithCredential:failure", task.getException());
+                        Toast.makeText(LoginActivity.this, "Firebase hitelesítés sikertelen.", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void setupCardClickListeners() {

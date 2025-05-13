@@ -1,5 +1,9 @@
 <resources>
 
+    <!-- Firebase Auth -->
+    <string name="default_web_client_id">105750869667-cshs5jp5g7rr73eb0ajdtdbt8a6p4ovj.apps.googleusercontent.com</string>
+
+
     <!-- Pre-defined values  -->
     <string name="app_name">Nyári Tábor Foglaló</string>
     <string name="navigation_drawer_open">Navigációs csúszka megnyitása</string>
@@ -209,7 +213,6 @@
     <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
     <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
     <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
-    <string name="default_web_client_id">1900085</string>
     <string name="item_placeholder" translatable="false">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
     <string name="search" translatable="false">Keresés</string>
     <string name="settings" translatable="false">Beállítások</string>

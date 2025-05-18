@@ -9,7 +9,16 @@ public abstract class User {
     private String password;
     private String userType;
 
-    // Constructor, getters, setters...
+    public User() {
+    }
+
+    public User(String name, String email, String phone, String password, String userType) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.userType = userType;
+    }
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }

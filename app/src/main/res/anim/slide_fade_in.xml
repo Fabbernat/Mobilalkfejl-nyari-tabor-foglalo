@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:fillAfter="true">
+
+    <!-- Elmozdulás balról jobbra: Az elem -50%-ról indul és az eredeti pozíciójába csúszik -->
+    <!-- Lassabb, simább mozgás 800ms helyett 1000ms alatt -->
+
+    <translate
+        android:fromXDelta="-50%"
+        android:toXDelta="0%"
+        android:duration="1000"
+    android:startOffset="100"/> <!-- Kis késleltetés a mozgás megkezdéséhez -->
+
+    <!-- Fade-in hatás: Az elem áttetszősége 0-ról (láthatatlan) 1-re (teljesen látható) nő -->
+    <!-- Az áttetszőség változása szinkronban a translate animációval -->
+
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:duration="1000"
+    android:startOffset="100"/> <!-- Az áttetszőség változása is késleltetve indul -->
+</set>

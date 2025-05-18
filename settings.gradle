@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Mobilalkfejl-nyari-tabor-foglalo"
 include ':app'
+include ':mobilalkfejl-nyari-tabor-foglalo'

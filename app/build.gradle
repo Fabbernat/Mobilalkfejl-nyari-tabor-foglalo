@@ -54,7 +54,9 @@ dependencies {
 
     implementation libs.play.services.auth // Ez is átkerült a top-level dependencies-ből
 
-    implementation libs.play.services.tasks // Valószínűleg 'com.google.android.gms:play-services-tasks:VERZIO'
+    implementation libs.play.services.tasks
+    implementation libs.androidx.navigation.ui
+// Valószínűleg 'com.google.android.gms:play-services-tasks:VERZIO'
 
     // Testing
     testImplementation libs.junit

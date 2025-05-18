@@ -1,5 +1,7 @@
 package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters;
 
+import static android.os.Build.VERSION_CODES.R;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +33,8 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
     private ArrayList<Camp> mCampsDataAll;
     private Context mContext;
     private int lastPosition = -1;
+    private boolean isFeatured;
+
     private Filter campFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
@@ -157,6 +161,29 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
     public void filterList(ArrayList<Camp> filteredList) {
         mCampsData = filteredList;
         notifyDataSetChanged();
+    }
+
+    public CampAdapter(boolean isFeatured) {
+        this.isFeatured = isFeatured;
+        this.mCampsData = new ArrayList<>();
+    }
+
+    public void setCamps(List<Camp> camps) {
+        this.mCampsData = camps;
+        notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public CampViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(isFeatured ? R.layout.item_featured_camp : R.layout.item_camp, parent, false);
+        return new CampViewHolder(view);
+    }
+
+    public void onBindViewHolder(@NonNull CampViewHolder holder, int position) {
+        Camp camp = mCampsData.get(position);
+        holder.bind(camp);
     }
 
 

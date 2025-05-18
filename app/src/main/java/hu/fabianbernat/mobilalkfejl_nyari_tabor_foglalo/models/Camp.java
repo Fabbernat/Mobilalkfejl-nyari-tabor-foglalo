@@ -33,6 +33,8 @@ public class Camp {
     private Integer kiserokSzama;
     private int starredCount;
     private int currentParticipants = 0;
+    private String organizer = "Fábián Bernát";
+    private String website = "fabbernat.github.io";
 
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Camp() {

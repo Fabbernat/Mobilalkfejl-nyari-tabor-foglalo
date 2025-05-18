@@ -36,4 +36,12 @@
     <color name="success">#4CAF50</color>
     <color name="warning">#FF9800</color>
     <color name="info">#2196F3</color>
+
+    <!-- magyar táboros téma -->
+    <color name="green_primary">#2E7D32</color>
+    <color name="green_dark">#1B5E20</color>
+    <color name="blue_secondary">#0288D1</color>
+    <color name="blue_dark">#01579B</color>
+    <color name="camp_yellow">#FFD600</color>
+    <color name="camp_red">#D32F2F</color>
 </resources>

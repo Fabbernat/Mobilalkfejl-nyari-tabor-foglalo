@@ -1,14 +1,42 @@
 package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.loader.content.Loader;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
+import java.util.Objects;
+
+import gen._base._base_java__assetres.srcjar.R;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.CampCardActivity;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.CustomMenuActivity;
@@ -20,26 +48,13 @@ import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboa
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.RegisterActivity;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.SimpleListCampActivity;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.UpcomingCampActivity;
-import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.CampAsyncTask;
-import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.activity.EdgeToEdge;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.databinding.ActivityMainBinding;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.Objects;
-
-import gen._base._base_java__assetres.srcjar.R;
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.CampAsyncTask;
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.CampRepository;
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+    private RecyclerView featuredCampsRecycler, allCampsRecycler;
+    private CampAdapter featuredAdapter, allCampsAdapter;
+    private CampRepository campRepository;
+    private ProgressBar progressBar;
+    private TextView promoText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +96,24 @@ public class MainActivity extends AppCompatActivity {
                         .setAnchorView(R.id.fab).show();
             }
         });
+
+        promoText = findViewById(R.id.promo_text);
+        promoText.setText(Html.fromHtml("Nyári táborok szervezője: <b>Fábián Bernát</b><br>Honlap: <b>fabbernat.github.io</b>"));
+
+        // Initialize UI
+        progressBar = findViewById(R.id.progress_bar);
+        featuredCampsRecycler = findViewById(R.id.featured_camps_recycler);
+        allCampsRecycler = findViewById(R.id.all_camps_recycler);
+
+        // Set up RecyclerViews
+        setupRecyclerViews();
+
+        // Initialize repository
+        campRepository = new CampRepository();
+
+        // Load data
+        loadFeaturedCamps();
+        loadAllCamps();
 
         // Galéri megjelenítése
         Button galleryButton = findViewById(R.id.galleryButton);
@@ -124,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -138,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
 
 
     public void openBrowseCamps(View view) {
@@ -189,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == RC_SIGN_IN) {
+        if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
             try {
@@ -223,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
         // Log.i(LOG_TAG, "Bejelentkezett: " + userName + ", jelszó: " + password);
 
         mAuth.signInWithEmailAndPassword(userName, password).addOnCompleteListener(this, task -> {
-            if(task.isSuccessful()){
+            if (task.isSuccessful()) {
                 Log.d(LOG_TAG, "User loged in successfully");
                 startShopping();
             } else {
@@ -245,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginAsGuest(View view) {
         mAuth.signInAnonymously().addOnCompleteListener(this, task -> {
-            if(task.isSuccessful()){
+            if (task.isSuccessful()) {
                 Log.d(LOG_TAG, "Anonym user loged in successfully");
                 startShopping();
             } else {
@@ -316,39 +353,57 @@ public class MainActivity extends AppCompatActivity {
         anonym.setText(data);
     }
 
-    @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
     }
+
+    private void setupRecyclerViews() {
+        // Featured camps - horizontal scrolling
+        featuredAdapter = new CampAdapter(true);
+        featuredCampsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        featuredCampsRecycler.setAdapter(featuredAdapter);
+        featuredCampsRecycler.addItemDecoration(new ItemOffsetDecoration(16));
+
+        // All camps - vertical scrolling
+        allCampsAdapter = new CampAdapter(false);
+        allCampsRecycler.setLayoutManager(new LinearLayoutManager(this));
+        allCampsRecycler.setAdapter(allCampsAdapter);
+        allCampsRecycler.addItemDecoration(new ItemOffsetDecoration(16));
+    }
+
+    private void loadFeaturedCamps() {
+        progressBar.setVisibility(View.VISIBLE);
+
+        // Using our complex query with pagination
+        campRepository.getFeaturedCampsPaginated(5, 0)
+                .addOnCompleteListener(task -> {
+                    progressBar.setVisibility(View.GONE);
+                    if (task.isSuccessful()) {
+                        List<Camp> camps = task.getResult().toObjects(Camp.class);
+                        featuredAdapter.setCamps(camps);
+                    } else {
+                        Toast.makeText(this, "Hiba a kiemelt táborok betöltésekor", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void loadAllCamps() {
+        // Using another complex query
+        campRepository.getCampsWithActivity("úszás", new Date())
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<Camp> camps = task.getResult().toObjects(Camp.class);
+                        allCampsAdapter.setCamps(camps);
+                    } else {
+                        Toast.makeText(this, "Hiba a táborok betöltésekor", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void openFabianWebsite(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://fabbernat.github.io"));
+        startActivity(browserIntent);
+    }
 }
 
-/*
-nav_view.setNavigationItemSelectedListener { menuItem ->
-    when (menuItem.itemId) {
-        R.id.nav_home -> {
-            // Kezdőlap megnyitása
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.content_main, HomeFragment())
-                .commit()
-        }
-        R.id.nav_gallery -> {
-            // Galéria megnyitása
-            startActivity(Intent(this, GalleryActivity::class.java))
-        }
-        R.id.nav_browse_camps -> {
-            // Táborok böngészése
-            startActivity(Intent(this, BrowseCampsActivity::class.java))
-        }
-        R.id.nav_list_camps -> {
-            // Táborok listája
-            startActivity(Intent(this, ListCampsActivity::class.java))
-        }
-        R.id.nav_parent_dashboard -> {
-            // Szülői irányítópult
-            startActivity(Intent(this, ParentDashboardActivity::class.java))
-        }
-    }
-    drawer_layout.closeDrawer(GravityCompat.START)
-    true
-}
- */

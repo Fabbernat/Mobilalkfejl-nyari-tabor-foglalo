@@ -47,3 +47,4 @@ dependencies {
         roomVersion = '2.5.2'
         archLifecycleVersion = '2.6.1'
     }
+}

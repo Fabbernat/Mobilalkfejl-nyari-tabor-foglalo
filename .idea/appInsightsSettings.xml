@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo" />
+                  <option name="appId" value="hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo" />
                   <option name="mobileSdkAppId" value="1:105750869667:android:c4f967722ae16acb6b7116" />
                   <option name="projectId" value="nyari-tabor-foglalo" />
                   <option name="projectNumber" value="105750869667" />

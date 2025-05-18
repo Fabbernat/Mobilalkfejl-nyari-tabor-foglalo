@@ -46,13 +46,13 @@ dependencies {
     implementation libs.androidx.navigation.ui // Ez a libs.navigation.ui duplikációja lehet, ellenőrizd a libs.versions.toml-t
 
     // FireBase
-    implementation platform('com.google.firebase:firebase-bom:33.1.0') // Firebase BOM hozzáadása ajánlott
+    implementation platform(libs.firebase.bom) // Firebase BOM hozzáadása ajánlott
     implementation libs.firebase.firestore
     implementation libs.firebase.auth // Ez átkerült a top-level dependencies-ből
-    implementation 'com.google.firebase:firebase-analytics' // Használd ezt, ha a libs.google.firebase.analytics nem működik, vagy definiáld a libs-ben
+    implementation libs.com.google.firebase.firebase.analytics // Használd ezt, ha a libs.google.firebase.analytics nem működik, vagy definiáld a libs-ben
     // implementation libs.google.firebase.analytics
 
-    implementation 'com.google.android.gms:play-services-auth:21.0.0' // Ez is átkerült a top-level dependencies-ből
+    implementation libs.play.services.auth // Ez is átkerült a top-level dependencies-ből
 
     implementation libs.play.services.tasks // Valószínűleg 'com.google.android.gms:play-services-tasks:VERZIO'
 

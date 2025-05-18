@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 35
         compileSdkVersion 33
         versionCode 1

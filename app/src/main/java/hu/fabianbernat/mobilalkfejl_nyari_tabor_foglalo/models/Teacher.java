@@ -7,11 +7,21 @@ public class Teacher extends User {
     private String schoolName;
     private String position;
 
-    public String getSchoolName() { return schoolName; }
-    public void setSchoolName(String schoolName) { this.schoolName = schoolName; }
+    public String getSchoolName() {
+        return schoolName;
+    }
 
-    public String getPosition() { return position; }
-    public void setPosition(String position) { this.position = position; }
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public void registerSchoolGroup(Camp camp, int childrenCount, int supervisorCount) {
         if (camp == null) {

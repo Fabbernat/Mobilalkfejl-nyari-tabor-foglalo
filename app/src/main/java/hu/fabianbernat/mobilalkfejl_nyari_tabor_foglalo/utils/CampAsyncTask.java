@@ -6,12 +6,14 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 import java.util.Random;
 
-public class CampAsyncTask extends AsyncTask<Void, Void, String>{
+public class CampAsyncTask extends AsyncTask<Void, Void, String> {
 
     private TextView mTextView;
+
     public CampAsyncTask(TextView textView) {
         mTextView = new WeakReference<>(textView).get();
     }
+
     /**
      * Override this method to perform a computation on a background thread. The
      * specified parameters are the parameters passed to {@link #execute}
@@ -36,9 +38,9 @@ public class CampAsyncTask extends AsyncTask<Void, Void, String>{
         int howLong = randy.nextInt(11);
         int ms = howLong * 1000;
 
-        try{
+        try {
             Thread.sleep(ms);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 

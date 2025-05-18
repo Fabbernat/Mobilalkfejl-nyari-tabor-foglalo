@@ -43,13 +43,15 @@ dependencies {
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
     implementation libs.navigation.runtime.android // Lehet, hogy ez libs.androidx.navigation.runtime
-    implementation libs.androidx.navigation.ui // Ez a libs.navigation.ui duplikációja lehet, ellenőrizd a libs.versions.toml-t
+    implementation libs.androidx.navigation.ui
+    // Ez a libs.navigation.ui duplikációja lehet, ellenőrizd a libs.versions.toml-t
 
     // FireBase
     implementation platform(libs.firebase.bom) // Firebase BOM hozzáadása ajánlott
     implementation libs.firebase.firestore
     implementation libs.firebase.auth // Ez átkerült a top-level dependencies-ből
-    implementation libs.com.google.firebase.firebase.analytics // Használd ezt, ha a libs.google.firebase.analytics nem működik, vagy definiáld a libs-ben
+    implementation libs.com.google.firebase.firebase.analytics
+    // Használd ezt, ha a libs.google.firebase.analytics nem működik, vagy definiáld a libs-ben
     // implementation libs.google.firebase.analytics
 
     implementation libs.play.services.auth // Ez is átkerült a top-level dependencies-ből

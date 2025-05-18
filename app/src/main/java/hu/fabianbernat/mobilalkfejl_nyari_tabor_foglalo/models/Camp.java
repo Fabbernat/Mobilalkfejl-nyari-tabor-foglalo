@@ -50,7 +50,7 @@ public class Camp {
 
     // Könnyű konstruktor
     public Camp(String name, Date startDate, Date endDate, String description,
-               String location, int price) {
+                String location, int price) {
         this.id = generateId();
         this.name = name;
         this.startDate = startDate;
@@ -97,69 +97,177 @@ public class Camp {
         return ++idCounter;
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public int getId() {
+        return id;
+    }
 
-    public CampType getCampType() { return campType; }
-    public void setCampType(CampType campType) { this.campType = campType; }
+    public String getName() {
+        return name;
+    }
 
-    public CampFormat getCampFormat() { return campFormat; }
-    public void setCampFormat(CampFormat campFormat) { this.campFormat = campFormat; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getLocation() { return location; }
-    public void setLocation(String location) { this.location = location; }
+    public CampType getCampType() {
+        return campType;
+    }
 
-    public Date getStartDate() { return startDate; }
-    public void setStartDate(Date startDate) { this.startDate = startDate; }
+    public void setCampType(CampType campType) {
+        this.campType = campType;
+    }
 
-    public Date getEndDate() { return endDate; }
-    public void setEndDate(Date endDate) { this.endDate = endDate; }
+    public CampFormat getCampFormat() {
+        return campFormat;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setCampFormat(CampFormat campFormat) {
+        this.campFormat = campFormat;
+    }
 
-    public int getPrice() { return price; }
-    public void setPrice(int price) { this.price = price; }
+    public String getLocation() {
+        return location;
+    }
 
-    public int getCapacity() { return capacity; }
-    public void setCapacity(int capacity) { this.capacity = capacity; }
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
-    public int getRegisteredParticipants() { return registeredParticipants; }
-    public void setRegisteredParticipants(int registeredParticipants) { this.registeredParticipants = registeredParticipants; }
+    public Date getStartDate() {
+        return startDate;
+    }
 
-    public int getMinAge() { return minAge; }
-    public void setMinAge(int minAge) { this.minAge = minAge; }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
-    public int getMaxAge() { return maxAge; }
-    public void setMaxAge(int maxAge) { this.maxAge = maxAge; }
+    public Date getEndDate() {
+        return endDate;
+    }
 
-    public String getOrganizerId() { return organizerId; }
-    public void setOrganizerId(String organizerId) { this.organizerId = organizerId; }
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 
-    public List<DailyProgram> getDailyProgram() { return dailyProgram; }
-    public void setDailyProgram(List<DailyProgram> dailyProgram) { this.dailyProgram = dailyProgram; }
+    public String getDescription() {
+        return description;
+    }
 
-    public Coordinates getKoordinatak() { return koordinatak; }
-    public void setKoordinatak(Coordinates koordinatak) { this.koordinatak = koordinatak; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public List<String> getImageUrls() { return imageUrls; }
-    public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
+    public int getPrice() {
+        return price;
+    }
 
-    public List<DailyHeadCount> getNapokLebontasa() { return napokLebontasa; }
-    public void setNapokLebontasa(List<DailyHeadCount> napokLebontasa) { this.napokLebontasa = napokLebontasa; }
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-    public Date getJelentkezesiHatarido() { return jelentkezesiHatarido; }
-    public void setJelentkezesiHatarido(Date jelentkezesiHatarido) { this.jelentkezesiHatarido = jelentkezesiHatarido; }
+    public int getCapacity() {
+        return capacity;
+    }
 
-    public List<String> getSzuksegesEszkozok() { return szuksegesEszkozok; }
-    public void setSzuksegesEszkozok(List<String> szuksegesEszkozok) { this.szuksegesEszkozok = szuksegesEszkozok; }
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 
-    public List<String> getCsoportok() { return csoportok; }
-    public void setCsoportok(List<String> csoportok) { this.csoportok = csoportok; }
+    public int getRegisteredParticipants() {
+        return registeredParticipants;
+    }
 
-    public Integer getKiserokSzama() { return kiserokSzama; }
-    public void setKiserokSzama(Integer kiserokSzama) { this.kiserokSzama = kiserokSzama; }
+    public void setRegisteredParticipants(int registeredParticipants) {
+        this.registeredParticipants = registeredParticipants;
+    }
+
+    public int getMinAge() {
+        return minAge;
+    }
+
+    public void setMinAge(int minAge) {
+        this.minAge = minAge;
+    }
+
+    public int getMaxAge() {
+        return maxAge;
+    }
+
+    public void setMaxAge(int maxAge) {
+        this.maxAge = maxAge;
+    }
+
+    public String getOrganizerId() {
+        return organizerId;
+    }
+
+    public void setOrganizerId(String organizerId) {
+        this.organizerId = organizerId;
+    }
+
+    public List<DailyProgram> getDailyProgram() {
+        return dailyProgram;
+    }
+
+    public void setDailyProgram(List<DailyProgram> dailyProgram) {
+        this.dailyProgram = dailyProgram;
+    }
+
+    public Coordinates getKoordinatak() {
+        return koordinatak;
+    }
+
+    public void setKoordinatak(Coordinates koordinatak) {
+        this.koordinatak = koordinatak;
+    }
+
+    public List<String> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public List<DailyHeadCount> getNapokLebontasa() {
+        return napokLebontasa;
+    }
+
+    public void setNapokLebontasa(List<DailyHeadCount> napokLebontasa) {
+        this.napokLebontasa = napokLebontasa;
+    }
+
+    public Date getJelentkezesiHatarido() {
+        return jelentkezesiHatarido;
+    }
+
+    public void setJelentkezesiHatarido(Date jelentkezesiHatarido) {
+        this.jelentkezesiHatarido = jelentkezesiHatarido;
+    }
+
+    public List<String> getSzuksegesEszkozok() {
+        return szuksegesEszkozok;
+    }
+
+    public void setSzuksegesEszkozok(List<String> szuksegesEszkozok) {
+        this.szuksegesEszkozok = szuksegesEszkozok;
+    }
+
+    public List<String> getCsoportok() {
+        return csoportok;
+    }
+
+    public void setCsoportok(List<String> csoportok) {
+        this.csoportok = csoportok;
+    }
+
+    public Integer getKiserokSzama() {
+        return kiserokSzama;
+    }
+
+    public void setKiserokSzama(Integer kiserokSzama) {
+        this.kiserokSzama = kiserokSzama;
+    }
 
     public int getStarredCount() {
         return starredCount;

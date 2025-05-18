@@ -5,9 +5,9 @@
     <item>
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="#81D4FA"
-            android:endColor="#4FC3F7"
-            android:angle="270" />
+                    android:startColor="#81D4FA"
+                    android:endColor="#4FC3F7"
+                    android:angle="270"/>
         </shape>
     </item>
 
@@ -15,9 +15,9 @@
     <item android:top="300dp">
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="#AED581"
-            android:endColor="#7CB342"
-            android:angle="270" />
+                    android:startColor="#AED581"
+                    android:endColor="#7CB342"
+                    android:angle="270"/>
         </shape>
     </item>
 
@@ -32,12 +32,12 @@
     <item android:top="32dp" android:left="32dp">
         <shape android:shape="oval">
             <size
-                android:width="100dp"
-                android:height="100dp"/>
+                    android:width="100dp"
+                    android:height="100dp"/>
             <solid android:color="#FFF176"/> <!-- Sunny yellow -->
             <stroke
-                android:width="2dp"
-                android:color="#FDD835"/> <!-- Slight darker ring -->
+                    android:width="2dp"
+                    android:color="#FDD835"/> <!-- Slight darker ring -->
         </shape>
     </item>
 

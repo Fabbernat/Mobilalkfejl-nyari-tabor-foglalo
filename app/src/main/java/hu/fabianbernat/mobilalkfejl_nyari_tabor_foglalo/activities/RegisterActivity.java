@@ -133,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements android.widge
         finish();
     }
 
-    private void startBrowsingCamps(/* Regsiztralt user adatai*/){
+    private void startBrowsingCamps(/* Regsiztralt user adatai*/) {
         Intent intent = new Intent(this, BrowseCampsActivity.class);
         intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);

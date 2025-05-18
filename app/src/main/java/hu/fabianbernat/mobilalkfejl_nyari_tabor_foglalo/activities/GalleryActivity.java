@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
 import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.GalleryAdapter;
 import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.GalleryItem;
+
 import java.util.ArrayList;
 import java.util.List;
 

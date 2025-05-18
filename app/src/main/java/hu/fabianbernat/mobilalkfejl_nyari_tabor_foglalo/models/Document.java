@@ -1,6 +1,7 @@
 package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models;
 
 import androidx.annotation.NonNull;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -40,29 +41,69 @@ public class Document implements Cloneable {
 
 
     // Getterek és setterek
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getNev() { return nev; }
-    public void setNev(String nev) { this.nev = nev; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public DocumentType getTipus() { return tipus; }
-    public void setTipus(DocumentType tipus) { this.tipus = tipus; }
+    public String getNev() {
+        return nev;
+    }
 
-    public String getUrl() { return url; }
-    public void setUrl(String url) { this.url = url; }
+    public void setNev(String nev) {
+        this.nev = nev;
+    }
 
-    public Date getFeltoltesIdopontja() { return feltoltesIdopontja; }
-    public void setFeltoltesIdopontja(Date feltoltesIdopontja) { this.feltoltesIdopontja = feltoltesIdopontja; }
+    public DocumentType getTipus() {
+        return tipus;
+    }
 
-    public Date getLejaratIdopontja() { return lejaratIdopontja; }
-    public void setLejaratIdopontja(Date lejaratIdopontja) { this.lejaratIdopontja = lejaratIdopontja; }
+    public void setTipus(DocumentType tipus) {
+        this.tipus = tipus;
+    }
 
-    public DocumentStatus getStatusz() { return statusz; }
-    public void setStatusz(DocumentStatus statusz) { this.statusz = statusz; }
+    public String getUrl() {
+        return url;
+    }
 
-    public Parent getTulajdonos() { return tulajdonos; }
-    public void setTulajdonos(Parent tulajdonos) { this.tulajdonos = tulajdonos; }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Date getFeltoltesIdopontja() {
+        return feltoltesIdopontja;
+    }
+
+    public void setFeltoltesIdopontja(Date feltoltesIdopontja) {
+        this.feltoltesIdopontja = feltoltesIdopontja;
+    }
+
+    public Date getLejaratIdopontja() {
+        return lejaratIdopontja;
+    }
+
+    public void setLejaratIdopontja(Date lejaratIdopontja) {
+        this.lejaratIdopontja = lejaratIdopontja;
+    }
+
+    public DocumentStatus getStatusz() {
+        return statusz;
+    }
+
+    public void setStatusz(DocumentStatus statusz) {
+        this.statusz = statusz;
+    }
+
+    public Parent getTulajdonos() {
+        return tulajdonos;
+    }
+
+    public void setTulajdonos(Parent tulajdonos) {
+        this.tulajdonos = tulajdonos;
+    }
 
     // equals és hashCode metódusok
     @Override

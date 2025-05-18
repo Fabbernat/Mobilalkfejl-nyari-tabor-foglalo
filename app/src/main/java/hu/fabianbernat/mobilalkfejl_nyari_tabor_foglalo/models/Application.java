@@ -23,8 +23,6 @@ public class Application {
     private boolean paymentCompleted;
 
 
-
-
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Application() {
         this.applicationDate = new Date();

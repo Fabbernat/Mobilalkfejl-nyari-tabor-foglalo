@@ -8,13 +8,14 @@ import android.context.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
-public class CampAsyncLoader extends AsyncTaskLoader<String>{
+
+public class CampAsyncLoader extends AsyncTaskLoader<String> {
     public CampAsyncLoader(@NonNull Context context) {
         super(context);
 
     }
 
-    protected void onStartLoading(){
+    protected void onStartLoading() {
         super.onStartLoading();
 
         forceLoad();
@@ -27,9 +28,9 @@ public class CampAsyncLoader extends AsyncTaskLoader<String>{
         int howLong = randy.nextInt(11);
         int ms = howLong * 1000;
 
-        try{
+        try {
             Thread.sleep(ms);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 

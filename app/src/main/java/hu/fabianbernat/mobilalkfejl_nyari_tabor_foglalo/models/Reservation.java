@@ -14,6 +14,7 @@ public class Reservation {
     private TeacherGroup teacherGroup;
     private String note;
     private List<Document> attachedDocuments;
+
     // Alapértelmezett konstruktor (Firestore miatt szükséges)
     public Reservation() {
     }

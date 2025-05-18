@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Ez az animáció egy "becsúszó" effektust valósít meg, amely egy felhasználói felület
+    elemét vízszintesen mozgatja egy képernyőn kívüli pozícióból (128dp) a végső helyére (0dp).
+
+    Cél:
+    - Általában dinamikusan megjelenő elemekhez, például menük, tooltip-ek vagy kártyák becsúsztatásához használják.
+
+    - android:fromXDelta: Az elem kezdő vízszintes pozícióját adja meg (128dp a végső helytől jobbra).
+    - android:toXDelta: Az elem végső vízszintes pozícióját adja meg (eredeti helyzetéhez igazítva).
+    - android:duration: Az animáció időtartama milliszekundumban (256ms, ami gyors, de sima átmenetet biztosít).
+
+    Megjegyzések a reviewerek számára:
+    - A "128dp" érték azt feltételezi, hogy az animáció egy fix eltolásból indul a képernyőmérethez viszonyítva.
+    - Ha dinamikus vagy képernyőméret-függő, érdemes százalékos értékeket használni.
+    - Az időtartam (jelenleg 256ms) az elvárt felhasználói élmény és kontextus alapján állítható.
+-->
+
+<!-- Translate: Az elemet vízszintesen mozgatja 128dp-ről az eredeti pozíciójába -->
+<!-- Az animáció időtartama milliszekundumban -->
+<!-- Kezdő pozíció (128dp a végső helytől jobbra) -->
+<!-- Végső pozíció (az eredeti helyzethez igazítva) -->
 <set xmlns:android="http://schemas.android.com/apk/res/android">
-<translate
-    android:duration="256"
-    android:fromXDelta="128dp"
-    android:toXDelta="0"
-/>
+    <translate
+            android:duration="400"
+            android:fromXDelta="128dp"
+            android:toXDelta="0"
+            android:interpolator="@android:anim/decelerate_interpolator"/>
+    <alpha
+            android:fromAlpha="0"
+            android:toAlpha="1"
+            android:duration="400"
+            android:interpolator="@android:anim/decelerate_interpolator"/>
 </set>

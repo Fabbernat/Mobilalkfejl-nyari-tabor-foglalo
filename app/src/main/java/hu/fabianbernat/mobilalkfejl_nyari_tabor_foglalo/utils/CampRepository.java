@@ -69,7 +69,7 @@ public class CampRepository {
                 .orderBy("name")                          // Secondary sort
                 .limit(limit);
 
-        if(lastCampId != null) {
+        if (lastCampId != null) {
             // For pagination - get document snapshot first
             return db.collection("camps").document(lastCampId).get()
                     .continueWithTask(task -> {

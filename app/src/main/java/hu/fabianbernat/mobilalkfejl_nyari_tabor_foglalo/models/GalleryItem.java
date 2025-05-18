@@ -15,8 +15,19 @@ public class GalleryItem {
     }
 
     // Getters
-    public String getImageName() { return imageName; }
-    public String getTitle() { return title; }
-    public String getDescription() { return description; }
-    public int getImageResourceId() { return imageResourceId; }
+    public String getImageName() {
+        return imageName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getImageResourceId() {
+        return imageResourceId;
+    }
 }

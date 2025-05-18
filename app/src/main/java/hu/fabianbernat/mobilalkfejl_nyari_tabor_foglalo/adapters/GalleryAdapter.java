@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.GalleryItem;
+
 import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {

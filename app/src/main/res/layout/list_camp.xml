@@ -1,100 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:importantForAccessibility="yes"
-        android:contentDescription="@string/camp_card_description">
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/white">
 
-        <ImageView
-            android:id="@+id/itemImage"
+    <!-- ConstraintLayout a jobb elrendezés és az átfedések elkerülése érdekében -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/camp_image_description" />
-
-
-        <TextView
-            android:id="@+id/informationAboutCamp"
-            style="@style/CampDetailText"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="4dp"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/item_placeholder"
-            android:textColor="@color/orange" />
+            android:padding="16dp"
+            android:importantForAccessibility="yes"
+            android:contentDescription="@string/camp_card_description">
 
+        <!-- Kép: A tábor képe középre igazítva és méretezve -->
+        <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/camp_image_description"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Tábor adatai: A kép alatt jelenik meg -->
+        <TextView
+                android:id="@+id/informationAboutCamp"
+                style="@style/CampDetailText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:text="@string/item_placeholder"
+                android:textColor="@color/orange"
+                app:layout_constraintTop_toBottomOf="@id/itemImage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Értékelés: Tábor információk alatt jelenik meg -->
         <RatingBar
-            android:id="@+id/ratingBar"
-            style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
-            app:layout_constraintBottom_toTopOf="@+id/informationAboutCamp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_below="@id/informationAboutCamp"
-            app:layout_constraintVertical_bias="0.379"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:stepSize="0.5"
-            />
+                android:id="@+id/ratingBar"
+                style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.5"
+                app:layout_constraintTop_toBottomOf="@id/informationAboutCamp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Alcím: Az értékelés alatt jelenik meg -->
         <TextView
-            android:id="@+id/subTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ratingBar"
-            android:text="@string/subtitle" />
+                android:id="@+id/subTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/subtitle"
+                app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Ár: Az alcím alatt középre igazítva -->
         <TextView
-            android:id="@+id/camp_price"
-            style="@style/CampDetailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/subTitle"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="12dp"
-            android:padding="8dp"
-            android:textColor="@color/darkgray" />
+                android:id="@+id/camp_price"
+                style="@style/CampDetailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:textColor="@color/darkgray"
+                app:layout_constraintTop_toBottomOf="@id/subTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Gombok: Az alsó részre igazítva -->
+        <Button
+                android:id="@+id/add_to_starred"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/add_to_starred"
+                app:layout_constraintTop_toBottomOf="@id/camp_price"
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <Button
-            android:id="@+id/add_to_starred"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/camp_price"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="8dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginBottom="240dp"
-            android:text="@string/add_to_starred" />
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/delete"
+                app:layout_constraintTop_toBottomOf="@id/camp_price"
+                app:layout_constraintStart_toEndOf="@id/add_to_starred"/>
 
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/camp_price"
-            android:layout_toEndOf="@+id/add_to_starred"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="112dp"
-            android:layout_marginBottom="240dp"
-            android:text="@string/delete" />
-
-
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

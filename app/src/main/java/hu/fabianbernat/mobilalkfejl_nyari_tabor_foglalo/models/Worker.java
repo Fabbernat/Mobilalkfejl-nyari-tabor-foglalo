@@ -2,13 +2,12 @@ package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models;
 
 import java.util.List;
 
-public class Worker extends User{
+public class Worker extends User {
     private String role; // Parancsnok, altáborvezető, őrsvezető, gyerekvigyázó, tábori animátor, program-lebonyolító, konyhai kisegítő, logisztikai segítő, stb.
     private List<String> skills;
     private String availability;
     private String position;
     private int pay;
-
 
 
     public String getRole() {

@@ -1,201 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.RegisterActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".activities.RegisterActivity">
 
     <TextView
-        android:id="@+id/registrationTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:gravity="center_horizontal"
-        android:text="@string/registration"
-        android:textSize="24sp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textAlignment="center" />
+            android:id="@+id/registrationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:gravity="center_horizontal"
+            android:text="@string/registration"
+            android:textSize="24sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"/>
 
     <EditText
-        android:id="@+id/userNameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:autofillHints="username"
-        android:ems="10"
-        android:hint="@string/usernameHint"
-        android:inputType="textPersonName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/registrationTextView" />
+            android:id="@+id/userNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:autofillHints="username"
+            android:ems="10"
+            android:hint="@string/usernameHint"
+            android:inputType="textPersonName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/registrationTextView"/>
 
     <EditText
-        android:id="@+id/userEmailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:autofillHints="emailAddress"
-        android:ems="10"
-        android:hint="@string/emailHint"
-        android:inputType="textEmailAddress"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/userNameEditText" />
+            android:id="@+id/userEmailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:autofillHints="emailAddress"
+            android:ems="10"
+            android:hint="@string/emailHint"
+            android:inputType="textEmailAddress"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/userNameEditText"/>
 
     <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="@string/passwordHint"
-        android:inputType="textPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/userEmailEditText" />
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:autofillHints="password"
+            android:ems="10"
+            android:hint="@string/passwordHint"
+            android:inputType="textPassword"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/userEmailEditText"/>
 
     <EditText
-        android:id="@+id/confirmPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="@string/usernameHint"
-        android:inputType="textPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/passwordEditText" />
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:autofillHints="password"
+            android:ems="10"
+            android:hint="@string/usernameHint"
+            android:inputType="textPassword"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/passwordEditText"/>
 
     <EditText
-        android:id="@+id/phoneEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="@string/reservation_phone"
-        android:inputType="phone"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/confirmPasswordEditText" />
+            android:id="@+id/phoneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:autofillHints="password"
+            android:ems="10"
+            android:hint="@string/reservation_phone"
+            android:inputType="phone"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/confirmPasswordEditText"/>
 
     <Spinner
-        android:id="@+id/phoneSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/phoneEditText" />
+            android:id="@+id/phoneSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/phoneEditText"/>
 
     <EditText
-        android:id="@+id/addressEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:ems="10"
-        android:maxLines="3"
-        android:hint="@string/address"
-        android:inputType="textPostalAddress|textMultiline"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/phoneSpinner" />
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:ems="10"
+            android:maxLines="3"
+            android:hint="@string/address"
+            android:inputType="textPostalAddress|textMultiline"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/phoneSpinner"/>
 
     <RadioGroup
-        android:id="@+id/userTypeRadioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:layout_below="@+id/addressEditText">
-
-        <RadioButton
-            android:id="@id/parentRadioButton"
+            android:id="@+id/userTypeRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/parent" />
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_marginLeft="@dimen/default_margin_side"
+            android:layout_marginRight="@dimen/default_margin_side"
+            android:layout_below="@+id/addressEditText">
 
         <RadioButton
-            android:id="@id/childRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/child" />
+                android:id="@id/parentRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/parent"/>
 
         <RadioButton
-            android:id="@id/pedagogueRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pedagogue" />
+                android:id="@id/childRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/child"/>
 
         <RadioButton
-            android:id="@+id/campAnimatorRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/camp_animator" />
+                android:id="@id/pedagogueRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pedagogue"/>
 
         <RadioButton
-            android:id="@+id/adminRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/admin" />
+                android:id="@+id/campAnimatorRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/camp_animator"/>
+
+        <RadioButton
+                android:id="@+id/adminRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/admin"/>
     </RadioGroup>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/userTypeRadioGroup"
-        android:layout_marginTop="@dimen/default_margin_side"
-        android:layout_centerHorizontal="true">
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/registration"
-            android:onClick="register" />
+            android:orientation="horizontal"
+            android:layout_below="@+id/userTypeRadioGroup"
+            android:layout_marginTop="@dimen/default_margin_side"
+            android:layout_centerHorizontal="true">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginStart="40dp"
-            android:text="@string/cancel"
-            android:onClick="cancel" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registration"
+                android:onClick="register"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:text="@string/cancel"
+                android:onClick="cancel"/>
 
     </LinearLayout>
 

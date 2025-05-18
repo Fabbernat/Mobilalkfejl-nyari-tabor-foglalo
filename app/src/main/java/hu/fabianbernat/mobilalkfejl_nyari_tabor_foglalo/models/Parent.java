@@ -7,8 +7,13 @@ public class Parent extends User {
 
     private List<Child> children;
 
-    public List<Child> getChildren() { return children; }
-    public void setChildren(List<Child> children) { this.children = children; }
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Child> children) {
+        this.children = children;
+    }
 
     // Additional parent-specific methods
     public void registerChildForCamp(Child child, Camp camp) {

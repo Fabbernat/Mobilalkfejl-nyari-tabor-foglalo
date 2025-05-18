@@ -1,7 +1,8 @@
 <resources>
 
     <!-- Firebase Auth -->
-    <string name="default_web_client_id">105750869667-cshs5jp5g7rr73eb0ajdtdbt8a6p4ovj.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">105750869667-cshs5jp5g7rr73eb0ajdtdbt8a6p4ovj.apps.googleusercontent.com
+    </string>
 
 
     <!-- Pre-defined values  -->
@@ -26,7 +27,7 @@
 
     <string-array name="camp_types">
         "
-        <item> CSERKESZTABOR = cserkésztábor,</item>
+        <item>CSERKESZTABOR = cserkésztábor,</item>
         <item>ERDEI_VANDORTABOR = erdei vándortábor,</item>
         <item>VITORLAS_TABOR = vitorlástábor,</item>
         <item>TANCTABOR = tánctábor,</item>
@@ -98,25 +99,45 @@
 
     <!--  Gallery items  -->
     <string name="gallery_item1_title" translatable="false">Cserkésztábor</string>
-    <string name="gallery_item1_desc" translatable="false">Kalandok és természetfelfedezés kerületi cserkésztáborainkban!</string>
+    <string name="gallery_item1_desc" translatable="false">Kalandok és természetfelfedezés kerületi
+        cserkésztáborainkban!
+    </string>
     <string name="gallery_item3_title" translatable="false">Programozás és robotika</string>
-    <string name="gallery_item3_desc" translatable="false">Modern technológiai kalandok a Dr. Code szervezésével! - Tanulás játékosan.</string>
+    <string name="gallery_item3_desc" translatable="false">Modern technológiai kalandok a Dr. Code szervezésével! -
+        Tanulás játékosan.
+    </string>
     <string name="gallery_item4_title" translatable="false">Erdei vándortábor</string>
-    <string name="gallery_item4_desc" translatable="false">A múlt évi nyári erdei vándortáborok legjobb pillanatai. Hátizsákkal, barátokkal és lenyűgöző természeti tájakon át vezet az út!</string>
+    <string name="gallery_item4_desc" translatable="false">A múlt évi nyári erdei vándortáborok legjobb pillanatai.
+        Hátizsákkal, barátokkal és lenyűgöző természeti tájakon át vezet az út!
+    </string>
     <string name="gallery_item5_title" translatable="false">Közösségi programok</string>
-    <string name="gallery_item5_desc" translatable="false">Kreatív és közösségépítő foglalkozások, ahol mindenki megtalálja a helyét.</string>
+    <string name="gallery_item5_desc" translatable="false">Kreatív és közösségépítő foglalkozások, ahol mindenki
+        megtalálja a helyét.
+    </string>
     <string name="gallery_item6_title" translatable="false">Cserkésztábor Izlandon</string>
-    <string name="gallery_item6_desc" translatable="false">Ez egy egyedülálló kép az izlandi cserkésztáborokról! Lenyűgöző tájak és különleges élmények a világ egyik legkülönlegesebb helyén.</string>
+    <string name="gallery_item6_desc" translatable="false">Ez egy egyedülálló kép az izlandi cserkésztáborokról!
+        Lenyűgöző tájak és különleges élmények a világ egyik legkülönlegesebb helyén.
+    </string>
     <string name="gallery_item7_title" translatable="false">Fonyódligeti Erzsébet-tábor</string>
-    <string name="gallery_item7_desc" translatable="false">Minden évben egész nyáron várjuk a gyermekeket, most már 3 helyszínen!</string>
+    <string name="gallery_item7_desc" translatable="false">Minden évben egész nyáron várjuk a gyermekeket, most már 3
+        helyszínen!
+    </string>
     <string name="gallery_item8_title" translatable="false">Szent Margit tábor</string>
-    <string name="gallery_item8_desc" translatable="false">Egy cserkészcsapat, ahol a közösség, játék és fejlődés kéz a kézben járnak.</string>
+    <string name="gallery_item8_desc" translatable="false">Egy cserkészcsapat, ahol a közösség, játék és fejlődés kéz a
+        kézben járnak.
+    </string>
     <string name="gallery_item9_title" translatable="false">Színjátszótábor</string>
-    <string name="gallery_item9_desc" translatable="false">Fedezd fel a benned rejlő színészt! Előadások, szerepjátékok, improvizációk.</string>
+    <string name="gallery_item9_desc" translatable="false">Fedezd fel a benned rejlő színészt! Előadások, szerepjátékok,
+        improvizációk.
+    </string>
     <string name="gallery_item10_title" translatable="false">Zánkai élménytábor</string>
-    <string name="gallery_item10_desc" translatable="false">Vidám és változatos programok Magyarország legnagyobb táborában, a Balaton partján – ahol az élmények születnek!</string>
+    <string name="gallery_item10_desc" translatable="false">Vidám és változatos programok Magyarország legnagyobb
+        táborában, a Balaton partján – ahol az élmények születnek!
+    </string>
     <string name="gallery_item11_title" translatable="false">Hangulatos tábori este a tűz körül</string>
-    <string name="gallery_item11_desc" translatable="false">Hangulatos tábori este a tűz körül - a cserkésztáborban ezt is megtapasztalhatod a barátaiddal!</string>
+    <string name="gallery_item11_desc" translatable="false">Hangulatos tábori este a tűz körül - a cserkésztáborban ezt
+        is megtapasztalhatod a barátaiddal!
+    </string>
     <string name="app_logo" translatable="false">Alkalmazás logó</string>
     <string name="select_account_type" translatable="false">Válassza ki a fiók típusát</string>
     <string name="parent" translatable="false">Szülő</string>
@@ -221,7 +242,9 @@
     <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
     <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
     <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>
-    <string name="item_placeholder" translatable="false">Valami placeholder szöveg a képről, amin táborozó gyermekek láthatók</string>
+    <string name="item_placeholder" translatable="false">Valami placeholder szöveg a képről, amin táborozó gyermekek
+        láthatók
+    </string>
     <string name="search" translatable="false">Keresés</string>
     <string name="settings" translatable="false">Beállítások</string>
     <string name="number_of_starred_items" translatable="false">3</string>
@@ -236,7 +259,9 @@
     <!--  Parent Dashboard  -->
     <string name="parent_dashboard" translatable="false">Szülői irányítópult</string>
     <string name="welcome_parent" translatable="false">Üdvözöljük a Tábor Foglalás alkalmazásban!</string>
-    <string name="dashboard_description" translatable="false">Itt kezelheti gyermeke tábori foglalásait, valamint böngészheti az elérhető táborokat.</string>
+    <string name="dashboard_description" translatable="false">Itt kezelheti gyermeke tábori foglalásait, valamint
+        böngészheti az elérhető táborokat.
+    </string>
     <string name="quick_actions" translatable="false">Gyors műveletek</string>
     <string name="find_camps" translatable="false">Táborok keresése</string>
     <string name="my_children" translatable="false">Gyermekeim</string>

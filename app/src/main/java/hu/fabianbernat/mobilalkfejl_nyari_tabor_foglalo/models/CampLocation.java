@@ -39,55 +39,121 @@ public class CampLocation {
 
     // Getterek és setterek
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getName() {
+        return name;
+    }
 
-    public String getCity() { return city; }
-    public void setCity(String city) { this.city = city; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getZipCode() { return zipCode; }
-    public void setZipCode(String zipCode) { this.zipCode = zipCode; }
+    public String getAddress() {
+        return address;
+    }
 
-    public Coordinates getCoordinates() { return coordinates; }
-    public void setCoordinates(Coordinates coordinates) { this.coordinates = coordinates; }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-    public int getCapacity() { return capacity; }
-    public void setCapacity(int capacity) { this.capacity = capacity; }
+    public String getCity() {
+        return city;
+    }
 
-    public List<String> getFacilities() { return facilities; }
-    public void setFacilities(List<String> facilities) { this.facilities = facilities; }
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-    public List<String> getImageUrls() { return imageUrls; }
-    public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
+    public String getZipCode() {
+        return zipCode;
+    }
 
-    public String getCreatedBy() { return createdBy; }
-    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
 
-    public Date getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<String> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(List<String> facilities) {
+        this.facilities = facilities;
+    }
+
+    public List<String> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     // Belső osztály a koordinátákhoz
     public static class Coordinates {
         private double latitude;
         private double longitude;
 
-        public Coordinates() {}
+        public Coordinates() {
+        }
 
         public Coordinates(double latitude, double longitude) {
             this.latitude = latitude;
             this.longitude = longitude;
         }
 
-        public double getLatitude() { return latitude; }
-        public void setLatitude(double latitude) { this.latitude = latitude; }
+        public double getLatitude() {
+            return latitude;
+        }
 
-        public double getLongitude() { return longitude; }
-        public void setLongitude(double longitude) { this.longitude = longitude; }
+        public void setLatitude(double latitude) {
+            this.latitude = latitude;
+        }
+
+        public double getLongitude() {
+            return longitude;
+        }
+
+        public void setLongitude(double longitude) {
+            this.longitude = longitude;
+        }
     }
 }

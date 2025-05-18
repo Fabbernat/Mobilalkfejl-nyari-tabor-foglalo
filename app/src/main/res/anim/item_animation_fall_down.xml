@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Ez az animáció egy "fade és slide-in" effektust valósít meg.
+    A UI elem függőlegesen csúszik be (-20%-ról 0%-ra), miközben fokozatosan elhalványul
+    (0-tól 1-es alfa értékig).
+
+    Cél:
+    - Gyakran használják olyan elemek megjelenítésére, mint például értesítések,
+      párbeszédablakok vagy dinamikus komponensek.
+
+    Részletezés:
+    - android:duration: Az animáció időtartama (500ms).
+    - translate: A függőleges mozgást szabályozza (-20%-ról 0%-ra).
+    - alpha: Az áttetszőség változását szabályozza (teljesen átlátszóból teljesen láthatóvá).
+    - interpolator: A mozgás és áttetszőség változásának görbéjét szabályozza (lassuló mozgás).
+-->
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:duration="500">
+     android:duration="500"> <!-- Az animáció teljes időtartama ms-ban -->
+
+    <!-- Slide-in animáció: Az elem -20%-ról (képernyő felett) 0%-ra (eredeti pozíció) mozog -->
     <translate
-        android:fromYDelta="-20%"
-        android:toYDelta="0"
-        android:interpolator="@android:anim/decelerate_interpolator" />
+            android:fromYDelta="-20%" <!-- Kezdő pozíció: a képernyő felett 20%-kal -->
+    android:toYDelta="0" <!-- Végső pozíció: az eredeti helyzet -->
+    android:interpolator="@android:anim/decelerate_interpolator" /> <!-- Lassuló mozgás -->
+
+    <!-- Fokozatos megjelenés: Az elem 0 áttetszőségről (láthatatlan) 1-re (látható) vált -->
     <alpha
-        android:fromAlpha="0"
-        android:toAlpha="1"
-        android:interpolator="@android:anim/decelerate_interpolator" />
+            android:fromAlpha="0" <!-- Kezdő áttetszőség: teljesen láthatatlan -->
+    android:toAlpha="1" <!-- Végső áttetszőség: teljesen látható -->
+    android:interpolator="@android:anim/decelerate_interpolator" /> <!-- Lassuló áttetszőség -->
 </set>

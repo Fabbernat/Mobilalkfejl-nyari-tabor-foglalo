@@ -10,7 +10,7 @@ import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 
 import java.util.List;
 
-public class UpcomingCampAdapter  extends RecyclerView.Adapter<CampAdapter.ViewHolder>{
+public class UpcomingCampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> {
     public UpcomingCampAdapter(ParentDashboardActivity parentDashboardActivity, List<Camp> upcomingCamps) {
     }
 

@@ -2,7 +2,7 @@ package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models;
 
 import android.location.Location;
 
-public class Admin extends User{
+public class Admin extends User {
 
     /**
      * Új tábor létrehozása.
@@ -111,8 +111,8 @@ public class Admin extends User{
     /**
      * Programháló törlése egy táborból.
      *
-     * @param campId         a tábor azonosítója
-     * @param programDayId   a törlendő napi program azonosítója
+     * @param campId       a tábor azonosítója
+     * @param programDayId a törlendő napi program azonosítója
      */
     public void deleteProgramSchedule(String campId, String programDayId) {
         // Példa: FirebaseProgramService.getInstance().deleteProgramFromCamp(campId, programDayId);

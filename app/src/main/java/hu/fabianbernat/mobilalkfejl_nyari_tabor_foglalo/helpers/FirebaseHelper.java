@@ -118,21 +118,25 @@ public class FirebaseHelper {
     // Interfaces for callback handlers
     public interface OnApplicationCreateListener {
         void onApplicationCreated(Application application);
+
         void onApplicationCreateFailed(String errorMessage);
     }
 
     public interface OnApplicationsLoadedListener {
         void onApplicationsLoaded(List<Application> applications);
+
         void onApplicationsLoadFailed(String errorMessage);
     }
 
     public interface OnApplicationUpdateListener {
         void onApplicationUpdated(Application application);
+
         void onApplicationUpdateFailed(String errorMessage);
     }
 
     public interface OnApplicationDeleteListener {
         void onApplicationDeleted(String applicationId);
+
         void onApplicationDeleteFailed(String errorMessage);
     }
 }

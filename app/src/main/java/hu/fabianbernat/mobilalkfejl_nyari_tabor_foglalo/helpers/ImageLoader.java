@@ -3,6 +3,7 @@ package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.helpers;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 

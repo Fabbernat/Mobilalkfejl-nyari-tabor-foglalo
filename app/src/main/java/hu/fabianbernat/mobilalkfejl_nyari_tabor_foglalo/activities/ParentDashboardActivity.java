@@ -75,21 +75,21 @@ public class ParentDashboardActivity extends AppCompatActivity implements Bottom
         });
 
 
-            cardMyApplications.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Navigate to my children activity
-                    Intent intent = new Intent(ParentDashboardActivity.this, CampApplicationActivity.class);
-                    startActivity(intent);
-                }
-            });
+        cardMyApplications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to my children activity
+                Intent intent = new Intent(ParentDashboardActivity.this, CampApplicationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cardMyChildren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navigate to my children activity
-                 Intent intent = new Intent(ParentDashboardActivity.this, MyChildrenActivity.class);
-                 startActivity(intent);
+                Intent intent = new Intent(ParentDashboardActivity.this, MyChildrenActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -97,8 +97,8 @@ public class ParentDashboardActivity extends AppCompatActivity implements Bottom
             @Override
             public void onClick(View v) {
                 // Navigate to registrations activity
-                 Intent intent = new Intent(ParentDashboardActivity.this, ParentDashboardActivity.class); // TODO: CampRegistrationsActivity implementálása, a 2. mérföldkő után
-                 startActivity(intent);
+                Intent intent = new Intent(ParentDashboardActivity.this, ParentDashboardActivity.class); // TODO: CampRegistrationsActivity implementálása, a 2. mérföldkő után
+                startActivity(intent);
             }
         });
 
@@ -106,8 +106,8 @@ public class ParentDashboardActivity extends AppCompatActivity implements Bottom
             @Override
             public void onClick(View v) {
                 // Navigate to profile activity
-                 Intent intent = new Intent(ParentDashboardActivity.this, ParentDashboardActivity.class); // TODO: ProfileActivity implementálása, a 2. mérföldkő után
-                 startActivity(intent);
+                Intent intent = new Intent(ParentDashboardActivity.this, ParentDashboardActivity.class); // TODO: ProfileActivity implementálása, a 2. mérföldkő után
+                startActivity(intent);
             }
         });
     }

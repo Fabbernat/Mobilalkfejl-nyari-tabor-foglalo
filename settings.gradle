@@ -1,23 +1,27 @@
+// C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo-master\settings.gradle
 pluginManagement {
-    repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal() // Általános Gradle pluginokhoz
     }
 }
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS) // Ez a beállítás okozza a hibát, ha máshol is van repo def.
+    repositories {
+        google()                               // Google Maven repository
+        mavenCentral()                         // Maven Central repository
+        maven {                                // A te egyedi maven repository-d
+            url = uri("https://fabbernat.github.io")
+        }
+        mavenLocal()                           // Helyi Maven cache
+        // flatDir {                         // Helyi .aar/.jar fájlokhoz, ha a 'libs' könyvtárból jönnek
+        //     dirs("libs")                  // Ezt a sort csak akkor add hozzá, ha tényleg a 'libs' mappából használsz közvetlenül fájlokat
+        // }                                // és ezt a `settings.gradle`-ben akarod kezelni. Gyakran ez az app/build.gradle-ben marad.
+    }
+}
+
 
 rootProject.name = "Mobilalkfejl-nyari-tabor-foglalo"
 include ':app'

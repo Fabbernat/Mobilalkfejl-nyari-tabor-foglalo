@@ -63,8 +63,10 @@
         android:theme="@style/Theme.Mobilalkfejlnyaritaborfoglalo"
         tools:targetApi="31">
         <activity
-            android:name="java.com.example.mobilalkfejlnyaritaborfoglalo.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
+            android:name=".activities.CampApplicationActivity"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.Mobilalkfejlnyaritaborfoglalo.NoActionBar">
             <intent-filter>

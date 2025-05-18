@@ -1,18 +1,21 @@
+// C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo-master\app\build.gradle
+// Itt kellene lennie a plugins blokknak!
 
 android {
-    namespace 'com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo'
-    compileSdk 35
+    namespace 'hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo'
+    compileSdk 35 // compileSdk 35 a legfrissebb, rendben.
 
     defaultConfig {
-        applicationId "com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo"
+        applicationId "hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo" // Javasolt hozzáadni az applicationId-t
         minSdkVersion 24
-        targetSdkVersion 35
-        compileSdkVersion 33
+        targetSdkVersion 35 // targetSdk 35, rendben.
+        // compileSdkVersion 33 // EZT TÖRÖLD! A compileSdk már beállította 35-re. Felesleges és zavaró.
         versionCode 1
         versionName "1.0"
 
         resValue "string", "app_author", "Fábián Bernát"
         resValue "string", "app_website", "https://fabbernat.github.io"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner" // Javasolt hozzáadni a tesztekhez.
     }
 
     buildTypes {
@@ -31,7 +34,6 @@ android {
 }
 
 dependencies {
-
     // UI
     implementation libs.appcompat
     implementation libs.material
@@ -40,22 +42,25 @@ dependencies {
     implementation libs.lifecycle.viewmodel.ktx
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
-    implementation libs.navigation.runtime.android
-    implementation libs.androidx.navigation.ui
+    implementation libs.navigation.runtime.android // Lehet, hogy ez libs.androidx.navigation.runtime
+    implementation libs.androidx.navigation.ui // Ez a libs.navigation.ui duplikációja lehet, ellenőrizd a libs.versions.toml-t
 
     // FireBase
+    implementation platform('com.google.firebase:firebase-bom:33.1.0') // Firebase BOM hozzáadása ajánlott
     implementation libs.firebase.firestore
-    implementation libs.firebase.auth
-    implementation libs.google.firebase.analytics
+    implementation libs.firebase.auth // Ez átkerült a top-level dependencies-ből
+    implementation 'com.google.firebase:firebase-analytics' // Használd ezt, ha a libs.google.firebase.analytics nem működik, vagy definiáld a libs-ben
+    // implementation libs.google.firebase.analytics
 
-    implementation libs.play.services.tasks
+    implementation 'com.google.android.gms:play-services-auth:21.0.0' // Ez is átkerült a top-level dependencies-ből
+
+    implementation libs.play.services.tasks // Valószínűleg 'com.google.android.gms:play-services-tasks:VERZIO'
 
     // Testing
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
-    //
-    classpath libs.google.services
-
+    // classpath libs.google.services // EZT TÖRÖLD INNEN! A classpath a buildscript dependencies-be való (top-level build.gradle).
+    // A google-services plugin-t a plugins blokkban kell alkalmazni.
 }

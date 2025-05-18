@@ -6,6 +6,10 @@
 
     <!-- Pre-defined values  -->
     <string name="app_name">Magyar Nyári Tábor Foglaló</string>
+    <string name="app_version">1.0</string>
+    <string name="app_version_code">1</string>
+    <string name="author_name">Fábián Bernát</string>
+    <string name="author_website">https://fabbernat.github.io</string>
     <string name="navigation_drawer_open">Navigációs csúszka megnyitása</string>
     <string name="navigation_drawer_close">Navigációs csúszka becsukása</string>
     <string name="nav_header_title">Android Studio</string>
@@ -209,7 +213,7 @@
     <string name="emailHint">E-mail cím\n</string>
     <string name="address">Postai cím\n</string>
 
-    <string name="camp_description">Tábor leírása</string>
+    <string name="camp_description">Foglalj nyári tábort hazai vállalkozást támogatva!</string>
     <string name="LoginAsGuestHint">Bejelentkezés vendégként</string>
     <string name="LoginWithGoogleHint">Bejelentkezés Google fiókkal</string>
     <string name="LoginWithFacebookHint">Bejelentkezés Facebook (Meta) fiókkal</string>

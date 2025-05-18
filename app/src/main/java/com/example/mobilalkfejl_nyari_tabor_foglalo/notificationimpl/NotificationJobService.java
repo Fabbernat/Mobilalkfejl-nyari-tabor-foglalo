@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.notificationimpl;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.notificationimpl;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;

@@ -1,12 +1,12 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.adapters;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters;
 
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboardActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboardActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 
 import java.util.List;
 

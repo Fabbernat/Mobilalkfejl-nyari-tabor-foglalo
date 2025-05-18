@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.MainActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInClient;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.MainActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.*;
 import com.google.android.gms.common.api.ApiException;
 import com.google.firebase.auth.*;

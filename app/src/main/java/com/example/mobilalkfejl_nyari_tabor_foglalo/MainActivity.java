@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,19 +9,19 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.CampCardActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.CustomMenuActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.FallbackActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.GalleryActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.ListCampsActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.LoginActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboardActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.RegisterActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.SimpleListCampActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.UpcomingCampActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.CampAsyncTask;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.CampCardActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.CustomMenuActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.FallbackActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.GalleryActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.ListCampsActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.LoginActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.ParentDashboardActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.RegisterActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.SimpleListCampActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.UpcomingCampActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.CampAsyncTask;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -34,7 +34,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.databinding.ActivityMainBinding;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {

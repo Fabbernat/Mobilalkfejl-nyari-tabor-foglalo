@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.ui.slideshow;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.databinding.FragmentSlideshowBinding;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
 

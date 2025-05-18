@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.mobilalkfejl_nyari_tabor_foglalo", appContext.getPackageName());
+        assertEquals("com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo", appContext.getPackageName());
     }
 }

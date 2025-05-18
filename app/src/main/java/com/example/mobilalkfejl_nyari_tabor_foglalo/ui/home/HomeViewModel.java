@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.ui.home;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

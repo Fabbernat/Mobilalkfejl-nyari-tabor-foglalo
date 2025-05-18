@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.adapters.UpcomingCampAdapter;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.UpcomingCampAdapter;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

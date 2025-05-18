@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo;
 
 import org.junit.Test;
 

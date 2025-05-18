@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.helpers;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.helpers;
 
 import android.content.Context;
 

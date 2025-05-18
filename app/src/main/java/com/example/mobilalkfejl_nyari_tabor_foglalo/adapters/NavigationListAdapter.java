@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.adapters;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.NavigationListItem;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.NavigationListItem;
 
 import java.util.List;
 

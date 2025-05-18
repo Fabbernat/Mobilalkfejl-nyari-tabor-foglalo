@@ -1,9 +1,9 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.utils;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils;
 
 import android.content.Intent;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.MainActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInAccount;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.MainActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.Task;
@@ -11,7 +11,7 @@ import com.google.android.gms.tasks.Task;
 import kotlin.NotImplementedError;
 
 public class GoogleSignIn {
-    public static com.example.mobilalkfejl_nyari_tabor_foglalo.GoogleSignInClient getClient(MainActivity mainActivity, GoogleSignInOptions gso) {
+    public static com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.GoogleSignInClient getClient(MainActivity mainActivity, GoogleSignInOptions gso) {
         throw new NotImplementedError();
     }
 

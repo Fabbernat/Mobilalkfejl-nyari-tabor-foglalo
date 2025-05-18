@@ -1,10 +1,10 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.helpers;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.helpers;
 
 import android.content.Context;
 
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.NavigationListItem;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.NavigationListItem;
 
 import org.xmlpull.v1.XmlPullParser;
 

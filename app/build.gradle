@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.mobilalkfejl_nyari_tabor_foglalo'
+    namespace 'com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo'
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.example.mobilalkfejl_nyari_tabor_foglalo"
+        applicationId "com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo"
         minSdkVersion 21
         targetSdkVersion 35
         compileSdkVersion 33

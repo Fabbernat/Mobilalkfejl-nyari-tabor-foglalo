@@ -1,5 +1,5 @@
 // app/src/main/java/com/example/mobilalkfejl_nyari_tabor_foglalo/adapters/GalleryAdapter.java
-package com.example.mobilalkfejl_nyari_tabor_foglalo.adapters;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.GalleryItem;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.GalleryItem;
 import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {

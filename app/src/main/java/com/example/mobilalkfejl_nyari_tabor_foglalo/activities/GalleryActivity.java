@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import android.os.Bundle;
 import android.view.animation.AnimationUtils;
@@ -6,9 +6,9 @@ import android.view.animation.LayoutAnimationController;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.adapters.GalleryAdapter;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.GalleryItem;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.GalleryAdapter;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.GalleryItem;
 import java.util.ArrayList;
 import java.util.List;
 

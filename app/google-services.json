@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:105750869667:android:c4f967722ae16acb6b7116",
         "android_client_info": {
-          "package_name": "com.example.mobilalkfejl_nyari_tabor_foglalo"
+          "package_name": "com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "105750869667-cshs5jp5g7rr73eb0ajdtdbt8a6p4ovj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.mobilalkfejl_nyari_tabor_foglalo",
+            "package_name": "com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo",
             "certificate_hash": "e1f154f5ef54e973c42a16f495d56c57a02e6a9b"
           }
         },

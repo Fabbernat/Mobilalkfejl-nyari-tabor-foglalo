@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.ui.home;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.databinding.FragmentHomeBinding;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 

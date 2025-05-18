@@ -1,10 +1,10 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.utils;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.NotificationHandler;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.NotificationHandler;
 
 public class AlarmReceiver extends BroadcastReceiver {
 

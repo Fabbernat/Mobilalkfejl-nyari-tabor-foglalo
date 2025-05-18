@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.activities;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -33,12 +33,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.AlarmReceiver;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.NotificationHandler;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.NotificationJobService;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.AlarmReceiver;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.NotificationHandler;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.NotificationJobService;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;

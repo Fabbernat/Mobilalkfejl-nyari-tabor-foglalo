@@ -1,5 +1,5 @@
 // app/src/main/java/com/example/mobilalkfejl_nyari_tabor_foglalo/models/GalleryItem.java
-package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models;
 
 public class GalleryItem {
     private String imageName;

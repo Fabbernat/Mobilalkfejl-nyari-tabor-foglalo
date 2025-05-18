@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.adapters;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters;
 
 import android.content.Context;
 import android.util.Log;
@@ -19,9 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 
 import java.util.ArrayList;
 import java.util.List;

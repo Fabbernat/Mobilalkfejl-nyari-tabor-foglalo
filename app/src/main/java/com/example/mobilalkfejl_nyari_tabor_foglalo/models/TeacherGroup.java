@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models;
 
 public class TeacherGroup {
     public Teacher[] teachers;

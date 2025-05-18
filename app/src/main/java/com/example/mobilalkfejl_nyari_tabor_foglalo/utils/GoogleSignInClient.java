@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.utils;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils;
 
 import android.content.Intent;
 

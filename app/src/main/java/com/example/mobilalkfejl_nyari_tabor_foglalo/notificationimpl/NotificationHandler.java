@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.notificationimpl;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.notificationimpl;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,8 +10,8 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.example.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
+import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.BrowseCampsActivity;
 
 public class NotificationHandler {
     private static final String CHANNEL_ID = "camp_notification_channel";

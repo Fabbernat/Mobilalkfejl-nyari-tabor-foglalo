@@ -1,4 +1,4 @@
-package com.example.mobilalkfejl_nyari_tabor_foglalo.models;
+package com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models;
 
 import androidx.annotation.NonNull;
 import java.util.Date;

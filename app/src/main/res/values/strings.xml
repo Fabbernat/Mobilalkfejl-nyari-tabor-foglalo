@@ -20,6 +20,10 @@
     <string name="menu_gallery">Galéria</string>
     <string name="menu_slideshow">Diavetítés</string>
 
+    <!-- basic -->
+    <string name="digits" translatable="false">0123456789</string>
+    <string name="letters" translatable="false">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</string>
+
     <string-array name="camp_types">
         "
         <item> CSERKESZTABOR = cserkésztábor,</item>

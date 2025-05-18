@@ -107,7 +107,7 @@
                         <ImageView
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:src="@drawable/ic_search_camp"
+                            android:src="@drawable/ic_search"
                             android:contentDescription="@string/find_camps" />
 
                         <TextView

@@ -61,7 +61,6 @@ tools:context=".MainActivity">
 <!-- Buttons and Inputs with playful style -->
 <Button
     android:id="@+id/galleryButton"
-    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:text="Galéria"
@@ -123,7 +122,7 @@ tools:context=".MainActivity">
     android:id="@+id/loginAsGuestButton"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:text="Vendégként belépés"
+    android:text="Belépés vendégként"
     android:backgroundTint="#ffcc80"
     android:textColor="#ffffff"
     app:cornerRadius="16dp"

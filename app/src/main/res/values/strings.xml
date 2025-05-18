@@ -5,7 +5,7 @@
 
 
     <!-- Pre-defined values  -->
-    <string name="app_name">Nyári Tábor Foglaló</string>
+    <string name="app_name">Magyar Nyári Tábor Foglaló</string>
     <string name="navigation_drawer_open">Navigációs csúszka megnyitása</string>
     <string name="navigation_drawer_close">Navigációs csúszka becsukása</string>
     <string name="nav_header_title">Android Studio</string>

@@ -26,7 +26,7 @@ public class Camp {
     private List<DailyProgram> dailyProgram;
     private Coordinates koordinatak;
     private List<String> imageUrls;
-    private List<NapiLetszam> napokLebontasa;
+    private List<DailyHeadCount> napokLebontasa;
     private Date jelentkezesiHatarido;
     private List<String> szuksegesEszkozok;
     private List<String> csoportok;
@@ -61,7 +61,7 @@ public class Camp {
     // Teljes konstruktor
 
 
-    public Camp(int id, String name, CampType campType, CampFormat campFormat, String location, Date startDate, Date endDate, String description, int price, int capacity, int registeredParticipants, int minAge, int maxAge, String organizerId, List<DailyProgram> dailyProgram, Coordinates koordinatak, List<String> imageUrls, List<NapiLetszam> napokLebontasa, Date jelentkezesiHatarido, List<String> szuksegesEszkozok, List<String> csoportok, Integer kiserokSzama, int starredCount) {
+    public Camp(int id, String name, CampType campType, CampFormat campFormat, String location, Date startDate, Date endDate, String description, int price, int capacity, int registeredParticipants, int minAge, int maxAge, String organizerId, List<DailyProgram> dailyProgram, Coordinates koordinatak, List<String> imageUrls, List<DailyHeadCount> napokLebontasa, Date jelentkezesiHatarido, List<String> szuksegesEszkozok, List<String> csoportok, Integer kiserokSzama, int starredCount) {
         this.id = id;
         this.name = name;
         this.campType = campType;
@@ -144,8 +144,8 @@ public class Camp {
     public List<String> getImageUrls() { return imageUrls; }
     public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
 
-    public List<NapiLetszam> getNapokLebontasa() { return napokLebontasa; }
-    public void setNapokLebontasa(List<NapiLetszam> napokLebontasa) { this.napokLebontasa = napokLebontasa; }
+    public List<DailyHeadCount> getNapokLebontasa() { return napokLebontasa; }
+    public void setNapokLebontasa(List<DailyHeadCount> napokLebontasa) { this.napokLebontasa = napokLebontasa; }
 
     public Date getJelentkezesiHatarido() { return jelentkezesiHatarido; }
     public void setJelentkezesiHatarido(Date jelentkezesiHatarido) { this.jelentkezesiHatarido = jelentkezesiHatarido; }
@@ -268,7 +268,7 @@ public class Camp {
         }
     }
 
-    public static class NapiLetszam {
+    public static class DailyHeadCount {
         private Date datum;
         private int felnottLetszam;
         private int gyerekLetszam;

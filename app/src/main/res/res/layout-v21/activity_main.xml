@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/summer_bg"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+<include
+android:id="@+id/app_bar_main"
+layout="@layout/app_bar_main"
+android:layout_width="match_parent"
+android:layout_height="match_parent" />
+
+<com.google.android.material.navigation.NavigationView
+android:id="@+id/nav_view"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+android:fitsSystemWindows="true"
+app:headerLayout="@layout/nav_header_main"
+app:menu="@menu/activity_main_drawer" />
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="24dp"
+tools:context=".MainActivity">
+
+<!-- Branding and Promotion -->
+<TextView
+    android:id="@+id/titleText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="🌞 Fábián Bernát Nyári Tábor Foglaló"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:textColor="#ffffff"
+    android:gravity="center"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<TextView
+    android:id="@+id/promoText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Tudj meg többet: fabbernat.github.io"
+    android:textSize="16sp"
+    android:textColor="#ffe57f"
+    android:autoLink="web"
+    android:gravity="center"
+    app:layout_constraintTop_toBottomOf="@id/titleText"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:paddingBottom="8dp" />
+
+<!-- Buttons and Inputs with playful style -->
+<Button
+    android:id="@+id/galleryButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Galéria"
+    android:backgroundTint="#81d4fa"
+    android:textColor="#ffffff"
+    app:cornerRadius="16dp"
+    app:layout_constraintTop_toBottomOf="@id/promoText"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+<EditText
+    android:id="@+id/editTextUserName"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Felhasználónév"
+    android:inputType="text"
+    android:backgroundTint="#ffffff"
+    app:layout_constraintTop_toBottomOf="@id/galleryButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<EditText
+    android:id="@+id/editTextPassword"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Jelszó"
+    android:inputType="textPassword"
+    android:backgroundTint="#ffffff"
+    app:layout_constraintTop_toBottomOf="@id/editTextUserName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<!-- Login Buttons -->
+<Button
+    android:id="@+id/loginButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Bejelentkezés"
+    android:backgroundTint="#4db6ac"
+    android:textColor="#ffffff"
+    app:cornerRadius="16dp"
+    app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<Button
+    android:id="@+id/registerButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Regisztráció"
+    android:backgroundTint="#81c784"
+    android:textColor="#ffffff"
+    app:cornerRadius="16dp"
+    app:layout_constraintTop_toBottomOf="@id/loginButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<Button
+    android:id="@+id/loginAsGuestButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Vendégként belépés"
+    android:backgroundTint="#ffcc80"
+    android:textColor="#ffffff"
+    app:cornerRadius="16dp"
+    app:layout_constraintTop_toBottomOf="@id/registerButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<Button
+    android:id="@+id/loginWithGoogleButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Bejelentkezés Google-lal"
+    android:backgroundTint="#e57373"
+    android:textColor="#ffffff"
+    app:cornerRadius="16dp"
+    app:layout_constraintTop_toBottomOf="@id/loginAsGuestButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<Button
+    android:id="@+id/loginWithFacebookButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Bejelentkezés Facebookkal"
+    android:backgroundTint="#7986cb"
+    android:textColor="#ffffff"
+    app:cornerRadius="16dp"
+    app:layout_constraintTop_toBottomOf="@id/loginWithGoogleButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>

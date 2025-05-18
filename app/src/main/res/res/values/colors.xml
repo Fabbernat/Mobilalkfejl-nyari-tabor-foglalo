@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Szín alapján-->
+    <color name="black">#FF000000</color>
+    <color name="gray">#FF888888</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="green">#FF00FF00</color>
+    <color name="red">#FFFF0000</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="orange">#FFFFA500</color>
+    <color name="purple">#FF800080</color>
+    <color name="pink">#FFFFC0CB</color>
+    <color name="brown">#FF8B4513</color>
+    <color name="cyan">#FF00FFFF</color>
+    <color name="lime">#FF00FF00</color>
+    <color name="magenta">#FFFF00FF</color>
+    <color name="bordeaux">#FF800000</color>
+    <color name="navy">#FF000080</color>
+    <color name="olive">#FF808000</color>
+    <color name="silver">#FFC0C0C0</color>
+    <color name="lightgray">#FFD3D3D3</color>
+    <color name="darkgray">#FF808080</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Funkció alapján-->
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="accent">#FF9800</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="error">#F44336</color>
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
+
+    <!-- magyar táboros téma -->
+    <color name="green_primary">#2E7D32</color>
+    <color name="green_dark">#1B5E20</color>
+    <color name="blue_secondary">#0288D1</color>
+    <color name="blue_dark">#01579B</color>
+    <color name="camp_yellow">#FFD600</color>
+    <color name="camp_red">#D32F2F</color>
+</resources>

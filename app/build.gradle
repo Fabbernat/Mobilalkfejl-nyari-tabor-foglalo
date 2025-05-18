@@ -56,6 +56,7 @@ dependencies {
 
     implementation libs.play.services.tasks
     implementation libs.androidx.navigation.ui
+    implementation libs.androidx.navigation.runtime.android
 // Valószínűleg 'com.google.android.gms:play-services-tasks:VERZIO'
 
     // Testing

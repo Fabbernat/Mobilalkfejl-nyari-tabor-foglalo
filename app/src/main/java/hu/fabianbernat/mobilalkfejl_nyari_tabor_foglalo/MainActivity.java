@@ -33,6 +33,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,6 @@ import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.RegisterActiv
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.SimpleListCampActivity;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.UpcomingCampActivity;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.adapters.CampAdapter;
-import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.databinding.ActivityMainBinding;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.models.Camp;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.CampAsyncTask;
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.CampRepository;

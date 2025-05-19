@@ -1,10 +1,14 @@
 package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities;
 
+import static android.os.Build.VERSION_CODES.R;
+
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -17,6 +21,7 @@ import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
 import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.*;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.*;
 
 
@@ -30,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     private String selectedUserType = "";
 
     private FirebaseAuth mAuth;
-    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,31 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        emailEdit = findViewById(R.id.editEmail);
+        passwordEdit = findViewById(R.id.editPassword);
+        loginBtn = findViewById(R.id.btnLogin);
+
+        loginBtn.setOnClickListener(v -> {
+            String email = emailEdit.getText().toString();
+            String password = passwordEdit.getText().toString();
+
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            showLoginNotification(); // ← ÉRTESÍTÉS BEILLESZTVE
+                            startActivity(new Intent(this, MainActivity.class));
+                            finish();
+                        } else {
+                            Toast.makeText(this, "Hibás belépés: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        });
+
+        TextView haveAccountText = findViewById(R.id.textRegister);
+        haveAccountText.setOnClickListener(v -> {
+            startActivity(new Intent(this, RegisterActivity.class));
+            finish();
+        });
 
         // Google Sign-In config
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -45,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         // Initialize views
         cardParent = findViewById(R.id.cardParent);
@@ -60,18 +88,16 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!selectedUserType.isEmpty()) {
-                    // Navigate to appropriate registration/login screen based on selected type
-                    navigateToRegistration(selectedUserType);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+                    if (!selectedUserType.isEmpty()) {
+                        // Navigate to appropriate registration/login screen based on selected type
+                        navigateToRegistration(selectedUserType);
+                    }
                 }
             }
         });
     }
 
-    private void signInWithGoogle() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

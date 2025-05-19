@@ -65,16 +65,27 @@
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
-                android:name=".activities.CampApplicationActivity"
-                android:exported="false"
-                android:label="@string/app_name"
-                android:theme="@style/Theme.Mobilalkfejlnyaritaborfoglalo.NoActionBar">
+                    >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".BrowseCampsActivity" />
+        <activity android:name=".CampApplicationActivity" />
+        <activity android:name=".CampCardActivity" />
+        <activity android:name=".CustomMenuActivity" />
+        <activity android:name=".FallbackActivity" />
+        <activity android:name=".GalleryActivity" />
+
+        <activity android:name=".ListCampsActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ParentDashboardActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SimpleListCampActivity" />
+        <activity android:name=".UpcomingCampActivity" />
 
         <meta-data
                 android:name="author"

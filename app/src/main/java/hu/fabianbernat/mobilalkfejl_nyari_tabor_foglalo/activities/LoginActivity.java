@@ -2,34 +2,44 @@ package hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities;
 
 import static android.os.Build.VERSION_CODES.R;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
 
-import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.MainActivity;
-import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.R;
-import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
-import com.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.*;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.*;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.util.Objects;
+
+import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.utils.GoogleSignIn;
 
 
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "LoginActivity";
-
+    EditText editUserName, passwordEdit;
     private CardView cardParent, cardTeacher, cardStaff, cardAdmin;
     private Button btnLogin;
     private String selectedUserType = "";
@@ -42,22 +52,22 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-        emailEdit = findViewById(R.id.editEmail);
+        editUserName = findViewById(R.id.editUserName);
         passwordEdit = findViewById(R.id.editPassword);
-        loginBtn = findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnLogin);
 
-        loginBtn.setOnClickListener(v -> {
-            String email = emailEdit.getText().toString();
+        btnLogin.setOnClickListener(v -> {
+            String email = editUserName.getText().toString();
             String password = passwordEdit.getText().toString();
 
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            showLoginNotification(); // ← ÉRTESÍTÉS BEILLESZTVE
-                            startActivity(new Intent(this, MainActivity.class));
+                            showLoginNotification();
+                            startActivity(new Intent(this, BrowseCampsActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(this, "Hibás belépés: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Hibás belépés: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         });
@@ -138,7 +148,9 @@ public class LoginActivity extends AppCompatActivity {
                 resetCardSelection();
 
                 // Highlight the selected card
-                v.setElevation(16);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    v.setElevation(16);
+                }
 
                 // Store the selected user type
                 if (v.getId() == R.id.cardParent) {
@@ -153,7 +165,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Enable the login button
                 btnLogin.setEnabled(true);
-                btnLogin.setAlpha(1.0f);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    btnLogin.setAlpha(1.0f);
+                }
             }
         };
 
@@ -165,14 +179,18 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initially disable the login button
         btnLogin.setEnabled(false);
-        btnLogin.setAlpha(0.5f);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            btnLogin.setAlpha(0.5f);
+        }
     }
 
     private void resetCardSelection() {
-        cardParent.setElevation(4);
-        cardTeacher.setElevation(4);
-        cardStaff.setElevation(4);
-        cardAdmin.setElevation(4);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            cardParent.setElevation(4);
+            cardTeacher.setElevation(4);
+            cardStaff.setElevation(4);
+            cardAdmin.setElevation(4);
+        }
     }
 
     private void navigateToRegistration(String userType) {
@@ -180,4 +198,44 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("USER_TYPE", userType);
         startActivity(intent);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+    private void showLoginNotification() {
+        String channelId = "login_channel";
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Login Notifications",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel.setDescription("Értesítések bejelentkezés után");
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(channel);
+            }
+        }
+
+        Intent intent = new Intent(this, BrowseCampsActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.ic_login) // FONTOS: legyen létező ikon!
+                .setContentTitle("Sikeres bejelentkezés")
+                .setContentText("Üdvözlünk az Empress Cinema alkalmazásban!")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        if (notificationManager != null) {
+            notificationManager.notify(1001, builder.build());
+        }
+
+    }
+
 }

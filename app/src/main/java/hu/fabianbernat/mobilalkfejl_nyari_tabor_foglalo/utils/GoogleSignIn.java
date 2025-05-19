@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo.activities.MainActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.Task;
 

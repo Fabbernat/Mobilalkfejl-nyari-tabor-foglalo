@@ -169,21 +169,16 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
     }
 
     public void setCamps(List<Camp> camps) {
-        this.mCampsData = camps;
+        this.mCampsData = (ArrayList<Camp>) camps;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public CampViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(isFeatured ? R.layout.item_featured_camp : R.layout.item_camp, parent, false);
-        return new CampViewHolder(view);
-    }
-
-    public void onBindViewHolder(@NonNull CampViewHolder holder, int position) {
-        Camp camp = mCampsData.get(position);
-        holder.bind(camp);
+        return new ViewHolder(view);
     }
 
 
@@ -235,6 +230,13 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.ViewHolder> im
             itemView.findViewById(R.id.delete).setOnClickListener(view -> {
                 ((BrowseCampsActivity) mContext).deleteCamp(currentCamp);
             });
+        }
+
+        public void bind(Camp camp) {
+            mTitleText.setText(camp.getName());
+            mInfoText.setText(camp.getDescription());
+            mPriceText.setText(camp.getPrice());
+            Glide.with(mContext).load(camp.getImageUrls()).into(mItemImage);
         }
     }
 }

@@ -1,7 +1,7 @@
 // C:\AndroidStudioProjects\Mobilalkfejl-nyari-tabor-foglalo-master\app\build.gradle
 // Itt kellene lennie a plugins blokknak!
 
-android {
+    android {
     namespace 'hu.fabianbernat.mobilalkfejl_nyari_tabor_foglalo'
     compileSdk 35 // compileSdk 35 a legfrissebb, rendben.
 

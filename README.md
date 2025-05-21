@@ -2,8 +2,10 @@
 
 ## https://github.com/Fabbernat/Mobilalkfejl-nyari-tabor-foglalo
 
-**Mobil alkalmazás fejlesztés projektmunka**  
-Nyári tábor foglaló alkalmazás
+## **Mobil alkalmazás fejlesztés projektmunka**  
+### Nyári tábor foglaló alkalmazás
+### FireStore adatbázis:
+https://console.firebase.google.com/project/nyari-tabor-foglalo/firestore/databases/-default-/data/~2FApplications~2FApplications
 
 ![image](https://github.com/user-attachments/assets/2c0b6c2e-745d-4e79-a3f6-00a7f8357f8b)
 ![image](https://github.com/user-attachments/assets/7dcb4c93-b75a-4cf4-b08b-70cea53d9d13)

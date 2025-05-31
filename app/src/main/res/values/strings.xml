@@ -275,5 +275,16 @@
     <string name="camp_type_icon" translatable="false">Tábor típus ikon</string>
     <string name="more_info" translatable="false">További információ</string>
 
+    <!-- 2025.05.31. addition: from the actually working and syncing project "C:\Users\HP\AndroidStudioProjects\Mobilalkfejlnyaritaborfoglaloapks2" from the "ügyes voltál" desktop. Needs   -->
+    <string name="app_name">Nyári Tábor Foglaló</string>
+    <string name="navigation_drawer_open">Navigációs fiók kinyitása</string>
+    <string name="navigation_drawer_close">Navigációs fiók becsukása</string>
+    <string name="nav_header_title">Nyári tábor foglaló mobilalkalmazás</string>
+    <string name="nav_header_subtitle">job.fabbernat@gmail.com</string>
+    <string name="nav_header_desc">Navigációs fejléc</string>
+    <string name="action_settings">Beállítások</string>
 
+    <string name="menu_home">Főoldal</string>
+    <string name="menu_gallery">Galéria</string>
+    <string name="menu_slideshow">Diavetítés</string>
 </resources>
